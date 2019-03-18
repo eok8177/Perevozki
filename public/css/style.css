@@ -762,7 +762,7 @@ img {
   .header__logo {
     position: absolute;
     top: 20px;
-    left: 20px;
+    left: 0px;
   }
   .main__nav--active {
     position: relative;
@@ -793,7 +793,7 @@ img {
     padding-top: 15px;
   }
   .header__wrapper {
-    padding-top: 92px;
+    padding-top: 110px;
   }
   .header__block {
     display: none;
@@ -1933,9 +1933,6 @@ img {
   position: relative;
   z-index: 101;
 }
-.page-header .header__block {
-  margin-bottom: 0;
-}
 .main__wrapper {
   max-width: 1415px;
   position: relative;
@@ -1972,6 +1969,7 @@ img {
           box-shadow: 0 -4px 0 0 #FCFCFC, 0px 0px 50px rgba(0, 0, 0, 0.05);
   -webkit-border-radius: 8px;
           border-radius: 8px;
+  overflow: hidden;
   background: #fff;
   margin-right: 20px;
   margin-bottom: 20px;
@@ -2445,6 +2443,11 @@ img {
   width: 100%;
   max-width: 1150px;
   margin: 0 auto;
+}
+.sticker__img {
+  max-width: 1000px;
+  margin: 0 auto;
+  margin-bottom: 15px;
 }
 .sticker__img img {
   width: 100%;

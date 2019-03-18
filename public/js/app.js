@@ -239,6 +239,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Top'
 });
@@ -307,26 +320,34 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'TopHome',
   data: function data() {
     return {
       buses: [{
+        id: '1',
         title: '1,5 тонны',
         img: 'img/bus-small.png'
       }, {
+        id: '2',
         title: '2 тонны',
         img: 'img/bus-small.png'
       }, {
+        id: '3',
         title: '3-тонник',
         img: 'img/bus-small.png'
       }, {
+        id: '4',
         title: '5-тонник',
         img: 'img/bus-small.png'
       }, {
+        id: '5',
         title: '10-тонник',
         img: 'img/bus-small.png'
       }, {
+        id: '6',
         title: '20-тонник',
         img: 'img/bus-small.png'
       }]
@@ -725,6 +746,118 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Bus.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/Bus.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'Bus',
+  data: function data() {
+    return {
+      bus: {
+        title: '1.5 тонн (9 кубов)',
+        img: 'img/furgon.png',
+        lenght: '3 м',
+        height: '1.80 м',
+        width: '1.70 м',
+        volume: '9 m3',
+        price: '400 грн/час',
+        text: ''
+      }
+    };
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Home.vue?vue&type=script&lang=js&":
 /*!**********************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/Home.vue?vue&type=script&lang=js& ***!
@@ -972,7 +1105,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'Tip'
+  name: 'Tip',
+  methods: {
+    goBack: function goBack() {
+      window.history.length > 1 ? this.$router.go(-1) : this.$router.push('/tips');
+    }
+  }
 });
 
 /***/ }),
@@ -1843,7 +1981,7 @@ var render = function() {
           _c(
             "router-link",
             { staticClass: "header__logo", attrs: { to: "/" } },
-            [_c("img", { attrs: { src: "img/logo-header.svg", alt: "Logo" } })]
+            [_c("img", { attrs: { src: "/img/logo-header.svg", alt: "Logo" } })]
           ),
           _vm._v(" "),
           _c("button", { staticClass: "open" }, [_vm._v("Open")]),
@@ -1930,7 +2068,9 @@ var render = function() {
           ])
         ],
         1
-      )
+      ),
+      _vm._v(" "),
+      _vm._m(1)
     ])
   ])
 }
@@ -1970,6 +2110,61 @@ var staticRenderFns = [
         [_vm._v("Заказать звонок")]
       )
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("ul", { staticClass: "main__nav" }, [
+      _c("li", { staticClass: "main__nav-item" }, [
+        _c(
+          "a",
+          {
+            staticClass: "main__nav-link main__nav--active",
+            attrs: { href: "#" }
+          },
+          [_vm._v("Грузоперевозки")]
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "mobile_wrap" }, [
+        _c("li", { staticClass: "main__nav-item nav-link" }, [
+          _c("a", { staticClass: "main__nav-link", attrs: { href: "#" } }, [
+            _vm._v("Квартирный переезд")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "main__nav-item nav-link" }, [
+          _c("a", { staticClass: "main__nav-link", attrs: { href: "#" } }, [
+            _vm._v("Офисный переезд")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "main__nav-item nav-link" }, [
+          _c("a", { staticClass: "main__nav-link", attrs: { href: "#" } }, [
+            _vm._v("Грузовое такси")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "main__nav-item nav-link" }, [
+          _c("a", { staticClass: "main__nav-link", attrs: { href: "#" } }, [
+            _vm._v("Грузовое такси")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "main__nav-item nav-link" }, [
+          _c("a", { staticClass: "main__nav-link ", attrs: { href: "#" } }, [
+            _vm._v("Пассажирские перевозки")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "main__nav-item nav-link" }, [
+          _c("a", { staticClass: "main__nav-link ", attrs: { href: "#" } }, [
+            _vm._v("Вывоз строймусора")
+          ])
+        ])
+      ])
+    ])
   }
 ]
 render._withStripped = true
@@ -2002,7 +2197,7 @@ var render = function() {
           _c(
             "router-link",
             { staticClass: "header__logo", attrs: { to: "/" } },
-            [_c("img", { attrs: { src: "img/logo-header.svg", alt: "Logo" } })]
+            [_c("img", { attrs: { src: "/img/logo-header.svg", alt: "Logo" } })]
           ),
           _vm._v(" "),
           _c("button", { staticClass: "open" }, [_vm._v("Open")]),
@@ -2096,23 +2291,30 @@ var render = function() {
       _c(
         "div",
         { staticClass: "header__bus" },
-        _vm._l(_vm.buses, function(bus) {
-          return _c(
-            "a",
-            { staticClass: "header__bus-link", attrs: { href: "#" } },
-            [
-              _c("img", {
-                staticClass: "header__bus-img",
-                attrs: { src: bus.img, alt: "bus" }
-              }),
-              _vm._v(" "),
-              _c("span", { staticClass: "header__bus-title" }, [
-                _vm._v(_vm._s(bus.title))
-              ])
+        [
+          _vm._l(_vm.buses, function(bus) {
+            return [
+              _c(
+                "router-link",
+                {
+                  staticClass: "header__bus-link",
+                  attrs: { to: "/bus/" + bus.id }
+                },
+                [
+                  _c("img", {
+                    staticClass: "header__bus-img",
+                    attrs: { src: bus.img, alt: "bus" }
+                  }),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "header__bus-title" }, [
+                    _vm._v(_vm._s(bus.title))
+                  ])
+                ]
+              )
             ]
-          )
-        }),
-        0
+          })
+        ],
+        2
       ),
       _vm._v(" "),
       _vm._m(2)
@@ -2755,6 +2957,203 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Bus.vue?vue&type=template&id=167af19e&":
+/*!*************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/Bus.vue?vue&type=template&id=167af19e& ***!
+  \*************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("main", { staticClass: "main bus" }, [
+    _c("div", { staticClass: "wrapper main__wrapper" }, [
+      _c("h2", { staticClass: "main__title" }, [_vm._v("1.5 тонн (9 кубов)")]),
+      _vm._v(" "),
+      _c("p", { staticClass: "main__subtitle" }, [
+        _vm._v(
+          "Мы собрали для Вас большой автопарк транспортных средств на все случаи перевозки\n    грузов. У нас Вы можете срочно и по низкой цене вызвать специалистов на следующих автомобилях:"
+        )
+      ]),
+      _vm._v(" "),
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "button-center" },
+        [
+          _c(
+            "router-link",
+            { staticClass: "button button-border", attrs: { to: "/avtopark" } },
+            [_vm._v("Весь автопарк")]
+          )
+        ],
+        1
+      )
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "sticker" }, [
+      _c("div", { staticClass: "sticker__wrapper" }, [
+        _c("div", { staticClass: "sticker__img" }, [
+          _c("img", { attrs: { src: "/img/busBig.png", alt: "Bus" } })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "sticker__info" }, [
+          _c("div", { staticClass: "sticker__info-tech" }, [
+            _c("h3", { staticClass: "sticker__title" }, [
+              _vm._v("Характеристики автомобиля")
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "carpark__item-table" }, [
+              _c("div", { staticClass: "carpark__item-row" }, [
+                _c("span", { staticClass: "carpark__item-col" }, [
+                  _vm._v("Длина")
+                ]),
+                _vm._v(" "),
+                _c("span", { staticClass: "carpark__item-col" }, [
+                  _vm._v("3 м")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "carpark__item-row" }, [
+                _c("span", { staticClass: "carpark__item-col" }, [
+                  _vm._v("Высота")
+                ]),
+                _vm._v(" "),
+                _c("span", { staticClass: "carpark__item-col" }, [
+                  _vm._v("1.80 м")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "carpark__item-row" }, [
+                _c("span", { staticClass: "carpark__item-col" }, [
+                  _vm._v("Ширина")
+                ]),
+                _vm._v(" "),
+                _c("span", { staticClass: "carpark__item-col" }, [
+                  _vm._v("1.70 м")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "carpark__item-row" }, [
+                _c("span", { staticClass: "carpark__item-col" }, [
+                  _vm._v("Объем")
+                ]),
+                _vm._v(" "),
+                _c("span", { staticClass: "carpark__item-col" }, [
+                  _vm._v("9 m3")
+                ])
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "sticker__info-more" }, [
+            _c("h3", { staticClass: "sticker__title" }, [
+              _vm._v("Дополнительная информация")
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "carpark__item-table" }, [
+              _c("div", { staticClass: "carpark__item-row" }, [
+                _c("span", { staticClass: "carpark__item-col" }, [
+                  _vm._v("Миним. заказ ( до 5 км )")
+                ]),
+                _vm._v(" "),
+                _c("span", { staticClass: "carpark__item-col" }, [
+                  _vm._v("Миним. заказ ( до 5 км )2 часа")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "carpark__item-row" }, [
+                _c("span", { staticClass: "carpark__item-col" }, [
+                  _vm._v("После 5 км по Киеву")
+                ]),
+                _vm._v(" "),
+                _c("span", { staticClass: "carpark__item-col" }, [
+                  _vm._v("8 грн/км")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "carpark__item-row" }, [
+                _c("span", { staticClass: "carpark__item-col" }, [
+                  _vm._v("Подача")
+                ]),
+                _vm._v(" "),
+                _c("span", { staticClass: "carpark__item-col" }, [
+                  _vm._v("140 грн")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "carpark__item-row" }, [
+                _c("span", { staticClass: "carpark__item-col" }, [
+                  _vm._v("За городом")
+                ]),
+                _vm._v(" "),
+                _c("span", { staticClass: "carpark__item-col" }, [
+                  _vm._v("8 грн/км (в две стороны)")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "carpark__item-row" }, [
+                _c("span", { staticClass: "carpark__item-col" }, [
+                  _vm._v("Стоимость за час")
+                ]),
+                _vm._v(" "),
+                _c("span", { staticClass: "carpark__item-col" }, [
+                  _vm._v("140 грн")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "carpark__item-row" }, [
+                _c("span", { staticClass: "carpark__item-col" }, [
+                  _vm._v("Работа в вечернее время с 18-00")
+                ]),
+                _vm._v(" "),
+                _c("span", { staticClass: "carpark__item-col" }, [
+                  _vm._v("+50 грн к часу")
+                ])
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "sticker__order" }, [
+            _c("div", { staticClass: "carpark__item-order" }, [
+              _c("span", { staticClass: "carpark__item-price" }, [
+                _vm._v("400 грн/час")
+              ]),
+              _vm._v(" "),
+              _c("a", { staticClass: "button", attrs: { href: "#" } }, [
+                _vm._v("Заказать звонок")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "carpark__item-text" }, [
+              _c("b", [_vm._v("Последующая цена 100 грн/час")]),
+              _vm._v("\n            Подача автомобиля от 30 до 60 минут")
+            ])
+          ])
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Home.vue?vue&type=template&id=63cd6604&":
 /*!**************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/Home.vue?vue&type=template&id=63cd6604& ***!
@@ -2938,44 +3337,42 @@ var render = function() {
   return _c("main", { staticClass: "main tip" }, [
     _c("div", { staticClass: "tip__wrapper wrapper" }, [
       _c("div", { staticClass: "tip__content" }, [
-        _c(
-          "div",
-          { staticClass: "tip__content-head" },
-          [
-            _c(
-              "router-link",
-              { staticClass: "tip__content-btn", attrs: { to: "/tips" } },
-              [
-                _c(
-                  "svg",
-                  {
+        _c("div", { staticClass: "tip__content-head" }, [
+          _c(
+            "a",
+            {
+              staticClass: "tip__content-btn",
+              attrs: { href: "#" },
+              on: { click: _vm.goBack }
+            },
+            [
+              _c(
+                "svg",
+                {
+                  attrs: {
+                    width: "16",
+                    height: "16",
+                    viewBox: "0 0 16 16",
+                    fill: "none",
+                    xmlns: "http://www.w3.org/2000/svg"
+                  }
+                },
+                [
+                  _c("path", {
                     attrs: {
-                      width: "16",
-                      height: "16",
-                      viewBox: "0 0 16 16",
-                      fill: "none",
-                      xmlns: "http://www.w3.org/2000/svg"
+                      "fill-rule": "evenodd",
+                      "clip-rule": "evenodd",
+                      d: "M16 7H3.8L9.4 1.4L8 0L0 8L8 16L9.4 14.6L3.8 9H16V7Z",
+                      fill: "black"
                     }
-                  },
-                  [
-                    _c("path", {
-                      attrs: {
-                        "fill-rule": "evenodd",
-                        "clip-rule": "evenodd",
-                        d:
-                          "M16 7H3.8L9.4 1.4L8 0L0 8L8 16L9.4 14.6L3.8 9H16V7Z",
-                        fill: "black"
-                      }
-                    })
-                  ]
-                )
-              ]
-            ),
-            _vm._v(" "),
-            _c("h1", { staticClass: "tip__title" }, [_vm._v("Стоимость услуг")])
-          ],
-          1
-        ),
+                  })
+                ]
+              )
+            ]
+          ),
+          _vm._v(" "),
+          _c("h1", { staticClass: "tip__title" }, [_vm._v("Стоимость услуг")])
+        ]),
         _vm._v(" "),
         _vm._m(0),
         _vm._v(" "),
@@ -5956,7 +6353,7 @@ if (inBrowser && window.Vue) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* WEBPACK VAR INJECTION */(function(global, setImmediate) {/*!
- * Vue.js v2.6.7
+ * Vue.js v2.6.9
  * (c) 2014-2019 Evan You
  * Released under the MIT License.
  */
@@ -6432,7 +6829,7 @@ var config = ({
  * using https://www.w3.org/TR/html53/semantics-scripting.html#potentialcustomelementname
  * skipping \u10000-\uEFFFF due to it freezing up PhantomJS
  */
-var unicodeLetters = 'a-zA-Z\u00B7\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u037D\u037F-\u1FFF\u200C-\u200D\u203F-\u2040\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD';
+var unicodeRegExp = /a-zA-Z\u00B7\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u037D\u037F-\u1FFF\u200C-\u200D\u203F-\u2040\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD/;
 
 /**
  * Check if a string starts with $ or _
@@ -6457,7 +6854,7 @@ function def (obj, key, val, enumerable) {
 /**
  * Parse simple path.
  */
-var bailRE = new RegExp(("[^" + unicodeLetters + ".$_\\d]"));
+var bailRE = new RegExp(("[^" + (unicodeRegExp.source) + ".$_\\d]"));
 function parsePath (path) {
   if (bailRE.test(path)) {
     return
@@ -7363,7 +7760,7 @@ function checkComponents (options) {
 }
 
 function validateComponentName (name) {
-  if (!new RegExp(("^[a-zA-Z][\\-\\.0-9_" + unicodeLetters + "]*$")).test(name)) {
+  if (!new RegExp(("^[a-zA-Z][\\-\\.0-9_" + (unicodeRegExp.source) + "]*$")).test(name)) {
     warn(
       'Invalid component name: "' + name + '". Component names ' +
       'should conform to valid custom element name in html5 specification.'
@@ -7816,10 +8213,11 @@ function invokeWithErrorHandling (
   var res;
   try {
     res = args ? handler.apply(context, args) : handler.call(context);
-    if (res && !res._isVue && isPromise(res)) {
+    if (res && !res._isVue && isPromise(res) && !res._handled) {
+      res.catch(function (e) { return handleError(e, vm, info + " (Promise/async)"); });
       // issue #9511
-      // reassign to res to avoid catch triggering multiple times when nested calls
-      res = res.catch(function (e) { return handleError(e, vm, info + " (Promise/async)"); });
+      // avoid catch triggering multiple times when nested calls
+      res._handled = true;
     }
   } catch (e) {
     handleError(e, vm, info);
@@ -8503,6 +8901,7 @@ function normalizeScopedSlots (
 ) {
   var res;
   var isStable = slots ? !!slots.$stable : true;
+  var hasNormalSlots = Object.keys(normalSlots).length > 0;
   var key = slots && slots.$key;
   if (!slots) {
     res = {};
@@ -8514,7 +8913,8 @@ function normalizeScopedSlots (
     prevSlots &&
     prevSlots !== emptyObject &&
     key === prevSlots.$key &&
-    Object.keys(normalSlots).length === 0
+    !hasNormalSlots &&
+    !prevSlots.$hasNormal
   ) {
     // fast path 2: stable scoped slots w/ no normal slots to proxy,
     // only need to normalize once
@@ -8540,6 +8940,7 @@ function normalizeScopedSlots (
   }
   def(res, '$stable', isStable);
   def(res, '$key', key);
+  def(res, '$hasNormal', hasNormalSlots);
   return res
 }
 
@@ -8549,8 +8950,10 @@ function normalizeScopedSlot(normalSlots, key, fn) {
     res = res && typeof res === 'object' && !Array.isArray(res)
       ? [res] // single vnode
       : normalizeChildren(res);
-    return res && res.length === 0
-      ? undefined
+    return res && (
+      res.length === 0 ||
+      (res.length === 1 && res[0].isComment) // #9658
+    ) ? undefined
       : res
   };
   // this is a slot using the new v-slot syntax without scope. although it is
@@ -8730,12 +9133,13 @@ function bindObjectProps (
             : data.attrs || (data.attrs = {});
         }
         var camelizedKey = camelize(key);
-        if (!(key in hash) && !(camelizedKey in hash)) {
+        var hyphenatedKey = hyphenate(key);
+        if (!(camelizedKey in hash) && !(hyphenatedKey in hash)) {
           hash[key] = value[key];
 
           if (isSync) {
             var on = data.on || (data.on = {});
-            on[("update:" + camelizedKey)] = function ($event) {
+            on[("update:" + key)] = function ($event) {
               value[key] = $event;
             };
           }
@@ -9570,17 +9974,21 @@ function resolveAsyncComponent (
     return factory.resolved
   }
 
+  var owner = currentRenderingInstance;
+  if (owner && isDef(factory.owners) && factory.owners.indexOf(owner) === -1) {
+    // already pending
+    factory.owners.push(owner);
+  }
+
   if (isTrue(factory.loading) && isDef(factory.loadingComp)) {
     return factory.loadingComp
   }
 
-  var owner = currentRenderingInstance;
-  if (isDef(factory.owners)) {
-    // already pending
-    factory.owners.push(owner);
-  } else {
+  if (owner && !isDef(factory.owners)) {
     var owners = factory.owners = [owner];
-    var sync = true;
+    var sync = true
+
+    ;(owner).$on('hook:destroyed', function () { return remove(owners, owner); });
 
     var forceRender = function (renderCompleted) {
       for (var i = 0, l = owners.length; i < l; i++) {
@@ -10193,10 +10601,15 @@ var getNow = Date.now;
 // timestamp can either be hi-res (relative to page load) or low-res
 // (relative to UNIX epoch), so in order to compare time we have to use the
 // same timestamp type when saving the flush timestamp.
-if (inBrowser && getNow() > document.createEvent('Event').timeStamp) {
-  // if the low-res timestamp which is bigger than the event timestamp
-  // (which is evaluated AFTER) it means the event is using a hi-res timestamp,
-  // and we need to use the hi-res version for event listeners as well.
+if (
+  inBrowser &&
+  window.performance &&
+  typeof performance.now === 'function' &&
+  document.createEvent('Event').timeStamp <= performance.now()
+) {
+  // if the event timestamp is bigger than the hi-res timestamp
+  // (which is evaluated AFTER) it means the event is using a lo-res timestamp,
+  // and we need to use the lo-res version for event listeners as well.
   getNow = function () { return performance.now(); };
 }
 
@@ -11366,7 +11779,7 @@ Object.defineProperty(Vue, 'FunctionalRenderContext', {
   value: FunctionalRenderContext
 });
 
-Vue.version = '2.6.7';
+Vue.version = '2.6.9';
 
 /*  */
 
@@ -13460,8 +13873,10 @@ function add$1 (
         e.target === e.currentTarget ||
         // event is fired after handler attachment
         e.timeStamp >= attachedTimestamp ||
-        // #9462 bail for iOS 9 bug: event.timeStamp is 0 after history.pushState
-        e.timeStamp === 0 ||
+        // bail for environments that have buggy event.timeStamp implementations
+        // #9462 iOS 9 bug: event.timeStamp is 0 after history.pushState
+        // #9681 QtWebEngine event.timeStamp is negative value
+        e.timeStamp <= 0 ||
         // #9448 bail if event is fired in another document in a multi-page
         // electron/nw.js app, since event.timeStamp will be using a different
         // starting reference
@@ -14079,8 +14494,8 @@ function enter (vnode, toggleDisplay) {
   var context = activeInstance;
   var transitionNode = activeInstance.$vnode;
   while (transitionNode && transitionNode.parent) {
-    transitionNode = transitionNode.parent;
     context = transitionNode.context;
+    transitionNode = transitionNode.parent;
   }
 
   var isAppear = !context._isMounted || !vnode.isRootInsert;
@@ -15174,7 +15589,7 @@ var isNonPhrasingTag = makeMap(
 // Regular Expressions for parsing tags and attributes
 var attribute = /^\s*([^\s"'<>\/=]+)(?:\s*(=)\s*(?:"([^"]*)"+|'([^']*)'+|([^\s"'=<>`]+)))?/;
 var dynamicArgAttribute = /^\s*((?:v-[\w-]+:|@|:|#)\[[^=]+\][^\s"'<>\/=]*)(?:\s*(=)\s*(?:"([^"]*)"+|'([^']*)'+|([^\s"'=<>`]+)))?/;
-var ncname = "[a-zA-Z_][\\-\\.0-9_a-zA-Z" + unicodeLetters + "]*";
+var ncname = "[a-zA-Z_][\\-\\.0-9_a-zA-Z" + (unicodeRegExp.source) + "]*";
 var qnameCapture = "((?:" + ncname + "\\:)?" + ncname + ")";
 var startTagOpen = new RegExp(("^<" + qnameCapture));
 var startTagClose = /^\s*(\/?)>/;
@@ -15437,7 +15852,7 @@ function parseHTML (html, options) {
         ) {
           options.warn(
             ("tag <" + (stack[i].tag) + "> has no matching end tag."),
-            { start: stack[i].start }
+            { start: stack[i].start, end: stack[i].end }
           );
         }
         if (options.end) {
@@ -15474,7 +15889,7 @@ var dynamicArgRE = /^\[.*\]$/;
 
 var argRE = /:(.*)$/;
 var bindRE = /^:|^\.|^v-bind:/;
-var modifierRE = /\.[^.]+/g;
+var modifierRE = /\.[^.\]]+(?=[^\]]*$)/g;
 
 var slotRE = /^v-slot(:|$)|^#/;
 
@@ -15651,7 +16066,7 @@ function parse (
     shouldDecodeNewlinesForHref: options.shouldDecodeNewlinesForHref,
     shouldKeepComment: options.comments,
     outputSourceRange: options.outputSourceRange,
-    start: function start (tag, attrs, unary, start$1) {
+    start: function start (tag, attrs, unary, start$1, end) {
       // check namespace.
       // inherit parent ns if there is one
       var ns = (currentParent && currentParent.ns) || platformGetTagNamespace(tag);
@@ -15670,6 +16085,7 @@ function parse (
       if (true) {
         if (options.outputSourceRange) {
           element.start = start$1;
+          element.end = end;
           element.rawAttrsMap = element.attrsList.reduce(function (cumulated, attr) {
             cumulated[attr.name] = attr;
             return cumulated
@@ -15791,7 +16207,7 @@ function parse (
         text = preserveWhitespace ? ' ' : '';
       }
       if (text) {
-        if (whitespaceOption === 'condense') {
+        if (!inPre && whitespaceOption === 'condense') {
           // condense consecutive whitespaces into single space
           text = text.replace(whitespaceRE$1, ' ');
         }
@@ -17159,7 +17575,7 @@ function genScopedSlots (
   // components with only scoped slots to skip forced updates from parent.
   // but in some cases we have to bail-out of this optimization
   // for example if the slot contains dynamic names, has v-if or v-for on them...
-  var needsForceUpdate = Object.keys(slots).some(function (key) {
+  var needsForceUpdate = el.for || Object.keys(slots).some(function (key) {
     var slot = slots[key];
     return (
       slot.slotTargetDynamic ||
@@ -18438,9 +18854,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _views_Reviews__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/views/Reviews */ "./resources/js/views/Reviews.vue");
 /* harmony import */ var _views_Tips__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/views/Tips */ "./resources/js/views/Tips.vue");
 /* harmony import */ var _views_Tip__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/views/Tip */ "./resources/js/views/Tip.vue");
+/* harmony import */ var _views_Bus__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @/views/Bus */ "./resources/js/views/Bus.vue");
 
 
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
+
 
 
 
@@ -18472,13 +18890,27 @@ var routes = [{
   name: 'Tip',
   component: _views_Tip__WEBPACK_IMPORTED_MODULE_7__["default"]
 }, {
+  path: '/bus/:id',
+  name: 'Bus',
+  component: _views_Bus__WEBPACK_IMPORTED_MODULE_8__["default"]
+}, {
   path: '*',
   redirect: '/404',
   hidden: true
 }];
 /* harmony default export */ __webpack_exports__["default"] = (new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   mode: 'history',
-  routes: routes
+  routes: routes,
+  scrollBehavior: function scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition;
+    } else {
+      return {
+        x: 0,
+        y: 0
+      };
+    }
+  }
 }));
 
 /***/ }),
@@ -18685,6 +19117,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Avtopark_vue_vue_type_template_id_1819d479___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Avtopark_vue_vue_type_template_id_1819d479___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/views/Bus.vue":
+/*!************************************!*\
+  !*** ./resources/js/views/Bus.vue ***!
+  \************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Bus_vue_vue_type_template_id_167af19e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Bus.vue?vue&type=template&id=167af19e& */ "./resources/js/views/Bus.vue?vue&type=template&id=167af19e&");
+/* harmony import */ var _Bus_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Bus.vue?vue&type=script&lang=js& */ "./resources/js/views/Bus.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Bus_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Bus_vue_vue_type_template_id_167af19e___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Bus_vue_vue_type_template_id_167af19e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/views/Bus.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/views/Bus.vue?vue&type=script&lang=js&":
+/*!*************************************************************!*\
+  !*** ./resources/js/views/Bus.vue?vue&type=script&lang=js& ***!
+  \*************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Bus_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./Bus.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Bus.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Bus_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/views/Bus.vue?vue&type=template&id=167af19e&":
+/*!*******************************************************************!*\
+  !*** ./resources/js/views/Bus.vue?vue&type=template&id=167af19e& ***!
+  \*******************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Bus_vue_vue_type_template_id_167af19e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./Bus.vue?vue&type=template&id=167af19e& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Bus.vue?vue&type=template&id=167af19e&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Bus_vue_vue_type_template_id_167af19e___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Bus_vue_vue_type_template_id_167af19e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -18973,7 +19474,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/www/Vue/laravel/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/www/korona/resources/js/app.js */"./resources/js/app.js");
 
 
 /***/ })

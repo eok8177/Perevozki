@@ -3,12 +3,12 @@
         <div class="tip__wrapper wrapper">
             <div class="tip__content">
                 <div class="tip__content-head">
-                    <router-link to="/tips" class="tip__content-btn">
+                    <a href="#" @click="goBack" class="tip__content-btn">
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" clip-rule="evenodd"
                                   d="M16 7H3.8L9.4 1.4L8 0L0 8L8 16L9.4 14.6L3.8 9H16V7Z" fill="black"/>
                         </svg>
-                    </router-link>
+                    </a>
                     <h1 class="tip__title">Стоимость услуг</h1>
                 </div>
                 <div class="tip__img">
@@ -90,6 +90,13 @@
 <script>
 
 export default {
-  name: 'Tip'
+  name: 'Tip',
+  methods: {
+    goBack () {
+      window.history.length > 1
+        ? this.$router.go(-1)
+        : this.$router.push('/tips')
+    }
+  }
 }
 </script>

@@ -3,7 +3,7 @@
     <div class="wrapper ">
       <div class="header__wrapper">
         <router-link to="/" class="header__logo">
-          <img src="img/logo-header.svg" alt="Logo">
+          <img src="/img/logo-header.svg" alt="Logo">
         </router-link>
         <button class="open">Open</button>
         <div class="header__block">
@@ -37,10 +37,12 @@
         </div>
       </ul>
       <div class="header__bus">
-        <a v-for="bus in buses" href="#" class="header__bus-link">
-          <img :src="bus.img" alt="bus" class="header__bus-img">
-          <span class="header__bus-title">{{bus.title}}</span>
-        </a>
+        <template v-for="bus in buses">
+          <router-link :to="'/bus/'+bus.id" class="header__bus-link">
+            <img :src="bus.img" alt="bus" class="header__bus-img">
+            <span class="header__bus-title">{{bus.title}}</span>
+          </router-link>
+        </template>
       </div>
       <div class="header__sticker">
         <h2 class="header__sticker-title">Грузоперевозки</h2>
@@ -58,12 +60,12 @@
     data() {
       return {
         buses: [
-          {title: '1,5 тонны', img:'img/bus-small.png'},
-          {title: '2 тонны', img:'img/bus-small.png'},
-          {title: '3-тонник', img:'img/bus-small.png'},
-          {title: '5-тонник', img:'img/bus-small.png'},
-          {title: '10-тонник', img:'img/bus-small.png'},
-          {title: '20-тонник', img:'img/bus-small.png'}
+          {id:'1',title: '1,5 тонны', img:'img/bus-small.png'},
+          {id:'2',title: '2 тонны', img:'img/bus-small.png'},
+          {id:'3',title: '3-тонник', img:'img/bus-small.png'},
+          {id:'4',title: '5-тонник', img:'img/bus-small.png'},
+          {id:'5',title: '10-тонник', img:'img/bus-small.png'},
+          {id:'6',title: '20-тонник', img:'img/bus-small.png'}
         ]
       }
     }

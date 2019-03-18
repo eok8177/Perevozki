@@ -3,7 +3,7 @@
     <div class="wrapper ">
       <div class="header__wrapper">
         <router-link to="/" class="header__logo">
-          <img src="img/logo-header.svg" alt="Logo">
+          <img src="/img/logo-header.svg" alt="Logo">
         </router-link>
         <button class="open">Open</button>
         <div class="header__block">
@@ -24,6 +24,19 @@
           </nav>
         </div>
       </div>
+
+      <ul class="main__nav">
+        <li class="main__nav-item"><a href="#" class="main__nav-link main__nav--active">Грузоперевозки</a></li>
+        <div class="mobile_wrap">
+          <li class="main__nav-item nav-link"><a href="#" class="main__nav-link">Квартирный переезд</a></li>
+          <li class="main__nav-item nav-link"><a href="#" class="main__nav-link">Офисный переезд</a></li>
+          <li class="main__nav-item nav-link"><a href="#" class="main__nav-link">Грузовое такси</a></li>
+          <li class="main__nav-item nav-link"><a href="#" class="main__nav-link">Грузовое такси</a></li>
+          <li class="main__nav-item nav-link"><a href="#" class="main__nav-link ">Пассажирские перевозки</a></li>
+          <li class="main__nav-item nav-link"><a href="#" class="main__nav-link ">Вывоз строймусора</a></li>
+        </div>
+      </ul>
+
     </div>
   </header>
 </template>

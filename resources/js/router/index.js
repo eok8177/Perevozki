@@ -9,6 +9,7 @@ import About from '@/views/About'
 import Reviews from '@/views/Reviews'
 import Tips from '@/views/Tips'
 import Tip from '@/views/Tip'
+import Bus from '@/views/Bus'
 
 const routes = [
 
@@ -18,13 +19,21 @@ const routes = [
   {path: '/reviews', name: 'Reviews', component: Reviews},
   {path: '/tips', name: 'Tips', component: Tips},
   {path: '/tip', name: 'Tip', component: Tip},
+  {path: '/bus/:id', name: 'Bus', component: Bus},
 
   { path: '*', redirect: '/404', hidden: true }
 ]
 
 export default new Router({
   mode: 'history',
-  routes: routes
+  routes: routes,
+  scrollBehavior (to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition
+    } else {
+      return { x: 0, y: 0 }
+    }
+  }
 })
 
 
