@@ -18,8 +18,8 @@ const routes = [
   {path: '/about-us', name: 'About', component: About},
   {path: '/reviews', name: 'Reviews', component: Reviews},
   {path: '/tips', name: 'Tips', component: Tips},
-  {path: '/tip', name: 'Tip', component: Tip},
-  {path: '/bus/:id', name: 'Bus', component: Bus},
+  {path: '/tip/:id', name: 'Tip', component: Tip},
+  {path: '/bus/:id', name: 'Bus', component: Bus, props: true},
 
   { path: '*', redirect: '/404', hidden: true }
 ]
