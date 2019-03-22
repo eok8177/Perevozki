@@ -14,7 +14,7 @@ class CreatePageTranslationsTable extends Migration
     public function up()
     {
         Schema::create('page_translations', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->integer('page_id');
             $table->string('locale');
             $table->string('title');

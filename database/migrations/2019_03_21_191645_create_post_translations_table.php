@@ -14,7 +14,7 @@ class CreatePostTranslationsTable extends Migration
     public function up()
     {
         Schema::create('post_translations', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->integer('post_id');
             $table->string('locale');
             $table->string('title');
