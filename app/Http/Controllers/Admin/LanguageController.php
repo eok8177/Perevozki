@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Category;
+use App\Language;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class CategoriesController extends Controller
+class LanguageController extends Controller
 {
 
     /**
@@ -18,14 +18,14 @@ class CategoriesController extends Controller
     {
 
         if ($request->get('search')) {
-            $categories = Category::where('name', 'like', '%'. $request->search . '%')
+            $language = Language::where('name', 'like', '%'. $request->search . '%')
                 ->orderBy('id', 'asc');
 
         } else {
-            $categories = Category::orderBy('id', 'desc');
+            $language = Language::orderBy('id', 'desc');
         }
-        return view('backend.categories.index', [
-            'categories' => $categories->paginate(10)
+        return view('backend.language.index', [
+            'language' => $language->paginate(10)
         ]);
     }
 
@@ -36,7 +36,7 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        return view('backend.categories.create', [
+        return view('backend.language.create', [
         ]);
     }
 
@@ -50,11 +50,10 @@ class CategoriesController extends Controller
     {
         $this->validateForm($request);
 
-        $category = Category::create($request->all());
-
+        $lang = Language::create($request->all());
         return redirect()
-            ->route('admin.categories.edit', $category->id)
-            ->with('success', 'Категория создана' );
+            ->route('admin.language.edit', $lang->id)
+            ->with('success', 'Lang add' );
     }
 
     /**
@@ -65,7 +64,7 @@ class CategoriesController extends Controller
      */
     public function show($id)
     {
-        return view('backend.categories.show', [
+        return view('backend.language.show', [
         ]);
     }
 
@@ -77,15 +76,15 @@ class CategoriesController extends Controller
      */
     public function edit($id)
     {
-        $category = Category::find($id);
+        $language = Language::find($id);
 
-        if ($category) {
-            return view('backend.categories.edit', [
-                'category'   => $category,
+        if ($language) {
+            return view('backend.language.edit', [
+                'lang'   => $language,
             ]);
         }
 
-        return redirect()->route('admin.categories.index');
+        return redirect()->route('admin.language.index');
     }
 
     /**
@@ -98,19 +97,19 @@ class CategoriesController extends Controller
     public function update(Request $request, $id)
     {
         // dd($request);
-        $category = Category::find($id);
+        $language = Language::find($id);
 
-        if ($category) {
+        if ($language) {
             $this->validateForm($request);
 
-            $category->fill($request->all())->save();
+            $language->fill($request->all())->save();
 
             return redirect()
-                ->route('admin.categories.edit', $category->id)
+                ->route('admin.language.edit', $language->id)
                 ->with('success', 'Категория обновлена');
         }
 
-        return redirect()->route('admin.categories.index');
+        return redirect()->route('admin.language.index');
     }
 
     /**
@@ -122,7 +121,7 @@ class CategoriesController extends Controller
     public function destroy($id)
     {
 
-        return redirect()->route('admin.categories.index');
+        return redirect()->route('admin.language.index');
     }
 
     /**
@@ -135,7 +134,6 @@ class CategoriesController extends Controller
 
         $this->validate($request, [
             'name'             => 'required|max:255',
-            'slug'             => 'required|max:255',
         ]);
 
     }
