@@ -68,4 +68,39 @@ class TestController extends Controller
         return response()->json($tips[$id], 200);
     }
 
+    public function menuPages()
+    {
+        $response = [
+            ['url' => 'Room-moving', 'title' => 'Квартирный переезд'],
+            ['url' => 'Office-relocation', 'title' => 'Офисный переезд'],
+            ['url' => 'Cargo-taxi', 'title' => 'Грузовое такси'],
+            ['url' => 'Passenger-Transportation', 'title' => 'Пассажирские перевозки'],
+            ['url' => 'Export-of-a-stroymusor', 'title' => 'Вывоз строймусора']
+        ];
+        return response()->json($response, 200);
+    }
+
+    public function page($slug = false)
+    {
+        $response = [
+            'title' => "Название статьи $slug",
+            'text' => "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat suscipit expedita porro, recusandae obcaecati libero deserunt debitis, cumque aspernatur autem odit quas fugit ex, modi optio quidem similique ipsa dicta!</p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat suscipit expedita porro, recusandae obcaecati libero deserunt debitis, cumque aspernatur autem odit quas fugit ex, modi optio quidem similique ipsa dicta!</p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat suscipit expedita porro, recusandae obcaecati libero deserunt debitis, cumque aspernatur autem odit quas fugit ex, modi optio quidem similique ipsa dicta!</p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat suscipit expedita porro, recusandae obcaecati libero deserunt debitis, cumque aspernatur autem odit quas fugit ex, modi optio quidem similique ipsa dicta!</p>"
+        ];
+        return response()->json($response, 200);
+    }
+
+
+    public function buses()
+    {
+        $response = [
+            ['slug' => 'bus-1', 'title' => '1,5 тонны', 'img' => '/img/bus-small.png'],
+            ['slug' => 'bus-2', 'title' => '2 тонны', 'img' => '/img/bus-small.png'],
+            ['slug' => 'bus-3', 'title' => '3-тонник', 'img' => '/img/bus-small.png'],
+            ['slug' => 'bus-4', 'title' => '5-тонник', 'img' => '/img/bus-small.png'],
+            ['slug' => 'bus-5', 'title' => '10-тонник', 'img' => '/img/bus-small.png'],
+            ['slug' => 'bus-6', 'title' => '20-тонник', 'img' => '/img/bus-small.png']
+        ];
+        return response()->json($response, 200);
+    }
+
 }

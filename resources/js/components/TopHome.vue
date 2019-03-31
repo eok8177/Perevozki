@@ -28,17 +28,14 @@
       <ul class="main__nav">
         <li class="main__nav-item"><a href="#" class="main__nav-link main__nav--active">Грузоперевозки</a></li>
         <div class="mobile_wrap">
-          <li class="main__nav-item nav-link"><a href="#" class="main__nav-link">Квартирный переезд</a></li>
-          <li class="main__nav-item nav-link"><a href="#" class="main__nav-link">Офисный переезд</a></li>
-          <li class="main__nav-item nav-link"><a href="#" class="main__nav-link">Грузовое такси</a></li>
-          <li class="main__nav-item nav-link"><a href="#" class="main__nav-link">Грузовое такси</a></li>
-          <li class="main__nav-item nav-link"><a href="#" class="main__nav-link ">Пассажирские перевозки</a></li>
-          <li class="main__nav-item nav-link"><a href="#" class="main__nav-link ">Вывоз строймусора</a></li>
+          <li v-for="item in pages" class="main__nav-item nav-link">
+            <router-link :to="'/page/'+item.url" exact class="main__nav-link" active-class="main__nav--active">{{item.title}}</router-link>
+          </li>
         </div>
       </ul>
       <div class="header__bus">
         <template v-for="bus in buses">
-          <router-link :to="'/bus/'+bus.id" class="header__bus-link">
+          <router-link :to="'/bus/'+bus.slug" class="header__bus-link">
             <img :src="bus.img" alt="bus" class="header__bus-img">
             <span class="header__bus-title">{{bus.title}}</span>
           </router-link>
@@ -54,20 +51,32 @@
 </template>
 
 <script>
+  import axios from 'axios';
 
   export default {
     name: 'TopHome',
+    props: ['menuPages'],
     data() {
       return {
-        buses: [
-          {id:'1',title: '1,5 тонны', img:'img/bus-small.png'},
-          {id:'2',title: '2 тонны', img:'img/bus-small.png'},
-          {id:'3',title: '3-тонник', img:'img/bus-small.png'},
-          {id:'4',title: '5-тонник', img:'img/bus-small.png'},
-          {id:'5',title: '10-тонник', img:'img/bus-small.png'},
-          {id:'6',title: '20-тонник', img:'img/bus-small.png'}
-        ]
+        buses: [],
+        pages: this.menuPages
       }
+    },
+    watch: {
+      menuPages: function (newVal) {
+        this.pages = newVal
+      }
+    },
+    created: function() {
+      axios.get('/api/buses/')
+      .then(
+        (response) => {
+          this.buses = response.data;
+        }
+      )
+      .catch(
+        (error) => console.log(error)
+      );
     }
   }
 </script>
