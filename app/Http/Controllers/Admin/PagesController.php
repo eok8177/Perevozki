@@ -38,9 +38,11 @@ class PagesController extends Controller
      */
     public function create()
     {
-        $language = Language::where('status', '1')->get();
+        $page = new Page;
         return view('backend.pages.create', [
-            'language' => $language
+            'page'     => $page->forAdmin()['page'],
+            'contents' => $page->forAdmin()['contents'],
+            'language' => Language::where('status', '1')->get()
         ]);
     }
 
@@ -99,22 +101,14 @@ class PagesController extends Controller
      */
     public function edit($id)
     {
-        $page = Page::find($id);
-        $res = $page->translate('ua')->get();
-        // dd($res);
-        $language = Language::where('status', '1')->get();
-        $page_data = array();
-        // $page_data['ua'] = $page;
-        foreach ($language as $lang) {
-            $page_data[$lang->locale] = $page->translate($lang->locale)->get();
-        }
-        // dd($page_data['ua'][0]->title);
+        $page = Page::find($id)->forAdmin();
+        // dd($page);
 
         if ($page) {
             return view('backend.pages.edit', [
-                'page'   => $page,
-                'page_data'   => $page_data,
-                'language' => $language
+                'page'     => $page['page'],
+                'contents' => $page['contents'],
+                'language' => Language::where('status', '1')->get()
             ]);
         }
 

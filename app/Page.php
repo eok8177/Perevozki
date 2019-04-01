@@ -8,15 +8,31 @@ class Page extends Model
 {
     protected $table = 'pages';
 
-    protected $fillable = ['slug','status'];
+    protected $fillable = ['slug','status','image'];
+
+    public function langs($status = 1)
+    {
+        return Language::where('status', $status)->get();
+    }
+
+    public function forAdmin()
+    {
+        $page = [];
+        $page['page'] = $this;
+        foreach ($this->langs() as $item) {
+            $trans = $this->translate($item->locale)->first();
+            if ($trans) {
+                $page['contents'][$item->locale] = $trans;
+            } else {
+                $page['contents'][$item->locale] = new PageTranslate;
+            }
+        }
+        return $page;
+    }
 
     public function contents()
     {
-        $res = [];
-        foreach ($this->hasMany('App\PageTranslate')->get() as $item) {
-            $res[$item->locale] = $item;
-        }
-        return $res;
+        return $this->hasMany('App\PageTranslate');
     }
 
     public function translate($locale = null)
