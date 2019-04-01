@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Page;
+use App\PageTranslate;
+use App\Language;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -36,7 +38,9 @@ class PagesController extends Controller
      */
     public function create()
     {
+        $language = Language::where('status', '1')->get();
         return view('backend.pages.create', [
+            'language' => $language
         ]);
     }
 
@@ -49,12 +53,30 @@ class PagesController extends Controller
     public function store(Request $request)
     {
         $this->validateForm($request);
+        $page = Page::create($request->all());
+        $language = Language::where('status', '1')->get();
 
-        $category = Page::create($request->all());
+        foreach ($language as $lang) {
+
+            $locale = $lang->locale;
+
+            $page_transile = new PageTranslate();
+            $page_transile->page_id = $page->id;
+            $page_transile->locale = $locale;
+            $page_transile->title = $request->$locale['title'];
+            $page_transile->h1 = $request->$locale['h1'];
+            $page_transile->description = $request->$locale['description'];
+            $page_transile->meta_description = $request->$locale['meta_description'];
+            $page_transile->meta_title = $request->$locale['meta_title'];
+            $page_transile->meta_keywords = $request->$locale['meta_keywords'];
+            $page_transile->og_title = $request->$locale['og_title'];
+            $page_transile->og_description = $request->$locale['og_description'];
+            $page_transile->save();
+        }
+
 
         return redirect()
-            ->route('admin.pages.edit', $category->id)
-            ->with('success', 'Категория создана' );
+            ->route('admin.pages.edit', $page->id)->with('success', 'Page add' );
     }
 
     /**
@@ -77,11 +99,22 @@ class PagesController extends Controller
      */
     public function edit($id)
     {
-        $category = Page::find($id);
+        $page = Page::find($id);
+        $res = $page->translate('ua')->get();
+        // dd($res);
+        $language = Language::where('status', '1')->get();
+        $page_data = array();
+        // $page_data['ua'] = $page;
+        foreach ($language as $lang) {
+            $page_data[$lang->locale] = $page->translate($lang->locale)->get();
+        }
+        // dd($page_data['ua'][0]->title);
 
-        if ($category) {
+        if ($page) {
             return view('backend.pages.edit', [
-                'category'   => $category,
+                'page'   => $page,
+                'page_data'   => $page_data,
+                'language' => $language
             ]);
         }
 
@@ -98,15 +131,34 @@ class PagesController extends Controller
     public function update(Request $request, $id)
     {
         // dd($request);
-        $category = Page::find($id);
+        $page = Page::find($id);
 
-        if ($category) {
+        if ($page) {
             $this->validateForm($request);
 
-            $category->fill($request->all())->save();
+            $page->fill($request->all())->save();
+
+            $language = Language::where('status', '1')->get();
+
+        foreach ($language as $lang) {
+
+            $locale = $lang->locale;
+
+            $page_transile = PageTranslate::where('page_id', $page->id)->where('locale', $lang->locale)->first();
+            $page_transile->locale = $locale;
+            $page_transile->title = $request->$locale['title'];
+            $page_transile->h1 = $request->$locale['h1'];
+            $page_transile->description = $request->$locale['description'];
+            $page_transile->meta_description = $request->$locale['meta_description'];
+            $page_transile->meta_title = $request->$locale['meta_title'];
+            $page_transile->meta_keywords = $request->$locale['meta_keywords'];
+            $page_transile->og_title = $request->$locale['og_title'];
+            $page_transile->og_description = $request->$locale['og_description'];
+            $page_transile->save();
+        }
 
             return redirect()
-                ->route('admin.pages.edit', $category->id)
+                ->route('admin.pages.edit', $page->id)
                 ->with('success', 'Page update');
         }
 
@@ -134,8 +186,7 @@ class PagesController extends Controller
     {
 
         $this->validate($request, [
-            'name'             => 'required|max:255',
-            'slug'             => 'required|max:255',
+            'slug' => 'required|unique:pages|max:255',
         ]);
 
     }

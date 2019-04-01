@@ -43,7 +43,7 @@
                     @endif
                 </div>
                 <div class="form-group">
-                    <button class="btn btn-default" type="submit">Submit</button>
+                    <button class="btn btn-default" type="submit">Save</button>
                 </div>
             {{ Form::close() }}
         </div>

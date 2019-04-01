@@ -39,6 +39,9 @@ Route::namespace('Admin')
         Route::resource('/users', 'UsersController')
             ->middleware(AdminPermission::class);
 
+//         Roles
+        Route::resource('/users', 'RolesController');
+
 //         Settings
         Route::prefix('settings')->name('settings.')->group(function () {
             Route::get('/', 'SettingsController@edit')->name('edit');

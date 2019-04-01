@@ -47,5 +47,19 @@
                 </li>
             </ul>
         </li>
+        <li>
+            <a href="javascript:;">
+                <i class="sidebar-item-icon fa fa-users"></i>
+                <span class="nav-label">Users</span><i class="fa fa-angle-left arrow"></i>
+            </a>
+            <ul class="nav-2-level collapse">
+                <li>
+                    <a href="/admin/users">Users</a>
+                </li>
+                <li>
+                    <a href="/admin/roles">Roles</a>
+                </li>
+            </ul>
+        </li>
     </ul>
 </div>

@@ -1,4 +1,4 @@
-`<?php
+<?php
 /**
  * Created by PhpStorm.
  * User: qw
@@ -12,7 +12,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class UsersController extends Controller
+class RolesController extends Controller
 {
 
     /**
@@ -23,7 +23,7 @@ class UsersController extends Controller
     public function index(Request $request)
     {
 //        dd('hello');
-        return view('backend.users.index', [
+        return view('backend.posts.index', [
         ]);
     }
 }
