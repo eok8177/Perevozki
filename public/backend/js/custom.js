@@ -20,4 +20,18 @@ $(document).ready(function () {
         });
     });
 
+    //laravel file manager
+    $('#lfm').filemanager('image');
+
+    $('#lfm').on('click', function(){
+      $('#delete-image').removeClass('hidden');
+    });
+    //Delete uploaded image in form
+    $('#delete-image').on('click', function(){
+      $('#thumbnail').val(null);
+      $('#holder').attr('src', '');
+      $(this).removeClass('hidden');
+      $(this).addClass('hidden');
+    });
+
 });

@@ -25,16 +25,18 @@
   </div>
   <div class="col-md-6">
     <div class="ibox">
+      <div class="ibox-head">Image</div>
       <div class="ibox-body">
-        <div class="form-group">
-            {{ Form::label('image', 'Image') }}
-            {{ Form::text('image', $page->image, ['class' => $errors->has('image') ? 'form-control is-invalid' : 'form-control']) }}
-            @if($errors->has('image'))
-                <span class="invalid-feedback">
-                    {{ $errors->first('image') }}
-                </span>
-            @endif
-        </div>
+        <img id="holder" style="max-height:100px;" src="{{ $page->image }}">
+      </div>
+      <div class="ibox-footer pl-4">
+        <a id="lfm" data-input="thumbnail" data-preview="holder" class="lfm btn btn-primary">
+          <i class="icon icon-picture"></i> Select Image
+        </a>
+        <a id="delete-image" class="btn btn-danger {{($page->image) ? '' : 'hidden'}}">
+          <i class="icon icon-trash"></i> Delete
+        </a>
+        <input id="thumbnail" class="form-control" type="hidden" name="image" value="{{ $page->image }}">
       </div>
     </div>
   </div>
