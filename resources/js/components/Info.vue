@@ -1,10 +1,6 @@
 <template>
   <div class="info">
-    <div class="wrapper info__wrapper">
-      <div class="info__col">
-        <h2 class="info__title">{{page.title}}</h2>
-        <div v-html="page.text"></div>
-      </div>
+    <div class="wrapper info__wrapper" v-html="page.text">
     </div>
   </div>
 </template>
