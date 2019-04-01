@@ -55,7 +55,10 @@ class PagesController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validateForm($request);
+        $request->validate([
+            'slug' => 'required|unique:pages|max:255',
+        ]);
+
         $page = Page::create($request->all());
         $language = Language::where('status', '1')->get();
 
@@ -129,7 +132,10 @@ class PagesController extends Controller
         $page = Page::find($id);
 
         if ($page) {
-            $this->validateForm($request, $page);
+            $request->validate([
+                'slug' => Rule::unique('pages')->ignore($page->id),
+                'slug' => 'required|max:255',
+            ]);
 
             $page->fill($request->all())->save();
 
@@ -172,17 +178,4 @@ class PagesController extends Controller
         return redirect()->route('admin.pages.index');
     }
 
-    /**
-     * Validate request form.
-     *
-     * @param Request $request
-     */
-    protected function validateForm(Request $request, $page)
-    {
-
-        $this->validate($request, [
-            'slug' => Rule::unique('pages')->ignore($page->id),
-            'slug' => 'required|max:255',
-        ]);
-    }
 }
