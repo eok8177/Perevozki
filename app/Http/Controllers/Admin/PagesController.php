@@ -7,6 +7,7 @@ use App\PageTranslate;
 use App\Language;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Validation\Rule;
 
 class PagesController extends Controller
 {
@@ -128,7 +129,7 @@ class PagesController extends Controller
         $page = Page::find($id);
 
         if ($page) {
-            $this->validateForm($request);
+            $this->validateForm($request, $page);
 
             $page->fill($request->all())->save();
 
@@ -176,12 +177,12 @@ class PagesController extends Controller
      *
      * @param Request $request
      */
-    protected function validateForm(Request $request)
+    protected function validateForm(Request $request, $page)
     {
 
         $this->validate($request, [
-            'slug' => 'required|unique:pages|max:255',
+            'slug' => Rule::unique('pages')->ignore($page->id),
+            'slug' => 'required|max:255',
         ]);
-
     }
 }
