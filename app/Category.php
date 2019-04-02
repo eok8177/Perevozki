@@ -43,8 +43,6 @@ class Category extends Model
 
     public function getCategoriesForSelectAttribute()
     {
-        $result = array('0' => 'Not Parent');
-        array_push($result, Category::pluck('slug', 'id'));
-        return $result;
+        return array_merge(['0' => 'Not Parent'],Category::pluck('slug', 'id')->toArray());
     }
 }
