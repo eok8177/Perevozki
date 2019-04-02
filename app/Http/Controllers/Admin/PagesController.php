@@ -179,9 +179,7 @@ class PagesController extends Controller
     public function destroy(Page $page)
     {
         $page->delete();
-        return redirect()
-                ->route('admin.pages.index')
-                ->with('success', 'Page delete');
+        return response()->json('success', 200);
     }
 
 }
