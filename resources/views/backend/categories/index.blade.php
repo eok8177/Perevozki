@@ -3,18 +3,18 @@
 @section('content')
     <div class="ibox">
         <div class="ibox-head">
-            <div class="ibox-title">Categoties</div> <a href="{{ route('admin.categories.create') }}" class="btn btn-success">Add category</a>
+            <div class="ibox-title">Categories</div> <a href="{{ route('admin.categories.create') }}" class="btn btn-success">Add category</a>
         </div>
         <div class="ibox-body">
             <div class="table-responsive">
                 <table class="table">
                     <thead>
                     <tr>
-                        <th width="50px"></th>
+                        <th width="50px">Id</th>
                         <th>Name</th>
-                        <th>Parent name</th>
-                        <th>Data add</th>
-                        <th>Data mod</th>
+                        <th>Slug</th>
+                        <th>Image</th>
+                        <th>Date</th>
                         <th>Status</th>
                         <th>Actions</th>
                     </tr>
@@ -23,19 +23,16 @@
                     @foreach($categories as $category)
                     <tr>
                         <td>
-                            <label class="ui-checkbox">
-                                <input type="checkbox">
-                                <span class="input-span"></span>
-                            </label>
+                            {{ $category->id }}
                         </td>
-                        <td>iphone case</td>
-                        <td>$1200</td>
-                        <td>33%</td>
-                        <td>02/08/2017</td>
-                        <td>02/08/2017</td>
+                        <td>{{ $category->name }}</td>
+                        <td>{{ $category->slug }}</td>
+                        <td>{{ $category->image }}</td>
+                        <td>{{ $category->created_at }} / {{ $category->updated_at }}</td>
+                        <td> {!! $category->status ? '<i class="fa fa-check text-success"></i>' : '<i class="fa fa-remove text-danger"></i>'!!}</td>
                         <td>
-                            <a class="btn btn-warning btn-circle" href="{{ route('admin.categories.edit', $category->id) }}"><i class="fa fa-penci"></i></a>
-                            <a  class="btn btn-warning btn-circle" href="{{ route('admin.categories.destroy', $category->id) }}"><i class="fa fa-trash"></i></a>
+                            <a class="btn btn-default btn-xs" href="{{ route('admin.categories.edit', $category->id) }}"><i class="fa fa-pencil"></i></a>
+                            <a class="btn btn-default btn-xs delete-item" href="{{ route('admin.categories.destroy', $category->id) }}"><i class="fa fa-trash"></i></a>
                         </td>
                     </tr>
                     @endforeach

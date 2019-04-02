@@ -66,18 +66,18 @@ class PagesController extends Controller
 
             $locale = $lang->locale;
 
-            $page_transile = new PageTranslate();
-            $page_transile->page_id = $page->id;
-            $page_transile->locale = $locale;
-            $page_transile->title = $request->$locale['title'];
-            $page_transile->h1 = $request->$locale['h1'];
-            $page_transile->description = $request->$locale['description'];
-            $page_transile->meta_description = $request->$locale['meta_description'];
-            $page_transile->meta_title = $request->$locale['meta_title'];
-            $page_transile->meta_keywords = $request->$locale['meta_keywords'];
-            $page_transile->og_title = $request->$locale['og_title'];
-            $page_transile->og_description = $request->$locale['og_description'];
-            $page_transile->save();
+            $page_translate = new PageTranslate();
+            $page_translate->page_id = $page->id;
+            $page_translate->locale = $locale;
+            $page_translate->title = $request->$locale['title'];
+            $page_translate->h1 = $request->$locale['h1'];
+            $page_translate->description = $request->$locale['description'];
+            $page_translate->meta_description = $request->$locale['meta_description'];
+            $page_translate->meta_title = $request->$locale['meta_title'];
+            $page_translate->meta_keywords = $request->$locale['meta_keywords'];
+            $page_translate->og_title = $request->$locale['og_title'];
+            $page_translate->og_description = $request->$locale['og_description'];
+            $page_translate->save();
         }
 
 
@@ -145,17 +145,21 @@ class PagesController extends Controller
 
             $locale = $lang->locale;
 
-            $page_transile = PageTranslate::where('page_id', $page->id)->where('locale', $lang->locale)->first();
-            $page_transile->locale = $locale;
-            $page_transile->title = $request->$locale['title'];
-            $page_transile->h1 = $request->$locale['h1'];
-            $page_transile->description = $request->$locale['description'];
-            $page_transile->meta_description = $request->$locale['meta_description'];
-            $page_transile->meta_title = $request->$locale['meta_title'];
-            $page_transile->meta_keywords = $request->$locale['meta_keywords'];
-            $page_transile->og_title = $request->$locale['og_title'];
-            $page_transile->og_description = $request->$locale['og_description'];
-            $page_transile->save();
+            $page_translate = PageTranslate::where('page_id', $page->id)->where('locale', $lang->locale)->first();
+            if (!$page_translate) {
+                $page_translate = new PageTranslate();
+                $page_translate->page_id = $page->id;
+            }
+            $page_translate->locale = $locale;
+            $page_translate->title = $request->$locale['title'];
+            $page_translate->h1 = $request->$locale['h1'];
+            $page_translate->description = $request->$locale['description'];
+            $page_translate->meta_description = $request->$locale['meta_description'];
+            $page_translate->meta_title = $request->$locale['meta_title'];
+            $page_translate->meta_keywords = $request->$locale['meta_keywords'];
+            $page_translate->og_title = $request->$locale['og_title'];
+            $page_translate->og_description = $request->$locale['og_description'];
+            $page_translate->save();
         }
 
             return redirect()
@@ -172,10 +176,12 @@ class PagesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Page $page)
     {
-
-        return redirect()->route('admin.pages.index');
+        $page->delete();
+        return redirect()
+                ->route('admin.pages.index')
+                ->with('success', 'Page delete');
     }
 
 }

@@ -11,6 +11,7 @@
     <link href="{{ asset('vendors/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('vendors/themify-icons/css/themify-icons.css') }}" rel="stylesheet" />
     <link href="{{ asset('vendors/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('vendors/summernote/dist/summernote.css') }}" rel="stylesheet" />
     <!-- PLUGINS STYLES-->
     <link href="{{ asset('vendors/jvectormap/jquery-jvectormap-2.0.3.css') }}" rel="stylesheet" />
     <!-- THEME STYLES-->
@@ -63,12 +64,20 @@
 <script src="{{ asset('vendors/jvectormap/jquery-jvectormap-2.0.3.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('vendors/jvectormap/jquery-jvectormap-world-mill-en.js') }}" type="text/javascript"></script>
 <script src="{{ asset('vendors/jvectormap/jquery-jvectormap-us-aea-en.js') }}" type="text/javascript"></script>
+<script src="{{ asset('vendors/summernote/dist/summernote.min.js') }}" type="text/javascript"></script>
 <!-- CORE SCRIPTS-->
 <script src="{{ asset('backend/js/app.min.js') }}" type="text/javascript"></script>
 <!-- PAGE LEVEL SCRIPTS-->
 <script src="/vendor/laravel-filemanager/js/lfm.js"></script>
 <script src="{{ asset('backend/js/scripts/dashboard_1_demo.js') }}" type="text/javascript"></script>
 <script src="{{ asset('backend/js/custom.js') }}" type="text/javascript"></script>
+<script>
+    $(document).ready(function() {
+        $('.summernote').summernote({
+            height: 200
+        });
+    });
+  </script>
 </body>
 
 </html>

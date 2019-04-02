@@ -76,7 +76,7 @@
                   @endif
               </div>
               <div class="form-group">
-                  {{ Form::label('h1', 'H1 '.$lang->locale) }}
+                  {{ Form::label('h1', 'h1 '.$lang->locale) }}
                   {{ Form::text($lang->locale.'[h1]', $contents[$lang->locale]->h1, ['class' => $errors->has('h1') ? 'form-control is-invalid' : 'form-control']) }}
                   @if($errors->has('h1'))
                       <span class="invalid-feedback">
@@ -87,7 +87,7 @@
             </div>
             <div class="col-md-6">
               <div class="form-group">
-                  {{ Form::label('description', 'Description '.$lang->locale) }}
+                  {{ Form::label('description', 'description '.$lang->locale) }}
                   {{ Form::textarea($lang->locale.'[description]', $contents[$lang->locale]->description, ['class' => $errors->has('description') ? 'form-control is-invalid summernote' : 'form-control summernote', 'rows' => 10]) }}
                   @if($errors->has('description'))
                       <span class="invalid-feedback">
@@ -98,7 +98,7 @@
             </div>
             <div class="col-md-6">
               <div class="form-group">
-                  {{ Form::label('meta_title', 'Meta title '.$lang->locale) }}
+                  {{ Form::label('meta_title', 'meta_title '.$lang->locale) }}
                   {{ Form::text($lang->locale.'[meta_title]', $contents[$lang->locale]->meta_title, ['class' => $errors->has('meta_title') ? 'form-control is-invalid' : 'form-control']) }}
                   @if($errors->has('meta_title'))
                       <span class="invalid-feedback">
@@ -107,7 +107,7 @@
                   @endif
               </div>
               <div class="form-group">
-                  {{ Form::label('meta_keywords', 'Meta keywords '.$lang->locale) }}
+                  {{ Form::label('meta_keywords', 'meta_keywords '.$lang->locale) }}
                   {{ Form::text($lang->locale.'[meta_keywords]', $contents[$lang->locale]->meta_keywords, ['class' => $errors->has('meta_keywords') ? 'form-control is-invalid' : 'form-control']) }}
                   @if($errors->has('meta_keywords'))
                       <span class="invalid-feedback">
@@ -116,7 +116,7 @@
                   @endif
               </div>
               <div class="form-group">
-                  {{ Form::label('og_title', 'Og title '.$lang->locale) }}
+                  {{ Form::label('og_title', 'og_title '.$lang->locale) }}
                   {{ Form::text($lang->locale.'[og_title]', $contents[$lang->locale]->og_title, ['class' => $errors->has('og_title') ? 'form-control is-invalid' : 'form-control']) }}
                   @if($errors->has('og_title'))
                       <span class="invalid-feedback">
@@ -127,7 +127,7 @@
             </div>
             <div class="col-md-6">
               <div class="form-group">
-                  {{ Form::label('meta_description', 'Meta description '.$lang->locale) }}
+                  {{ Form::label('meta_description', 'meta_description '.$lang->locale) }}
                   {{ Form::textarea($lang->locale.'[meta_description]', $contents[$lang->locale]->meta_description, ['class' => $errors->has('meta_description') ? 'form-control is-invalid' : 'form-control', 'rows' => '2']) }}
                   @if($errors->has('meta_description'))
                       <span class="invalid-feedback">
@@ -136,7 +136,7 @@
                   @endif
               </div>
               <div class="form-group">
-                  {{ Form::label('og_description', 'Og description '.$lang->locale) }}
+                  {{ Form::label('og_description', 'og_description '.$lang->locale) }}
                   {{ Form::textarea($lang->locale.'[og_description]', $contents[$lang->locale]->og_description, ['class' => $errors->has('og_description') ? 'form-control is-invalid' : 'form-control', 'rows' => '2']) }}
                   @if($errors->has('og_description'))
                       <span class="invalid-feedback">
@@ -154,7 +154,7 @@
 
     </div>
     <div class="ibox-footer pl-3">
-      <button class="btn btn-success" type="submit"><span class="active-hidden"><i class="fa fa-check"></i></span> Save</button>
-      <a class="btn btn-warning" href="/admin/pages"><span class="active-hidden"><i class="fa fa-reply"></i></span> Cancel</a>
+      <button class="btn btn-success" type="submit"> Save</button>
+      <a class="btn btn-warning" href="/admin/pages"> Cancel</a>
     </div>
 </div>

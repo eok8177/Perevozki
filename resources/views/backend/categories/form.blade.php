@@ -3,23 +3,47 @@
     <div class="ibox">
       <div class="ibox-body">
         <div class="form-group">
+            {{ Form::label('parent_id', 'Parend category') }}
+            {{ Form::select('parent_id', $category->categories_for_select, $category->parent_id, ['class' => $errors->has('parent_id') ? 'form-control is-invalid' : 'form-control']) }}
+            @if($errors->has('parent_id'))
+                <span class="invalid-feedback">
+                    {{ $errors->first('parent_id') }}
+                </span>
+            @endif
+        </div>
+        <div class="form-group">
             {{ Form::label('slug', 'Slug') }}
-            {{ Form::text('slug', $page->slug, ['class' => $errors->has('slug') ? 'form-control is-invalid' : 'form-control']) }}
+            {{ Form::text('slug', $category->slug, ['class' => $errors->has('slug') ? 'form-control is-invalid' : 'form-control']) }}
             @if($errors->has('slug'))
                 <span class="invalid-feedback">
                     {{ $errors->first('slug') }}
                 </span>
             @endif
         </div>
-        <div class="form-group">
-            {{ Form::label('status', 'Status') }}
-            {{ Form::select('status', [true => 'Yes', false => 'No'], $page->status, ['class' => $errors->has('status') ? 'form-control is-invalid' : 'form-control']) }}
-            @if($errors->has('status'))
-                <span class="invalid-feedback">
-                    {{ $errors->first('status') }}
-                </span>
-            @endif
-        </div>
+        <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                  {{ Form::label('status', 'Status') }}
+                  {{ Form::select('status', [true => 'Yes', false => 'No'], $category->status, ['class' => $errors->has('status') ? 'form-control is-invalid' : 'form-control']) }}
+                  @if($errors->has('status'))
+                      <span class="invalid-feedback">
+                          {{ $errors->first('status') }}
+                      </span>
+                  @endif
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                  {{ Form::label('type', 'Type') }}
+                  {{ Form::select('type', ['cars' => 'Cars', 'news' => 'News'], $category->type, ['class' => $errors->has('type') ? 'form-control is-invalid' : 'form-control']) }}
+                  @if($errors->has('type'))
+                      <span class="invalid-feedback">
+                          {{ $errors->first('type') }}
+                      </span>
+                  @endif
+              </div>
+            </div>
+          </div>
       </div>
     </div>
   </div>
@@ -27,16 +51,16 @@
     <div class="ibox">
       <div class="ibox-head">Image</div>
       <div class="ibox-body">
-        <img id="holder" style="max-height:100px;" src="{{ $page->image }}">
+        <img id="holder" style="max-height:100px;" src="{{ $category->image }}">
       </div>
       <div class="ibox-footer pl-4">
         <a id="lfm" data-input="thumbnail" data-preview="holder" class="lfm btn btn-primary">
           <i class="icon icon-picture"></i> Select Image
         </a>
-        <a id="delete-image" class="btn btn-danger {{($page->image) ? '' : 'hidden'}}">
+        <a id="delete-image" class="btn btn-danger {{($category->image) ? '' : 'hidden'}}">
           <i class="icon icon-trash"></i> Delete
         </a>
-        <input id="thumbnail" class="form-control" type="hidden" name="image" value="{{ $page->image }}">
+        <input id="thumbnail" class="form-control" type="hidden" name="image" value="{{ $category->image }}">
       </div>
     </div>
   </div>
@@ -155,6 +179,6 @@
     </div>
     <div class="ibox-footer pl-3">
       <button class="btn btn-success" type="submit"><span class="active-hidden"><i class="fa fa-check"></i></span> Save</button>
-      <a class="btn btn-warning" href="/admin/pages"><span class="active-hidden"><i class="fa fa-reply"></i></span> Cancel</a>
+      <a class="btn btn-warning" href="/admin/categories"><span class="active-hidden"><i class="fa fa-reply"></i></span> Cancel</a>
     </div>
 </div>
