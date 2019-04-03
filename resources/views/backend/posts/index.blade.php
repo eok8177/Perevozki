@@ -3,7 +3,7 @@
 @section('content')
     <div class="ibox">
         <div class="ibox-head">
-            <div class="ibox-title">Pages</div> <a href="{{ route('admin.pages.create') }}" class="btn btn-success">Add page</a>
+            <div class="ibox-title">Posts</div> <a href="{{ route('admin.posts.create') }}" class="btn btn-success">Add post</a>
         </div>
         <div class="ibox-body">
             <div class="table-responsive">
@@ -20,25 +20,25 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($pages as $page)
+                    @foreach($posts as $post)
                     <tr>
                         <td>
-                            {{ $page->id }}
+                            {{ $post->id }}
                         </td>
-                        <td>{{ $page->name }}</td>
-                        <td>{{ $page->slug }}</td>
-                        <td>{{ $page->image }}</td>
-                        <td>{{ $page->created_at }} / {{ $page->updated_at }}</td>
-                        <td> {!! $page->status ? '<i class="fa fa-check text-success"></i>' : '<i class="fa fa-remove text-danger"></i>'!!}</td>
+                        <td>{{ $post->name }}</td>
+                        <td>{{ $post->slug }}</td>
+                        <td>{{ $post->image }}</td>
+                        <td>{{ $post->created_at }} / {{ $post->updated_at }}</td>
+                        <td> {!! $post->status ? '<i class="fa fa-check text-success"></i>' : '<i class="fa fa-remove text-danger"></i>'!!}</td>
                         <td>
-                            <a class="btn btn-default btn-xs" href="{{ route('admin.pages.edit', $page->id) }}"><i class="fa fa-pencil"></i></a>
-                            <a class="btn btn-default btn-xs delete-item" href="{{ route('admin.pages.destroy', $page->id) }}"><i class="fa fa-trash"></i></a>
+                            <a class="btn btn-default btn-xs" href="{{ route('admin.posts.edit', $post->id) }}"><i class="fa fa-pencil"></i></a>
+                            <a class="btn btn-default btn-xs delete-item" href="{{ route('admin.posts.destroy', $post->id) }}"><i class="fa fa-trash"></i></a>
                         </td>
                     </tr>
                     @endforeach
                     </tbody>
                 </table>
-                {{ $pages->links() }}
+                {{ $posts->links() }}
             </div>
         </div>
     </div>

@@ -141,26 +141,26 @@ class PagesController extends Controller
 
             $language = Language::where('status', '1')->get();
 
-        foreach ($language as $lang) {
+            foreach ($language as $lang) {
 
-            $locale = $lang->locale;
+                $locale = $lang->locale;
 
-            $page_translate = PageTranslate::where('page_id', $page->id)->where('locale', $lang->locale)->first();
-            if (!$page_translate) {
-                $page_translate = new PageTranslate();
-                $page_translate->page_id = $page->id;
+                $page_translate = PageTranslate::where('page_id', $page->id)->where('locale', $lang->locale)->first();
+                if (!$page_translate) {
+                    $page_translate = new PageTranslate();
+                    $page_translate->page_id = $page->id;
+                }
+                $page_translate->locale = $locale;
+                $page_translate->title = $request->$locale['title'];
+                $page_translate->h1 = $request->$locale['h1'];
+                $page_translate->description = $request->$locale['description'];
+                $page_translate->meta_description = $request->$locale['meta_description'];
+                $page_translate->meta_title = $request->$locale['meta_title'];
+                $page_translate->meta_keywords = $request->$locale['meta_keywords'];
+                $page_translate->og_title = $request->$locale['og_title'];
+                $page_translate->og_description = $request->$locale['og_description'];
+                $page_translate->save();
             }
-            $page_translate->locale = $locale;
-            $page_translate->title = $request->$locale['title'];
-            $page_translate->h1 = $request->$locale['h1'];
-            $page_translate->description = $request->$locale['description'];
-            $page_translate->meta_description = $request->$locale['meta_description'];
-            $page_translate->meta_title = $request->$locale['meta_title'];
-            $page_translate->meta_keywords = $request->$locale['meta_keywords'];
-            $page_translate->og_title = $request->$locale['og_title'];
-            $page_translate->og_description = $request->$locale['og_description'];
-            $page_translate->save();
-        }
 
             return redirect()
                 ->route('admin.pages.edit', $page->id)

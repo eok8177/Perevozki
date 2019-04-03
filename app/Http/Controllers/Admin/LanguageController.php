@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Language;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 
 class LanguageController extends Controller
@@ -118,10 +119,13 @@ class LanguageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Language $language)
     {
-
-        return redirect()->route('admin.language.index');
+        DB::table('page_translations')->where('locale', $language['locale'])->delete();
+        DB::table('post_translations')->where('locale', $language['locale'])->delete();
+        DB::table('category_translations')->where('locale', $language['locale'])->delete();
+        $language->delete();
+        return response()->json('success', 200);
     }
 
     /**

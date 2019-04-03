@@ -7,6 +7,8 @@ use App\CategoryTranslate;
 use App\Language;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Validation\Rule;
+
 
 class CategoriesController extends Controller
 {
@@ -56,7 +58,7 @@ class CategoriesController extends Controller
     {
         // dd($request->all());
         $request->validate([
-            'slug' => 'required|unique:pages|max:255',
+            'slug' => 'required|unique:categories|max:255',
         ]);
 
         $category = Category::create($request->all());
@@ -128,17 +130,42 @@ class CategoriesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // dd($request);
         $category = Category::find($id);
 
         if ($category) {
-            $this->validateForm($request);
+            $request->validate([
+                'slug' => Rule::unique('categories')->ignore($category->id),
+                'slug' => 'required|max:255',
+            ]);
 
             $category->fill($request->all())->save();
 
+            $language = Language::where('status', '1')->get();
+
+            foreach ($language as $lang) {
+
+                $locale = $lang->locale;
+
+                $category_translate = CategoryTranslate::where('category_id', $category->id)->where('locale', $lang->locale)->first();
+                if (!$category_translate) {
+                    $category_translate = new CategoryTranslate();
+                    $category_translate->category_id = $category->id;
+                }
+                $category_translate->locale = $locale;
+                $category_translate->title = $request->$locale['title'];
+                $category_translate->h1 = $request->$locale['h1'];
+                $category_translate->description = $request->$locale['description'];
+                $category_translate->meta_description = $request->$locale['meta_description'];
+                $category_translate->meta_title = $request->$locale['meta_title'];
+                $category_translate->meta_keywords = $request->$locale['meta_keywords'];
+                $category_translate->og_title = $request->$locale['og_title'];
+                $category_translate->og_description = $request->$locale['og_description'];
+                $category_translate->save();
+            }
+
             return redirect()
                 ->route('admin.categories.edit', $category->id)
-                ->with('success', 'Категория обновлена');
+                ->with('success', 'Category update');
         }
 
         return redirect()->route('admin.categories.index');
@@ -153,10 +180,7 @@ class CategoriesController extends Controller
     public function destroy(Category $category)
     {
         $category->delete();
-
-        return redirect()
-                ->route('admin.categories.index')
-                ->with('success', 'Category delete');
+        return response()->json('success', 200);
     }
 
 }

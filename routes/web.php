@@ -18,7 +18,7 @@
 Route::namespace('Admin')
     ->prefix('admin')
     ->name('admin.')
-//    ->middleware('auth')
+   // ->middleware('auth')
     ->group(function () {
         // Dashboard
         Route::get('/', 'DashboardController@index')->name('dashboard');
@@ -36,11 +36,11 @@ Route::namespace('Admin')
         Route::resource('/posts', 'PostsController');
 
 //         Users
-        Route::resource('/users', 'UsersController')
-            ->middleware(AdminPermission::class);
+        Route::resource('/users', 'UsersController');
+            // ->middleware(AdminPermission::class);
 
 //         Roles
-        Route::resource('/users', 'RolesController');
+        Route::resource('/roles', 'RolesController');
 
 //         Settings
         Route::prefix('settings')->name('settings.')->group(function () {
