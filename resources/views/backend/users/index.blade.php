@@ -3,7 +3,7 @@
 @section('content')
     <div class="ibox">
         <div class="ibox-head">
-            <div class="ibox-title">Posts</div> <a href="{{ route('admin.users.create') }}" class="btn btn-success">Add user</a>
+            <div class="ibox-title">Users</div> <a href="{{ route('admin.users.create') }}" class="btn btn-success">Add user</a>
         </div>
         <div class="ibox-body">
             <div class="table-responsive">

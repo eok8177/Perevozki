@@ -15,7 +15,7 @@ class Role extends Model
      */
     protected $fillable = [
         'name',
-        'description',
+        'permissions',
     ];
 
     public function roles()

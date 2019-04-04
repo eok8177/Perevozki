@@ -14,6 +14,14 @@
 // Route::get('/', function () {
 //     return view('welcome');
 // });
+//
+
+
+//POST запрос аутентификации на сайте
+Route::post('login', 'Auth\LoginController@login')->name('login');
+//POST запрос на выход из системы (логаут)
+Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
+
 
 Route::namespace('Admin')
     ->prefix('admin')
