@@ -7,7 +7,7 @@
       <ul class="reviews__items">
         <li v-for="review in reviews" class="reviews__item">
           <div class="reviews__img">
-            <img :src="review.img" alt="">
+            <img :src="'/'+review.img" alt="">
           </div>
           <p class="reviews__name">{{review.name}}</p>
           <p class="reviews__text">{{review.text}}</p>

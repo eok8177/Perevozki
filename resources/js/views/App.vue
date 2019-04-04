@@ -1,8 +1,8 @@
 <template>
   <div id="app">
 
-    <top-home v-if="home"></top-home>
-    <top v-else></top>
+    <top-home v-if="home" :menuPages="menuPages"></top-home>
+    <top v-else :menuPages="menuPages"></top>
 
     <router-view></router-view>
 
@@ -13,7 +13,7 @@
 </template>
 
 <script>
-
+import axios from 'axios';
 import TopHome from '@/components/TopHome'
 import Top from '@/components/Top'
 import Bottom from '@/components/Bottom'
@@ -29,8 +29,20 @@ export default {
   },
   data() {
     return {
-        home: false
+      home: false,
+      menuPages: []
     }
-  }
+  },
+  created: function() {
+    axios.get('/api/menuPages')
+      .then(
+        (response) => {
+          this.menuPages = response.data;
+        }
+      )
+      .catch(
+        (error) => console.log(error)
+      );
+  },
 }
 </script>

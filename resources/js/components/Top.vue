@@ -28,12 +28,9 @@
       <ul class="main__nav">
         <li class="main__nav-item"><a href="#" class="main__nav-link main__nav--active">Грузоперевозки</a></li>
         <div class="mobile_wrap">
-          <li class="main__nav-item nav-link"><a href="#" class="main__nav-link">Квартирный переезд</a></li>
-          <li class="main__nav-item nav-link"><a href="#" class="main__nav-link">Офисный переезд</a></li>
-          <li class="main__nav-item nav-link"><a href="#" class="main__nav-link">Грузовое такси</a></li>
-          <li class="main__nav-item nav-link"><a href="#" class="main__nav-link">Грузовое такси</a></li>
-          <li class="main__nav-item nav-link"><a href="#" class="main__nav-link ">Пассажирские перевозки</a></li>
-          <li class="main__nav-item nav-link"><a href="#" class="main__nav-link ">Вывоз строймусора</a></li>
+          <li v-for="item in pages" class="main__nav-item nav-link">
+            <router-link :to="'/page/'+item.url" exact class="main__nav-link" active-class="main__nav--active">{{item.title}}</router-link>
+          </li>
         </div>
       </ul>
 
@@ -44,6 +41,17 @@
 <script>
 
   export default {
-    name: 'Top'
+    name: 'Top',
+    props: ['menuPages'],
+    data() {
+      return {
+        pages: this.menuPages
+      }
+    },
+    watch: {
+      menuPages: function (newVal) {
+        this.pages = newVal
+      }
+    }
   }
 </script>
