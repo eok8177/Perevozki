@@ -33,7 +33,7 @@
                         </div>
                         <div class="carpark__item-order">
                             <span class="carpark__item-price">{{item.price}}</span>
-                            <a href="#" class="button">Заказать звонок</a>
+                            <a href="#callFrom" class="button">Заказать звонок</a>
                         </div>
                         <p class="carpark__item-text"><b>Последующая цена 100 грн/час</b>
                             Подача автомобиля от 30 до 60 минут</p>
