@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" serverName="ari.ftp.tools">
+    <serverData>
+      <paths name="ari.ftp.tools">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/ari.in.ua/korona" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+          <excludedPaths>
+            <excludedPath local="true" path="$PROJECT_DIR$/vendor" />
+            <excludedPath path="/ari.in.ua/korona/vendor" />
+          </excludedPaths>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+</project>
