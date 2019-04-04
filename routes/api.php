@@ -19,11 +19,15 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::group(['namespace' => 'Api'], function() {
 
+    Route::get('/pages',  ['uses' => 'PageController@index']);
+    Route::get('/page/{slug}',  ['uses' => 'PageController@page']);
+
+
     Route::get('/tips',  ['uses' => 'TestController@tips']);
     Route::get('/tip/{id}',  ['uses' => 'TestController@tip']);
 
     Route::get('/menuPages',  ['uses' => 'TestController@menuPages']);
-    Route::get('/page/{slug}',  ['uses' => 'TestController@page']);
+
 
     Route::get('/buses',  ['uses' => 'TestController@buses']);
 
