@@ -68,4 +68,17 @@ class TestController extends Controller
         return response()->json($tips[$id], 200);
     }
 
+    public function buses()
+    {
+        $response = [
+            ['slug' => 'bus-1', 'title' => '1,5 тонны', 'img' => '/img/bus-small.png'],
+            ['slug' => 'bus-2', 'title' => '2 тонны', 'img' => '/img/bus-small.png'],
+            ['slug' => 'bus-3', 'title' => '3-тонник', 'img' => '/img/bus-small.png'],
+            ['slug' => 'bus-4', 'title' => '5-тонник', 'img' => '/img/bus-small.png'],
+            ['slug' => 'bus-5', 'title' => '10-тонник', 'img' => '/img/bus-small.png'],
+            ['slug' => 'bus-6', 'title' => '20-тонник', 'img' => '/img/bus-small.png']
+        ];
+        return response()->json($response, 200);
+    }
+
 }

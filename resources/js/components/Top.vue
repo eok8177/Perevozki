@@ -12,7 +12,7 @@
             <li class="header__tels-item"><a href="#" class="header__tels-link">(067) 558 88 38</a></li>
             <li class="header__tels-item"><a href="#" class="header__tels-link">(093) 518 88 38</a></li>
             <li class="header__tels-item"><a href="#" class="header__tels-link">(050) 458 88 38</a></li>
-            <a href="#" class="navigation__hidden button">Заказать звонок</a>
+            <a href="#callFrom" class="navigation__hidden button">Заказать звонок</a>
           </ul>
           <nav class="header__navigation">
             <router-link to="/" exact class="navigation__item" active-class="navigation__item--active">Главная</router-link>
@@ -20,20 +20,17 @@
             <router-link to="/about-us" class="navigation__item" active-class="navigation__item--active">О нас</router-link>
             <router-link to="/reviews" class="navigation__item" active-class="navigation__item--active">Отзывы</router-link>
             <router-link to="/tips" class="navigation__item" active-class="navigation__item--active">Советы</router-link>
-            <a href="#" class="navigation__call button button-white">Заказать звонок</a>
+            <a href="#callFrom" class="navigation__call button button-white">Заказать звонок</a>
           </nav>
         </div>
       </div>
 
       <ul class="main__nav">
-        <li class="main__nav-item"><a href="#" class="main__nav-link main__nav--active">Грузоперевозки</a></li>
+        <li class="main__nav-item"><a href="#" class="main__nav-link main__nav--active only-mobile">Грузоперевозки</a></li>
         <div class="mobile_wrap">
-          <li class="main__nav-item nav-link"><a href="#" class="main__nav-link">Квартирный переезд</a></li>
-          <li class="main__nav-item nav-link"><a href="#" class="main__nav-link">Офисный переезд</a></li>
-          <li class="main__nav-item nav-link"><a href="#" class="main__nav-link">Грузовое такси</a></li>
-          <li class="main__nav-item nav-link"><a href="#" class="main__nav-link">Грузовое такси</a></li>
-          <li class="main__nav-item nav-link"><a href="#" class="main__nav-link ">Пассажирские перевозки</a></li>
-          <li class="main__nav-item nav-link"><a href="#" class="main__nav-link ">Вывоз строймусора</a></li>
+          <li v-for="item in pages" class="main__nav-item nav-link">
+            <router-link :to="'/page/'+item.slug" exact class="main__nav-link" active-class="main__nav--active">{{item.title}}</router-link>
+          </li>
         </div>
       </ul>
 
@@ -44,6 +41,23 @@
 <script>
 
   export default {
-    name: 'Top'
+    name: 'Top',
+    props: ['menuPages'],
+    data() {
+      return {
+        pages: this.menuPages
+      }
+    },
+    watch: {
+      menuPages: function (newVal) {
+        this.pages = newVal
+      }
+    }
   }
 </script>
+
+<style scoped lang=scss>
+  @media(min-width: 1151px){
+    .only-mobile {display: none;}
+  }
+</style>
