@@ -17,6 +17,7 @@ class CreateSettingsTable extends Migration
             $table->increments('id');
             $table->string('key');
             $table->text('value');
+            $table->integer('json')->default(NULL);
             $table->integer('status')->default(0);
             $table->timestamps();
         });
