@@ -17,11 +17,7 @@
 //
 
 
-//POST запрос аутентификации на сайте
-Route::post('login', 'Auth\LoginController@login')->name('login');
-//POST запрос на выход из системы (логаут)
-Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
-
+Auth::routes();
 
 Route::namespace('Admin')
     ->prefix('admin')
