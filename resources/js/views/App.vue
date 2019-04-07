@@ -6,8 +6,8 @@
 
     <router-view></router-view>
 
-    <bottom/>
-    <bottom-menu/>
+    <bottom :menuPages="menuPages"></bottom>
+    <bottom-menu :menuPages="menuPages"></bottom-menu>
     
   </div>
 </template>
