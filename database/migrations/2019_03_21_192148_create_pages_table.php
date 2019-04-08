@@ -17,6 +17,11 @@ class CreatePagesTable extends Migration
             $table->increments('id');
             $table->string('slug');
             $table->string('image');
+            $table->enum('type', [
+                'cars',
+                'services',
+                'statics'
+            ]);
             $table->integer('status')->default(0);
             $table->timestamps();
         });
