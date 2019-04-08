@@ -8,9 +8,12 @@
         </template>
         <div class="footer__hidden">
           <router-link to="/" class="footer__hidden-link" active-class="footer__hidden--active">Главная</router-link>
-          <a href="" class="footer__hidden-link" active-class="footer__hidden--active">Услуги</a>
+
+          <template v-for="item in pages">
+            <router-link :to="'/page/'+item.slug" exact class="footer__hidden-link" active-class="footer__hidden--active">{{item.title}}</router-link>
+          </template>
+
           <router-link to="/avtopark" class="footer__hidden-link" active-class="footer__hidden--active">Автопарк</router-link>
-          <a href="" class="footer__hidden-link" active-class="footer__hidden--active">Тарифы</a>
           <router-link to="/about-us" class="footer__hidden-link" active-class="footer__hidden--active">О нас</router-link>
           <router-link to="/reviews" class="footer__hidden-link" active-class="footer__hidden--active">Отзывы</router-link>
           <router-link to="/tips" class="footer__hidden-link" active-class="footer__hidden--active">Советы</router-link>
