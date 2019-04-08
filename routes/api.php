@@ -19,7 +19,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::group(['namespace' => 'Api'], function() {
 
-    Route::get('/pages',  ['uses' => 'PageController@index']);
+    Route::get('/services',  ['uses' => 'PageController@services']);
+    Route::get('/cars',  ['uses' => 'PageController@cars']);
     Route::get('/page/{slug}',  ['uses' => 'PageController@page']);
 
     Route::post('/call',  ['uses' => 'MessageController@call']);

@@ -34,7 +34,7 @@ export default {
     }
   },
   created: function() {
-    axios.get('/api/pages')
+    axios.get('/api/services')
       .then(
         (response) => {
           this.menuPages = response.data;

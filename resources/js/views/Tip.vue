@@ -74,8 +74,8 @@
         ? this.$router.go(-1)
         : this.$router.push('/tips')
       },
-      getContent (id) {
-        axios.get('/api/tip/'+id)
+      getContent (slug) {
+        axios.get('/api/tip/'+slug)
         .then(
           (response) => {
             this.tip = response.data;
@@ -87,11 +87,11 @@
       }
     },
     created: function() {
-      this.getContent(this.$route.params.id);
+      this.getContent(this.$route.params.slug);
     },
 
     beforeRouteUpdate (to, from, next) {
-      this.getContent(to.params.id);
+      this.getContent(to.params.slug);
       next();
     }
   }

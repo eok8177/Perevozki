@@ -11,11 +11,11 @@ use App\Language;
 
 class PageController extends Controller
 {
-    public function index()
+    public function services()
     {
-        $lang = Language::where('status', 1)->where('status', 1)->first();
+        $lang = Language::where('status', 1)->first();
 
-        $pages = Page::with('contents')->where('status', 1)->orderBy('id', 'asc')->get();
+        $pages = Page::with('contents')->where('status', 1)->where('type', 'services')->orderBy('id', 'asc')->get();
 
         if(!$pages)
             return response()->json(['error'=> 'not found any page'], 400);
@@ -25,6 +25,27 @@ class PageController extends Controller
         foreach ($pages as $key => $page) {
             $res[$key]['slug'] = $page->slug;
             $res[$key]['title'] = $page->translate($lang->locale)->first()->title;
+        }
+
+        return response()->json($res, 200);
+    }
+
+    public function cars()
+    {
+        $lang = Language::where('status', 1)->first();
+
+        $pages = Page::with('contents')->where('status', 1)->where('type', 'cars')->orderBy('id', 'asc')->get();
+
+        if(!$pages)
+            return response()->json(['error'=> 'not found any page'], 400);
+
+        $res = [];
+
+        foreach ($pages as $key => $page) {
+            $res[$key]['slug'] = $page->slug;
+            $res[$key]['img'] = $page->image;
+            $res[$key]['title'] = $page->translate($lang->locale)->first()->title;
+            $res[$key]['data'] = $page->translate($lang->locale)->first();
         }
 
         return response()->json($res, 200);
@@ -44,7 +65,10 @@ class PageController extends Controller
         if(!$content)
             return response()->json(['error'=> 'translate not found'], 400);
 
-        return response()->json($content, 200);
+        $res = $content->toArray();
+        $res['img'] = $page->image;
+
+        return response()->json($res, 200);
     }
 
 }

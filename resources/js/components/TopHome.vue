@@ -34,7 +34,7 @@
         </div>
       </ul>
       <div class="header__bus">
-        <template v-for="bus in buses">
+        <template v-for="bus in cars">
           <router-link :to="'/bus/'+bus.slug" class="header__bus-link">
             <img :src="bus.img" alt="bus" class="header__bus-img">
             <span class="header__bus-title">{{bus.title}}</span>
@@ -58,7 +58,7 @@
     props: ['menuPages'],
     data() {
       return {
-        buses: [],
+        cars: [],
         pages: this.menuPages
       }
     },
@@ -68,10 +68,10 @@
       }
     },
     created: function() {
-      axios.get('/api/buses/')
+      axios.get('/api/cars/')
       .then(
         (response) => {
-          this.buses = response.data;
+          this.cars = response.data;
         }
       )
       .catch(

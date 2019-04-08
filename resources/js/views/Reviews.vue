@@ -32,6 +32,43 @@
             </ul>
         </div>
 
+
+        <div class="review__form" style="position: fixed;">
+            <button class="review__form-close">×</button>
+            <form action="#">
+                <h3 class="review__form-title">Оставте свой отзыв</h3>
+                <div class="review__form-block">
+                    <label for="yourname" class="review__form-label">Как Вас зовут?</label>
+                    <input type="text" name="yourname" id="yourname" class="review__form-field" placeholder="Ваше Имя">
+                </div>
+                <div class="review__form-block">
+                    <label for="type" class="review__form-label">Вид перевозки</label>
+                    <select name="type" id="type" class="review__form-field">
+                        <option>Вывоз мусора</option>
+                        <option>Вывоз мусора</option>
+                        <option>Вывоз мусора</option>
+                        <option>Вывоз мусора</option>
+                        <option>Вывоз мусора</option>
+                    </select>
+                </div>
+                <div class="review__form-block">
+                    <label for="yourmessage" class="review__form-label">Сообщение</label>
+                    <textarea name="yourname" id="yourmessage" class="review__form-field review__form-message"
+                              placeholder="Расскажите нам историю...">
+
+                    </textarea>
+                </div>
+                <div class="review__form-star">
+                    <img src="img/star.svg" alt="">
+                </div>
+                <div class="button-center">
+                    <button class="button">Оставить отзыв</button>
+                </div>
+
+            </form>
+        </div>
+        <div class="overlay"></div>
+
     </main>
 </template>
 
