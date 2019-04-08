@@ -31,6 +31,15 @@
                 </span>
             @endif
         </div>
+        <div class="form-group">
+            {{ Form::label('sort', 'Sort') }}
+            {{ Form::text('sort', $post->sort, ['class' => $errors->has('sort') ? 'form-control is-invalid' : 'form-control']) }}
+            @if($errors->has('sort'))
+                <span class="invalid-feedback">
+                    {{ $errors->first('sort') }}
+                </span>
+            @endif
+        </div>
       </div>
     </div>
   </div>

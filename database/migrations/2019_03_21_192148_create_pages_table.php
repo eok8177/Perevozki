@@ -23,6 +23,7 @@ class CreatePagesTable extends Migration
                 'statics'
             ]);
             $table->integer('status')->default(0);
+            $table->integer('sort')->default(0);
             $table->timestamps();
         });
     }

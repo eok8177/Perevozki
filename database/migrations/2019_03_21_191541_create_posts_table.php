@@ -18,6 +18,7 @@ class CreatePostsTable extends Migration
             $table->string('slug');
             $table->string('image');
             $table->integer('status')->default(0);
+            $table->integer('sort')->default(0);
             $table->timestamps();
         });
     }
