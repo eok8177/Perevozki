@@ -1,3 +1,122 @@
+/* Slider */
+.slick-slider
+{
+    position: relative;
+
+    display: block;
+    box-sizing: border-box;
+
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+
+    -webkit-touch-callout: none;
+    -khtml-user-select: none;
+    -ms-touch-action: pan-y;
+        touch-action: pan-y;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.slick-list
+{
+    position: relative;
+
+    display: block;
+    overflow: hidden;
+
+    margin: 0;
+    padding: 0;
+}
+.slick-list:focus
+{
+    outline: none;
+}
+.slick-list.dragging
+{
+    cursor: pointer;
+    cursor: hand;
+}
+
+.slick-slider .slick-track,
+.slick-slider .slick-list
+{
+    -webkit-transform: translate3d(0, 0, 0);
+       -moz-transform: translate3d(0, 0, 0);
+        -ms-transform: translate3d(0, 0, 0);
+         -o-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+}
+
+.slick-track
+{
+    position: relative;
+    top: 0;
+    left: 0;
+
+    display: block;
+}
+.slick-track:before,
+.slick-track:after
+{
+    display: table;
+
+    content: '';
+}
+.slick-track:after
+{
+    clear: both;
+}
+.slick-loading .slick-track
+{
+    visibility: hidden;
+}
+
+.slick-slide
+{
+    display: none;
+    float: left;
+
+    height: 100%;
+    min-height: 1px;
+}
+[dir='rtl'] .slick-slide
+{
+    float: right;
+}
+.slick-slide img
+{
+    display: block;
+}
+.slick-slide.slick-loading img
+{
+    display: none;
+}
+.slick-slide.dragging img
+{
+    pointer-events: none;
+}
+.slick-initialized .slick-slide
+{
+    display: block;
+}
+.slick-loading .slick-slide
+{
+    visibility: hidden;
+}
+.slick-vertical .slick-slide
+{
+    display: block;
+
+    height: auto;
+
+    border: 1px solid transparent;
+}
+.slick-arrow.slick-hidden {
+    display: none;
+}
+
+
 /*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */
 /**
  * 1. Change the default font family in all browsers (opinionated).
@@ -566,6 +685,9 @@ img {
   overflow-x: scroll;
 }
 .header__bus-link {
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
   width: 217px !important;
   height: 217px;
   background-color: #fff;
@@ -683,7 +805,7 @@ img {
   margin-right: 0px;
 }
 .main__nav-link {
-  padding: 3px;
+  padding: 3px 10px;
   border: 2px solid #fff;
   text-decoration: none;
   -webkit-border-radius: 15px;
@@ -762,7 +884,7 @@ img {
   .header__logo {
     position: absolute;
     top: 20px;
-    left: 20px;
+    left: 0px;
   }
   .main__nav--active {
     position: relative;
@@ -793,7 +915,7 @@ img {
     padding-top: 15px;
   }
   .header__wrapper {
-    padding-top: 92px;
+    padding-top: 110px;
   }
   .header__block {
     display: none;
@@ -1933,9 +2055,6 @@ img {
   position: relative;
   z-index: 101;
 }
-.page-header .header__block {
-  margin-bottom: 0;
-}
 .main__wrapper {
   max-width: 1415px;
   position: relative;
@@ -1972,6 +2091,7 @@ img {
           box-shadow: 0 -4px 0 0 #FCFCFC, 0px 0px 50px rgba(0, 0, 0, 0.05);
   -webkit-border-radius: 8px;
           border-radius: 8px;
+  overflow: hidden;
   background: #fff;
   margin-right: 20px;
   margin-bottom: 20px;
@@ -2248,6 +2368,12 @@ img {
   .tips__content {
     padding: 20px;
   }
+    .header__sticker-title {
+        display: none;
+    }
+    .header__sticker-price {
+        display: none;
+    }
 }
 .tip::before {
   display: none;
@@ -2445,6 +2571,11 @@ img {
   width: 100%;
   max-width: 1150px;
   margin: 0 auto;
+}
+.sticker__img {
+  max-width: 1000px;
+  margin: 0 auto;
+  margin-bottom: 15px;
 }
 .sticker__img img {
   width: 100%;
