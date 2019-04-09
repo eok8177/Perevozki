@@ -3,7 +3,10 @@
 @section('content')
     <div class="ibox">
         <div class="ibox-head">
-            <div class="ibox-title">Pages</div> <a href="{{ route('admin.pages.create') }}" class="btn btn-success">Add page</a>
+            <div class="ibox-title">Pages</div>
+            @if($type != 'statics')
+            <a href="{{ route('admin.pages.create', $type) }}" class="btn btn-success">Add page</a>
+            @endif
         </div>
         <div class="ibox-body">
             <div class="table-responsive">

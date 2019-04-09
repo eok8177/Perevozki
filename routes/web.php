@@ -19,18 +19,22 @@
 
 Auth::routes();
 
-Route::namespace('Admin')
-    ->prefix('admin')
-    ->name('admin.')
-   // ->middleware('auth')
-    ->group(function () {
+Route::group([
+    'as' => 'admin.', 
+    // 'middleware' => 'auth',
+    'namespace' => 'Admin', 
+    'prefix' => 'admin'], function() {
+
         // Dashboard
         Route::get('/', 'DashboardController@index')->name('dashboard');
 
 //         Pages
         Route::get('/pages/{type}', 'PagesController@index');
-        Route::post('/pages/create/{type}', ['as' => 'pages.create', 'uses' => 'PagesController@create']);
-        Route::put('/pages/{id}/edit', ['as' => 'pages.edit', 'uses' => 'PagesController@edit']);
+        Route::get('/pages', 'PagesController@index');
+        Route::get('/pages/create/{type}', ['as' => 'pages.create', 'uses' => 'PagesController@create']);
+        Route::post('/pages/store', ['as' => 'pages.store', 'uses' => 'PagesController@store']);
+        Route::get('/pages/{id}/edit', ['as' => 'pages.edit', 'uses' => 'PagesController@edit']);
+        Route::put('/pages/{id}', ['as' => 'pages.update', 'uses' => 'PagesController@update']);
         Route::get('/pages/{id}/delete', ['as' => 'pages.delete', 'uses' => 'PagesController@delete']);
         // Route::resource('/pages', 'PagesController');
 

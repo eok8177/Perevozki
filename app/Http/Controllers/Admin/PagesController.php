@@ -17,7 +17,7 @@ class PagesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request, $slug)
+    public function index(Request $request, $type = 'statics')
     {
 
         if ($request->get('search')) {
@@ -25,10 +25,11 @@ class PagesController extends Controller
                 ->orderBy('id', 'asc');
 
         } else {
-            $pages = Page::where('type', $slug)->orderBy('id', 'desc');
+            $pages = Page::where('type', $type)->orderBy('id', 'desc');
         }
         return view('backend.pages.index', [
-            'pages' => $pages->paginate(10)
+            'pages' => $pages->paginate(10),
+            'type' => $type
         ]);
     }
 
@@ -37,16 +38,14 @@ class PagesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($slug)
+    public function create($type = 'statics')
     {
-        dd($slug);
         $page = new Page;
-        $page->type = $slug;
-        $page->save();
+        $page = $page->forAdmin();
+        $page['page']->type = $type;
         return view('backend.pages.create', [
-            'form' => 'backend.pages.create_'.$slug,
-            'page'     => $page->forAdmin()['page'],
-            'contents' => $page->forAdmin()['contents'],
+            'page'     => $page['page'],
+            'contents' => $page['contents'],
             'language' => Language::where('status', '1')->get()
         ]);
     }
@@ -110,7 +109,6 @@ class PagesController extends Controller
     public function edit($id)
     {
         $page = Page::find($id)->forAdmin();
-        // dd($page);
 
         if ($page) {
             return view('backend.pages.edit', [

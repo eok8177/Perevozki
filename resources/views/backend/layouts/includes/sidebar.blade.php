@@ -14,9 +14,21 @@
         </li>
         <li class="heading">Menu</li>
         <li>
-            <a href="/admin/pages">
+            <a href="/admin/pages/statics">
                 <i class="sidebar-item-icon fa fa-smile-o"></i>
-                <span class="nav-label">Pages</span>
+                <span class="nav-label">Страницы</span>
+            </a>
+        </li>
+        <li>
+            <a href="/admin/pages/services">
+                <i class="sidebar-item-icon fa fa-smile-o"></i>
+                <span class="nav-label">Услуги</span>
+            </a>
+        </li>
+        <li>
+            <a href="/admin/pages/cars">
+                <i class="sidebar-item-icon fa fa-smile-o"></i>
+                <span class="nav-label">Машины</span>
             </a>
         </li>
         <li>
