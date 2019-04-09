@@ -28,7 +28,11 @@ Route::namespace('Admin')
         Route::get('/', 'DashboardController@index')->name('dashboard');
 
 //         Pages
-        Route::resource('/pages', 'PagesController');
+        Route::get('/pages/{type}', 'PagesController@index');
+        Route::post('/pages/create/{type}', ['as' => 'pages.create', 'uses' => 'PagesController@create']);
+        Route::put('/pages/{id}/edit', ['as' => 'pages.edit', 'uses' => 'PagesController@edit']);
+        Route::get('/pages/{id}/delete', ['as' => 'pages.delete', 'uses' => 'PagesController@delete']);
+        // Route::resource('/pages', 'PagesController');
 
 //         Categories
         Route::resource('/categories', 'CategoriesController');

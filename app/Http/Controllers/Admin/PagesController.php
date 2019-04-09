@@ -17,7 +17,7 @@ class PagesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index(Request $request, $slug)
     {
 
         if ($request->get('search')) {
@@ -25,7 +25,7 @@ class PagesController extends Controller
                 ->orderBy('id', 'asc');
 
         } else {
-            $pages = Page::orderBy('id', 'desc');
+            $pages = Page::where('type', $slug)->orderBy('id', 'desc');
         }
         return view('backend.pages.index', [
             'pages' => $pages->paginate(10)
@@ -37,10 +37,14 @@ class PagesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($slug)
     {
+        dd($slug);
         $page = new Page;
+        $page->type = $slug;
+        $page->save();
         return view('backend.pages.create', [
+            'form' => 'backend.pages.create_'.$slug,
             'page'     => $page->forAdmin()['page'],
             'contents' => $page->forAdmin()['contents'],
             'language' => Language::where('status', '1')->get()
