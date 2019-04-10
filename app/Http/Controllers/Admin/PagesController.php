@@ -75,6 +75,9 @@ class PagesController extends Controller
             $page_translate->title = $request->$locale['title'];
             $page_translate->h1 = $request->$locale['h1'];
             $page_translate->description = $request->$locale['description'];
+            if (array_key_exists('j_data', $request->$locale)) {
+                $page_translate->j_data = $request->$locale['j_data'];
+            }
             $page_translate->meta_description = $request->$locale['meta_description'];
             $page_translate->meta_title = $request->$locale['meta_title'];
             $page_translate->meta_keywords = $request->$locale['meta_keywords'];
@@ -130,7 +133,7 @@ class PagesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // dd($request);
+        // dd($request->all());
         $page = Page::find($id);
 
         if ($page) {
@@ -156,6 +159,9 @@ class PagesController extends Controller
                 $page_translate->title = $request->$locale['title'];
                 $page_translate->h1 = $request->$locale['h1'];
                 $page_translate->description = $request->$locale['description'];
+                if (array_key_exists('j_data', $request->$locale)) {
+                    $page_translate->j_data = $request->$locale['j_data'];
+                }
                 $page_translate->meta_description = $request->$locale['meta_description'];
                 $page_translate->meta_title = $request->$locale['meta_title'];
                 $page_translate->meta_keywords = $request->$locale['meta_keywords'];

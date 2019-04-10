@@ -20,9 +20,9 @@
 Auth::routes();
 
 Route::group([
-    'as' => 'admin.', 
+    'as' => 'admin.',
     // 'middleware' => 'auth',
-    'namespace' => 'Admin', 
+    'namespace' => 'Admin',
     'prefix' => 'admin'], function() {
 
         // Dashboard
@@ -46,6 +46,9 @@ Route::group([
 
 //         Posts
         Route::resource('/posts', 'PostsController');
+
+//         Posts
+        Route::resource('/reviews', 'ReviewsController');
 
 //         Users
         Route::resource('/users', 'UsersController');

@@ -32,6 +32,12 @@
             </a>
         </li>
         <li>
+            <a href="/admin/reviews">
+                <i class="sidebar-item-icon fa fa-smile-o"></i>
+                <span class="nav-label">Reviews</span>
+            </a>
+        </li>
+        <li>
             <a href="javascript:;">
                 <i class="sidebar-item-icon fa fa-archive"></i>
                 <span class="nav-label">Catalog</span><i class="fa fa-angle-left arrow"></i>
