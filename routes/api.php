@@ -25,8 +25,10 @@ Route::group(['namespace' => 'Api'], function() {
 
     Route::post('/call',  ['uses' => 'MessageController@call']);
 
-
     Route::get('/tips',  ['uses' => 'PostController@index']);
     Route::get('/tip/{slug}',  ['uses' => 'PostController@post']);
+
+    Route::get('/reviews',  ['uses' => 'ReviewController@index']);
+    Route::post('/review',  ['uses' => 'ReviewController@addReview']);
 
 });

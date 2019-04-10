@@ -54,6 +54,11 @@ $(document).ready(function () {
         $('body .review__form').toggle();
     })
 
+    $('body').on('submit','#reviewForm',function (e) {
+        $('body .overlay').toggle();
+        $('body .review__form').toggle();
+    })
+
 
 
     /* 1. Visualizing things on Hover - See next part for action on click */
