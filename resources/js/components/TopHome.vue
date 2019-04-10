@@ -28,6 +28,7 @@
       <ul class="main__nav">
         <li class="main__nav-item"><a href="#" class="main__nav-link main__nav--active only-mobile">Грузоперевозки</a></li>
         <div class="mobile_wrap">
+          <li class="main__nav-item nav-link"><router-link to="/" exact class="main__nav-link" active-class="main__nav--active">Грузоперевозки</router-link></li>
           <li v-for="item in pages" class="main__nav-item nav-link">
             <router-link :to="'/page/'+item.slug" exact class="main__nav-link" active-class="main__nav--active">{{item.title}}</router-link>
           </li>

@@ -59,7 +59,22 @@
                     </textarea>
                 </div>
                 <div class="review__form-star">
-                    <img src="img/star.svg" alt="">
+                    <div id="reviewStars-input">
+                        <input id="star-4" type="radio" name="reviewStars"/>
+                        <label title="gorgeous" for="star-4"></label>
+
+                        <input id="star-3" type="radio" name="reviewStars"/>
+                        <label title="good" for="star-3"></label>
+
+                        <input id="star-2" type="radio" name="reviewStars"/>
+                        <label title="regular" for="star-2"></label>
+
+                        <input id="star-1" type="radio" name="reviewStars"/>
+                        <label title="poor" for="star-1"></label>
+
+                        <input id="star-0" type="radio" name="reviewStars"/>
+                        <label title="bad" for="star-0"></label>
+                    </div>
                 </div>
                 <div class="button-center">
                     <button class="button">Оставить отзыв</button>
