@@ -12,21 +12,19 @@
           <h1 class="tip__title">{{tip.title}}</h1>
         </div>
         <div class="tip__img">
-          <img :src="tip.img" :alt="tip.title">
+          <img :src="tip.image" :alt="tip.title">
         </div>
-        <div class="tip__text"><span v-html="tip.text"></span></div>
+        <div class="tip__text" v-html="tip.description"></div>
 
       </div>
       <aside class="tip__sidebar">
         <div class="tip__sidebar-block">
           <h3 class="tip__sidebar-title">Советы</h3>
-          <a href="#" class="tip__sidebar-link">Все советы</a>
-          <a href="#" class="tip__sidebar-link">Квартирный переезд без проблем</a>
-          <a href="#" class="tip__sidebar-link">Как подобрать автомобиль для переезда</a>
-          <a href="#" class="tip__sidebar-link">Стоимость услуг</a>
-          <a href="#" class="tip__sidebar-link">Квартирный переезд без проблем</a>
-          <a href="#" class="tip__sidebar-link">Как подобрать автомобиль для переезда</a>
-          <a href="#" class="tip__sidebar-link">Как подобрать автомобиль для переезда</a>
+          <router-link to="/tips" class="tip__sidebar-link">Все советы</router-link>
+          <template v-for="item in tips">
+            <router-link :to="'/tip/'+item.slug" class="tip__sidebar-link">{{item.title}}</router-link>
+          </template>
+
         </div>
         <div class="tip__sidebar-block">
           <h3 class="tip__sidebar-title">Архив</h3>
@@ -38,19 +36,10 @@
     <div class="tip__bottom wrapper">
       <h3 class="tip__bottom-title">Вам будет интересно</h3>
       <div class="tip__bottom-articles">
-        <div class="tip__bottom-item tip__bottom--1">
-          <h3 class="bottom-item__title">Стоимость услуг</h3>
-          <p class="bottom-item__text">Стоимость услуг по перевозке – один из важнейших параметров для наших
-            клиентов,
-          и в этом нам нет равных.</p>
-          <router-link :to="{ name: 'Tip', params: { id: 0 }}" class="button">Читать</router-link>
-        </div>
-        <div class="tip__bottom-item tip__bottom--2">
-          <h3 class="bottom-item__title">Стоимость услуг</h3>
-          <p class="bottom-item__text">Стоимость услуг по перевозке – один из важнейших параметров для наших
-            клиентов,
-          и в этом нам нет равных.</p>
-          <router-link :to="{ name: 'Tip', params: { id: 1 }}" class="button">Читать</router-link>
+        <div v-for="(item, index) in tips.slice(0, 2)" class="tip__bottom-item" :class="'tip__bottom--'+(index+1)">
+          <h3 class="bottom-item__title">{{item.title}}</h3>
+          <p class="bottom-item__text" v-html="item.text"></p>
+          <router-link :to="'/tip/'+item.slug" class="button">Читать</router-link>
         </div>
       </div>
 
@@ -65,7 +54,8 @@
     name: 'Tip',
     data() {
       return {
-        tip: []
+        tip: [],
+        tips: []
       }
     },
     methods: {
@@ -88,6 +78,15 @@
     },
     created: function() {
       this.getContent(this.$route.params.slug);
+      axios.get('/api/tips')
+          .then(
+              (response) => {
+                  this.tips = response.data;
+              }
+          )
+          .catch(
+              (error) => console.log(error)
+          );
     },
 
     beforeRouteUpdate (to, from, next) {

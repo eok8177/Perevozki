@@ -6,14 +6,14 @@
                 грузов. У нас Вы можете срочно и по низкой цене вызвать специалистов на следующих автомобилях:</p>
 
             <ul class="tips">
-                <li v-for="tip,id in tips" class="tips__item">
+                <li v-for="tip in tips" class="tips__item">
                     <div class="tips__item-img">
-                        <img :src="tip.img" alt="">
+                        <img :src="tip.image" alt="">
                     </div>
                     <div class="tips__content">
                         <h3 class="tips__item-title">{{tip.title}}</h3>
-                        <p class="tips__item-text">{{tip.text}}</p>
-                        <router-link :to="'/tip/'+id" class="button">Читать</router-link>
+                        <p class="tips__item-text" v-html="tip.text"></p>
+                        <router-link :to="'/tip/'+tip.slug" class="button">Читать</router-link>
                     </div>
 
                 </li>

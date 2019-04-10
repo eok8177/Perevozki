@@ -26,13 +26,7 @@ Route::group(['namespace' => 'Api'], function() {
     Route::post('/call',  ['uses' => 'MessageController@call']);
 
 
-    Route::get('/tips',  ['uses' => 'TestController@tips']);
-    Route::get('/tip/{id}',  ['uses' => 'TestController@tip']);
-
-    Route::get('/menuPages',  ['uses' => 'TestController@menuPages']);
-
-
-    Route::get('/buses',  ['uses' => 'TestController@buses']);
-
+    Route::get('/tips',  ['uses' => 'PostController@index']);
+    Route::get('/tip/{slug}',  ['uses' => 'PostController@post']);
 
 });
