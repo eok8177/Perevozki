@@ -32,6 +32,17 @@ export default {
           {name:'Фокс Малдер',img:'img/review3.png',text:'Якщо, Вам потрібно перевезти великий обсяг вантажу і серед предметів є високі і довгі елементи, то цей тариф буде найоптимальнішим.'},
         ]
     }
-  }
+  },
+  metaInfo() {
+    return {
+      title: 'Korona',
+      meta: [
+        { vmid: 'keywords', name: 'keywords', content: 'Korona'},
+        { vmid: 'description', name: 'description', content: 'Korona'},
+        { vmid: 'og:title', property: 'og:title', content: 'Korona'},
+        { vmid: 'og:description', property: 'og:description', content: 'Korona'}
+      ]
+    }
+  },
 }
 </script>

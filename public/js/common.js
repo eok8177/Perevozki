@@ -1,6 +1,6 @@
 $(document).ready(function () {
     //close mobile menu when click on link
-    $('body').on('click','.header__navigation',function (e) {
+    $('body').on('click','.header__navigation, .navigation__hidden',function (e) {
         $('body .header__wrapper').toggleClass('open_menu');
         $('body .open').toggleClass('close_menu');
         $('body .header__block').toggleClass('flex');
@@ -15,12 +15,19 @@ $(document).ready(function () {
         $('body .page-header').toggleClass('zindex');
     });
 
-    //mobile services menu
-    $('body').on('click','.main__nav--active.only-mobile',function (e) {
-        e.preventDefault();
-        $('body .mobile_wrap').toggle();
-        $('body .main__nav--active').toggleClass('main__nav--open');
-    });
+    if ($(window).width() <= '1150'){
+        //mobile services menu
+        $('body').on('click','.main__nav--active.only-mobile',function (e) {
+            e.preventDefault();
+            $('body .mobile_wrap').toggle();
+            $('body .main__nav--active').toggleClass('main__nav--open');
+        });
+        $('body').on('click','.close-main-menu',function () {
+            $('body .mobile_wrap').toggle();
+            $('body .main__nav--active').toggleClass('main__nav--open');
+        });
+    }
+
 
     if ($(window).width() <= '800'){
         $('body .reviews__items').slick({
@@ -47,13 +54,13 @@ $(document).ready(function () {
         $('body .overlay').toggle();
         $('body .review__form').toggle();
     });
-
+    //close popup review
     $('body').on('click','.review__form-close',function (e) {
         e.preventDefault();
         $('body .overlay').toggle();
         $('body .review__form').toggle();
     })
-
+    //close popup review after send form
     $('body').on('submit','#reviewForm',function (e) {
         $('body .overlay').toggle();
         $('body .review__form').toggle();

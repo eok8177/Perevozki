@@ -45,5 +45,16 @@ export default {
               (error) => console.log(error)
           );
   },
+  metaInfo() {
+    return {
+      title: 'Советы',
+      meta: [
+        { vmid: 'keywords', name: 'keywords', content: 'Советы'},
+        { vmid: 'description', name: 'description', content: 'Советы'},
+        { vmid: 'og:title', property: 'og:title', content: 'Советы'},
+        { vmid: 'og:description', property: 'og:description', content: 'Советы'}
+      ]
+    }
+  },
 }
 </script>

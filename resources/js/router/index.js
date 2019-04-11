@@ -21,7 +21,7 @@ const routes = [
   {path: '/tips', name: 'Tips', component: Tips},
   {path: '/tip/:slug', name: 'Tip', component: Tip, props: true},
   {path: '/bus/:slug', name: 'Bus', component: Bus, props: true},
-  {path: '/page/:slug', name: 'Page', component: Page, props: true},
+  {path: '/:slug', name: 'Page', component: Page, props: true},
 
   { path: '*', redirect: '/404', hidden: true }
 ]

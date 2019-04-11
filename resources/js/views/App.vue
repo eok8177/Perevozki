@@ -2,7 +2,7 @@
   <div id="app">
 
     <top-home v-if="home" :menuPages="menuPages"></top-home>
-    <top v-else :menuPages="menuPages"></top>
+    <top v-else :menuPages="menuPages" :headerClass="headerClass"></top>
 
     <router-view></router-view>
 
@@ -30,6 +30,7 @@ export default {
   data() {
     return {
       home: false,
+      headerClass: false,
       menuPages: []
     }
   },

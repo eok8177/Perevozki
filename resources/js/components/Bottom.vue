@@ -29,7 +29,7 @@
           <div v-show="status">
             <p>{{message}}</p>
           </div>
-          <button :disabled="status" class="button form-button">Заказать звонок</button>
+          <button :disabled="status" class="button form-button">Отправить</button>
         </form>
         <div class="footer__info">
           <p class="footer__info-title">Краун Карс<br>

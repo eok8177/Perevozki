@@ -139,7 +139,18 @@ export default {
         (error) => console.log(error)
       );
     }
-  }
+  },
+  metaInfo() {
+    return {
+      title: 'Отзывы',
+      meta: [
+        { vmid: 'keywords', name: 'keywords', content: 'Отзывы'},
+        { vmid: 'description', name: 'description', content: 'Отзывы'},
+        { vmid: 'og:title', property: 'og:title', content: 'Отзывы'},
+        { vmid: 'og:description', property: 'og:description', content: 'Отзывы'}
+      ]
+    }
+  },
 }
 </script>
 

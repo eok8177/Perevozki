@@ -10,7 +10,7 @@
           <router-link to="/" class="footer__hidden-link" active-class="footer__hidden--active">Главная</router-link>
 
           <template v-for="item in pages">
-            <router-link :to="'/page/'+item.slug" exact class="footer__hidden-link" active-class="footer__hidden--active">{{item.title}}</router-link>
+            <router-link :to="'/'+item.slug" exact class="footer__hidden-link" active-class="footer__hidden--active">{{item.title}}</router-link>
           </template>
 
           <router-link to="/avtopark" class="footer__hidden-link" active-class="footer__hidden--active">Автопарк</router-link>

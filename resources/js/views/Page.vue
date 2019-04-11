@@ -34,6 +34,17 @@ export default {
         ]
     }
   },
+  metaInfo() {
+    return {
+      title: this.pageVal.meta_title,
+      meta: [
+        { vmid: 'keywords', name: 'keywords', content: this.pageVal.meta_keywords},
+        { vmid: 'description', name: 'description', content: this.pageVal.meta_description},
+        { vmid: 'og:title', property: 'og:title', content: this.pageVal.og_title},
+        { vmid: 'og:description', property: 'og:description', content: this.pageVal.og_description}
+      ]
+    }
+  },
   methods: {
     getContent (slug) {
       axios.get('/api/page/'+slug)
