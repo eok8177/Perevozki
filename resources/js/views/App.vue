@@ -1,7 +1,7 @@
 <template>
   <div id="app">
 
-    <top-home v-if="home" :menuPages="menuPages"></top-home>
+    <top-home v-if="home" :menuPages="menuPages" :titleService="titleService" :priceService="priceService"></top-home>
     <top v-else :menuPages="menuPages" :headerClass="headerClass"></top>
 
     <router-view></router-view>
@@ -31,7 +31,9 @@ export default {
     return {
       home: false,
       headerClass: false,
-      menuPages: []
+      menuPages: [],
+      titleService: false,
+      priceService: false,
     }
   },
   created: function() {

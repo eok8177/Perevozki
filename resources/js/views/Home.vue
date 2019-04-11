@@ -21,7 +21,11 @@ export default {
     Advantages,
     Reviews
   },
-  created() {this.$parent.home = true},
+  created() {
+    this.$parent.home = true;
+    this.$parent.titleService = 'Грузоперевозки';
+    this.$parent.priceService = '400 грн/год.';
+  },
   mounted() {this.$parent.home = true},
   destroyed() {this.$parent.home = false},
   data() {

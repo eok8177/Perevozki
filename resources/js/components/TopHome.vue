@@ -43,8 +43,8 @@
         </template>
       </div>
       <div class="header__sticker">
-        <h2 class="header__sticker-title">Грузоперевозки</h2>
-        <span class="header__sticker-price">400 грн/год.</span>
+        <h2 class="header__sticker-title">{{title}}</h2>
+        <span class="header__sticker-price">{{price}}</span>
         <a href="#callFrom" class="button">Заказать звонок</a>
       </div>
     </div>
@@ -56,17 +56,19 @@
 
   export default {
     name: 'TopHome',
-    props: ['menuPages'],
+    props: ['menuPages','titleService','priceService'],
     data() {
       return {
         cars: [],
-        pages: this.menuPages
+        pages: this.menuPages,
+        title: this.titleService,
+        price: this.priceService
       }
     },
     watch: {
-      menuPages: function (newVal) {
-        this.pages = newVal
-      }
+      menuPages: function (newVal) {this.pages = newVal},
+      titleService: function (newVal) {this.title = newVal},
+      priceService: function (newVal) {this.price = newVal}
     },
     created: function() {
       axios.get('/api/cars/')

@@ -26,7 +26,11 @@ export default {
   destroyed() {this.$parent.home = false},
   data() {
     return {
-        pageVal: [],
+        pageVal: {
+          j_data: {
+            price: []
+          }
+        },
         reviews: [
           {name:'Джон Сноу',img:'img/review1.png',text:'Якщо, Вам потрібно перевезти великий обсяг вантажу і серед предметів є високі і довгі елементи, то цей тариф буде найоптимальнішим.'},
           {name:'Ванесса Парадиз',img:'img/review2.png',text:'Якщо, Вам потрібно перевезти великий обсяг вантажу і серед предметів є високі і довгі елементи, то цей тариф буде найоптимальнішим.'},
@@ -51,6 +55,8 @@ export default {
       .then(
         (response) => {
           this.pageVal = response.data;
+          this.$parent.titleService = this.pageVal.title;
+          this.$parent.priceService = this.pageVal.j_data.price.value;
         }
       )
       .catch(
