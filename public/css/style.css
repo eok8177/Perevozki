@@ -2299,7 +2299,7 @@ img {
     background: none;
     position: relative;
     z-index: 115;
-    padding-top: 0;
+    padding-top: 30px;
   }
   .about__header {
     background: url(../img/about.svg) no-repeat;
