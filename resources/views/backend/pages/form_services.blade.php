@@ -93,6 +93,12 @@
                       </span>
                   @endif
               </div>
+
+              <div class="form-group">
+                <input type="hidden" name="{{$lang->locale}}[j_data][price][label]" value="Цена">
+                <label>Цена</label>
+                <input type="text" name="{{$lang->locale}}[j_data][price][value]" value="{{$contents[$lang->locale]->j_data['price']['value']}}" class="form-control">
+              </div>
             </div>
             <div class="col-md-6">
               <div class="form-group">
