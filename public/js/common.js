@@ -43,6 +43,11 @@ $(document).ready(function () {
         e.preventDefault();
         $('.overlay').toggle();
         $('.review__form').toggle();
+    });
+
+    $('.navigation__call').click(function (e) {
+        e.preventDefault();
+        $('.open').toggleClass('close_menu');
     })
 
 
