@@ -15,7 +15,7 @@ class PostController extends Controller
     {
         $lang = Language::where('status', 1)->first();
 
-        $posts = Post::with('contents')->where('status', 1)->orderBy('id', 'asc')->get();
+        $posts = Post::with('contents')->where('status', 1)->orderBy('id', 'desc')->get();
 
         if(!$posts)
             return response()->json(['error'=> 'not found any post'], 400);

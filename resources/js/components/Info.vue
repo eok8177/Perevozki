@@ -1,7 +1,6 @@
 <template>
   <div class="info">
-    <div class="wrapper info__wrapper" v-html="page.description">
-    </div>
+    <div class="wrapper info__wrapper" v-html="page.description"></div>
   </div>
 </template>
 

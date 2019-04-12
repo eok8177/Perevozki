@@ -62,8 +62,10 @@ $(document).ready(function () {
     })
     //close popup review after send form
     $('body').on('submit','#reviewForm',function (e) {
-        $('body .overlay').toggle();
-        $('body .review__form').toggle();
+        setTimeout(function(){
+            $('body .overlay').toggle();
+            $('body .review__form').toggle();
+        }, 3000);
     })
 
 

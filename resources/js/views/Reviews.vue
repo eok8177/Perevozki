@@ -8,7 +8,13 @@
                 <a href="#" class="button " id="review-btn">Добавить отзыв</a>
             </div>
             <ul class="reviews-big">
-                <li v-for="review in reviews" class="reviews-big__item">
+
+              <paginate
+                name="paginate"
+                :list="reviews"
+                :per="5"
+              >
+                <li v-for="review in paginated('paginate')" class="reviews-big__item">
                     <div class="reviews-big__img">
                         <img :src="review.image" alt="">
                     </div>
@@ -21,15 +27,17 @@
                         </div>
                     </div>
                 </li>
+              </paginate>
             </ul>
-            <ul class="breadcrumbs">
-                <li class="breadcrumbs__item "><a href="#" class="breadcrumbs__link breadcrumbs--active">1</a></li>
-                <li class="breadcrumbs__item"><a href="#" class="breadcrumbs__link">2</a></li>
-                <li class="breadcrumbs__item"><a href="#" class="breadcrumbs__link">3</a></li>
-                <li class="breadcrumbs__item"><a href="#" class="breadcrumbs__link">4</a></li>
-                <li class="breadcrumbs__item">...</li>
-                <li class="breadcrumbs__item"><a href="#" class="breadcrumbs__link">10</a></li>
-            </ul>
+
+            <paginate-links
+              for="paginate"
+              :classes="{
+                'ul': 'breadcrumbs',
+                'li': 'breadcrumbs__item',
+                'a': 'breadcrumbs__link'
+              }"
+            ></paginate-links>
         </div>
 
 
@@ -71,6 +79,7 @@
                         <label title="bad" for="star-0"></label>
                     </div>
                 </div>
+                <div v-show="status" style="text-align: center;padding-bottom: 14px;"><p>{{message}}</p></div>
                 <div class="button-center">
                     <button type="submit" class="button">Оставить отзыв</button>
                 </div>
@@ -90,6 +99,7 @@ export default {
   data() {
     return {
         reviews: [],
+        paginate: ['paginate'],
         rev: {
           title: null,
           type: null,

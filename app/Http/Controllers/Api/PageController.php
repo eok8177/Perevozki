@@ -15,7 +15,12 @@ class PageController extends Controller
     {
         $lang = Language::where('status', 1)->first();
 
-        $pages = Page::with('contents')->where('status', 1)->where('type', 'services')->orderBy('id', 'asc')->get();
+        $pages = Page::with('contents')
+            ->where('status', 1)
+            ->where('type', 'services')
+            ->where('slug', '!=', 'home')
+            ->orderBy('id', 'asc')
+            ->get();
 
         if(!$pages)
             return response()->json(['error'=> 'not found any page'], 400);

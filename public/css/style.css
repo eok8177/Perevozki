@@ -1200,6 +1200,9 @@ img {
     width: 100%;
   }
 }
+.info__hide {
+  display: none;
+}
 .advantages {
   position: relative;
 }
@@ -1531,8 +1534,9 @@ img {
   color: #5791FC;
   opacity: 0.5;
   text-decoration: none;
+  cursor: pointer;
 }
-.breadcrumbs--active {
+.breadcrumbs__item.active a {
   opacity: 1;
 }
 .reviews-page {
@@ -1761,6 +1765,25 @@ img {
           justify-content: center;
   margin-bottom: 20px;
 }
+.review__form-checkbox {
+  position: relative;
+  width: 28px;
+  height: 28px;
+  margin-right: 5px;
+  background: none;
+  outline: none;
+  border: none;
+}
+.review__form-checkbox::before {
+  content: '';
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  border: none;
+  display: block;
+  outline: none;
+  background: url(../img/starNo.svg) no-repeat center;
+}
 @media (max-width: 850px) {
   .review__form {
     top: 350px;
@@ -1785,6 +1808,67 @@ img {
     font-size: 20px;
     margin-bottom: 20px;
   }
+}
+.new-react-version {
+  padding: 20px 20px;
+  border: 1px solid #eee;
+  -webkit-border-radius: 20px;
+          border-radius: 20px;
+  -webkit-box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+          box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.7;
+}
+.new-react-version .react-svg-logo {
+  text-align: center;
+  max-width: 60px;
+  margin: 20px auto;
+  margin-top: 0;
+}
+/*sprite with stars*/
+#reviewStars-input input:checked ~ label,
+#reviewStars-input label,
+#reviewStars-input label:hover,
+#reviewStars-input label:hover ~ label {
+  background: url(../img/starNo.svg) no-repeat;
+}
+#reviewStars-input {
+  /*fix floating problems*/
+  overflow: hidden;
+  *zoom: 1;
+  /*end of fix floating problems*/
+  position: relative;
+  float: left;
+}
+#reviewStars-input input {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  background: url(../img/starNo.svg) no-repeat;
+  opacity: 0;
+  width: 28px;
+  height: 26px;
+  position: absolute;
+  top: 0;
+  z-index: 0;
+}
+#reviewStars-input input:checked ~ label {
+  background: url(../img/star.svg) no-repeat;
+  width: 28px;
+  height: 26px;
+}
+#reviewStars-input label {
+  width: 28px;
+  height: 26px;
+  float: right;
+  cursor: pointer;
+  margin-right: 10px;
+  position: relative;
+  z-index: 1;
+}
+#reviewStars-input label:hover,
+#reviewStars-input label:hover ~ label {
+  width: 28px;
+  height: 26px;
 }
 .footer {
   padding-top: 100px;
@@ -1918,13 +2002,14 @@ img {
   text-decoration: none;
 }
 .under-footer__link {
-  padding: 3px;
+  padding: 3px 10px;
   border: 2px solid #fff;
   text-decoration: none;
   -webkit-border-radius: 15px;
   border-radius: 15px;
   color: white;
   margin-right: 10px;
+  margin-bottom: 10px;
 }
 .under-footer__link:last-of-type {
   margin-right: 0;
