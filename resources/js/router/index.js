@@ -11,10 +11,12 @@ import Tips from '@/views/Tips'
 import Tip from '@/views/Tip'
 import Bus from '@/views/Bus'
 import Page from '@/views/Page'
+import ErrorPage from '@/views/ErrorPage'
 
 const routes = [
 
   {path: '/', name: 'Home', component: Home},
+  {path: '/404', name: '404', component: ErrorPage},
   {path: '/avtopark', name: 'Avtopark', component: Avtopark},
   {path: '/about-us', name: 'About', component: About},
   {path: '/reviews', name: 'Reviews', component: Reviews},
