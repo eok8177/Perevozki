@@ -70,11 +70,14 @@
       <div class="tab-content">
 
       @foreach ($language as $lang)
+        @php
+        $loc = $lang->locale;
+        @endphp
 
         <div class="tab-pane fade {{ $loop->first ? 'show active' : '' }}" id="lang_{{ $lang->id }}">
 
           <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-6 mb-5">
               <div class="form-group">
                   {{ Form::label('title', 'Title '.$lang->locale) }}
                   {{ Form::text($lang->locale.'[title]', $contents[$lang->locale]->title, ['class' => $errors->has('title') ? 'form-control is-invalid' : 'form-control']) }}
@@ -94,7 +97,7 @@
                   @endif
               </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 mb-5">
               <div class="form-group">
                   {{ Form::label('description', 'Description '.$lang->locale) }}
                   {{ Form::textarea($lang->locale.'[description]', $contents[$lang->locale]->description, ['class' => $errors->has('description') ? 'form-control is-invalid summernote' : 'form-control summernote', 'rows' => 10]) }}
@@ -105,6 +108,75 @@
                   @endif
               </div>
             </div>
+
+            <div class="col-md-6 mb-5">
+              <div class="form-group">
+                <input type="hidden" name="{{$loc}}[j_data][main][width][label]" value="Ширина">
+                <label>Ширина</label>
+                <input type="text" name="{{$loc}}[j_data][main][width][value]" value="{{$contents[$loc]->j_data['main']['width']['value']}}" class="form-control">
+              </div>
+              <div class="form-group">
+                <input type="hidden" name="{{$loc}}[j_data][main][height][label]" value="Высота">
+                <label>Высота</label>
+                <input type="text" name="{{$loc}}[j_data][main][height][value]" value="{{$contents[$loc]->j_data['main']['height']['value']}}" class="form-control">
+              </div>
+              <div class="form-group">
+                <input type="hidden" name="{{$loc}}[j_data][main][lenght][label]" value="Длина">
+                <label>Длина</label>
+                <input type="text" name="{{$loc}}[j_data][main][lenght][value]" value="{{$contents[$loc]->j_data['main']['lenght']['value']}}" class="form-control">
+              </div>
+              <div class="form-group">
+                <input type="hidden" name="{{$loc}}[j_data][main][volume][label]" value="Объем">
+                <label>Объем</label>
+                <input type="text" name="{{$loc}}[j_data][main][volume][value]" value="{{$contents[$loc]->j_data['main']['volume']['value']}}" class="form-control">
+              </div>
+
+              <div class="form-group">
+                <input type="hidden" name="{{$loc}}[j_data][price][label]" value="Цена">
+                <label>Цена</label>
+                <input type="text" name="{{$loc}}[j_data][price][value]" value="{{$contents[$loc]->j_data['price']['value']}}" class="form-control">
+              </div>
+              <div class="form-group">
+                <input type="hidden" name="{{$loc}}[j_data][info][label]" value="След цена">
+                <label>След цена</label>
+                <input type="text" name="{{$loc}}[j_data][info][value]" value="{{$contents[$loc]->j_data['info']['value']}}" class="form-control">
+              </div>
+            </div>
+
+            <div class="col-md-6 mb-5">
+              <div class="form-group">
+                <input type="hidden" name="{{$loc}}[j_data][addinfo][01][label]" value="Миним. заказ ( до 5 км )">
+                <label>Миним. заказ ( до 5 км )</label>
+                <input type="text" name="{{$loc}}[j_data][addinfo][01][value]" value="{{$contents[$loc]->j_data['addinfo']['01']['value']}}" class="form-control">
+              </div>
+              <div class="form-group">
+                <input type="hidden" name="{{$loc}}[j_data][addinfo][02][label]" value="После 5 км по Киеву">
+                <label>После 5 км по Киеву</label>
+                <input type="text" name="{{$loc}}[j_data][addinfo][02][value]" value="{{$contents[$loc]->j_data['addinfo']['02']['value']}}" class="form-control">
+              </div>
+              <div class="form-group">
+                <input type="hidden" name="{{$loc}}[j_data][addinfo][03][label]" value="Подача">
+                <label>Подача</label>
+                <input type="text" name="{{$loc}}[j_data][addinfo][03][value]" value="{{$contents[$loc]->j_data['addinfo']['03']['value']}}" class="form-control">
+              </div>
+              <div class="form-group">
+                <input type="hidden" name="{{$loc}}[j_data][addinfo][04][label]" value="За городом">
+                <label>За городом</label>
+                <input type="text" name="{{$loc}}[j_data][addinfo][04][value]" value="{{$contents[$loc]->j_data['addinfo']['04']['value']}}" class="form-control">
+              </div>
+              <div class="form-group">
+                <input type="hidden" name="{{$loc}}[j_data][addinfo][05][label]" value="Стоимость за час">
+                <label>Стоимость за час</label>
+                <input type="text" name="{{$loc}}[j_data][addinfo][05][value]" value="{{$contents[$loc]->j_data['addinfo']['05']['value']}}" class="form-control">
+              </div>
+              <div class="form-group">
+                <input type="hidden" name="{{$loc}}[j_data][addinfo][06][label]" value="Работа в вечернее время с 18-00">
+                <label>Работа в вечернее время с 18-00</label>
+                <input type="text" name="{{$loc}}[j_data][addinfo][06][value]" value="{{$contents[$loc]->j_data['addinfo']['06']['value']}}" class="form-control">
+              </div>
+            </div>
+
+
             <div class="col-md-6">
               <div class="form-group">
                   {{ Form::label('meta_title', 'Meta title '.$lang->locale) }}

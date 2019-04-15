@@ -20,6 +20,7 @@ class CreatePageTranslationsTable extends Migration
             $table->string('title');
             $table->string('h1');
             $table->text('description');
+            $table->json('j_data');
             $table->text('meta_description');
             $table->string('meta_title');
             $table->string('meta_keywords');

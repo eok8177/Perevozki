@@ -17,7 +17,7 @@ class PagesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index(Request $request, $type = 'statics')
     {
 
         if ($request->get('search')) {
@@ -25,10 +25,13 @@ class PagesController extends Controller
                 ->orderBy('id', 'asc');
 
         } else {
-            $pages = Page::orderBy('id', 'desc');
+            $pages = Page::where('type', $type)->orderBy('id', 'desc');
         }
+
         return view('backend.pages.index', [
-            'pages' => $pages->paginate(10)
+            'pages' => $pages->paginate(10),
+            'type' => $type,
+            'app_locale' => env('APP_LOCALE', 'en')
         ]);
     }
 
@@ -37,12 +40,14 @@ class PagesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($type = 'statics')
     {
         $page = new Page;
+        $page = $page->forAdmin();
+        $page['page']->type = $type;
         return view('backend.pages.create', [
-            'page'     => $page->forAdmin()['page'],
-            'contents' => $page->forAdmin()['contents'],
+            'page'     => $page['page'],
+            'contents' => $page['contents'],
             'language' => Language::where('status', '1')->get()
         ]);
     }
@@ -72,6 +77,9 @@ class PagesController extends Controller
             $page_translate->title = $request->$locale['title'];
             $page_translate->h1 = $request->$locale['h1'];
             $page_translate->description = $request->$locale['description'];
+            if (array_key_exists('j_data', $request->$locale)) {
+                $page_translate->j_data = $request->$locale['j_data'];
+            }
             $page_translate->meta_description = $request->$locale['meta_description'];
             $page_translate->meta_title = $request->$locale['meta_title'];
             $page_translate->meta_keywords = $request->$locale['meta_keywords'];
@@ -106,7 +114,6 @@ class PagesController extends Controller
     public function edit($id)
     {
         $page = Page::find($id)->forAdmin();
-        // dd($page);
 
         if ($page) {
             return view('backend.pages.edit', [
@@ -128,7 +135,7 @@ class PagesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // dd($request);
+        // dd($request->all());
         $page = Page::find($id);
 
         if ($page) {
@@ -154,6 +161,9 @@ class PagesController extends Controller
                 $page_translate->title = $request->$locale['title'];
                 $page_translate->h1 = $request->$locale['h1'];
                 $page_translate->description = $request->$locale['description'];
+                if (array_key_exists('j_data', $request->$locale)) {
+                    $page_translate->j_data = $request->$locale['j_data'];
+                }
                 $page_translate->meta_description = $request->$locale['meta_description'];
                 $page_translate->meta_title = $request->$locale['meta_title'];
                 $page_translate->meta_keywords = $request->$locale['meta_keywords'];

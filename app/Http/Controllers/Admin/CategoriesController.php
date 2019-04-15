@@ -29,7 +29,8 @@ class CategoriesController extends Controller
             $categories = Category::orderBy('id', 'desc');
         }
         return view('backend.categories.index', [
-            'categories' => $categories->paginate(10)
+            'categories' => $categories->paginate(10),
+            'app_locale' => env('APP_LOCALE', 'en')
         ]);
     }
 

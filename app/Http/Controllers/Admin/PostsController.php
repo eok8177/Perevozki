@@ -28,7 +28,8 @@ class PostsController extends Controller
             $posts = Post::orderBy('id', 'desc');
         }
         return view('backend.posts.index', [
-            'posts' => $posts->paginate(10)
+            'posts' => $posts->paginate(10),
+            'app_locale' => env('APP_LOCALE', 'en')
         ]);
     }
 

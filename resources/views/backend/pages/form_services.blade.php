@@ -3,19 +3,8 @@
     <div class="ibox">
       <div class="ibox-body">
         <div class="form-group">
-            {{ Form::label('category', 'Category', ['class' => 'col-sm-2 control-label']) }}
-            <div class="col-sm-10">
-                {{ Form::select('category[]', $post->categories_for_select, $post->categories, ['class' => 'selectpicker', 'multiple' => 'multiple']) }}
-                @if($errors->has('published_at'))
-                    <span class="invalid-feedback">
-                       {{ $errors->first('published_at') }}
-                    </span>
-                @endif
-            </div>
-        </div>
-        <div class="form-group">
             {{ Form::label('slug', 'Slug') }}
-            {{ Form::text('slug', $post->slug, ['class' => $errors->has('slug') ? 'form-control is-invalid' : 'form-control']) }}
+            {{ Form::text('slug', $page->slug, ['class' => $errors->has('slug') ? 'form-control is-invalid' : 'form-control']) }}
             @if($errors->has('slug'))
                 <span class="invalid-feedback">
                     {{ $errors->first('slug') }}
@@ -24,7 +13,7 @@
         </div>
         <div class="form-group">
             {{ Form::label('status', 'Status') }}
-            {{ Form::select('status', [true => 'Yes', false => 'No'], $post->status, ['class' => $errors->has('status') ? 'form-control is-invalid' : 'form-control']) }}
+            {{ Form::select('status', [true => 'Yes', false => 'No'], $page->status, ['class' => $errors->has('status') ? 'form-control is-invalid' : 'form-control']) }}
             @if($errors->has('status'))
                 <span class="invalid-feedback">
                     {{ $errors->first('status') }}
@@ -33,7 +22,7 @@
         </div>
         <div class="form-group">
             {{ Form::label('sort', 'Sort') }}
-            {{ Form::text('sort', $post->sort, ['class' => $errors->has('sort') ? 'form-control is-invalid' : 'form-control']) }}
+            {{ Form::text('sort', $page->sort, ['class' => $errors->has('sort') ? 'form-control is-invalid' : 'form-control']) }}
             @if($errors->has('sort'))
                 <span class="invalid-feedback">
                     {{ $errors->first('sort') }}
@@ -47,16 +36,16 @@
     <div class="ibox">
       <div class="ibox-head">Image</div>
       <div class="ibox-body">
-        <img id="holder" style="max-height:100px;" src="{{ $post->image }}">
+        <img id="holder" style="max-height:100px;" src="{{ $page->image }}">
       </div>
       <div class="ibox-footer pl-4">
         <a id="lfm" data-input="thumbnail" data-preview="holder" class="lfm btn btn-primary">
           <i class="icon icon-picture"></i> Select Image
         </a>
-        <a id="delete-image" class="btn btn-danger {{($post->image) ? '' : 'hidden'}}">
+        <a id="delete-image" class="btn btn-danger {{($page->image) ? '' : 'hidden'}}">
           <i class="icon icon-trash"></i> Delete
         </a>
-        <input id="thumbnail" class="form-control" type="hidden" name="image" value="{{ $post->image }}">
+        <input id="thumbnail" class="form-control" type="hidden" name="image" value="{{ $page->image }}">
       </div>
     </div>
   </div>
@@ -96,7 +85,7 @@
                   @endif
               </div>
               <div class="form-group">
-                  {{ Form::label('h1', 'h1 '.$lang->locale) }}
+                  {{ Form::label('h1', 'H1 '.$lang->locale) }}
                   {{ Form::text($lang->locale.'[h1]', $contents[$lang->locale]->h1, ['class' => $errors->has('h1') ? 'form-control is-invalid' : 'form-control']) }}
                   @if($errors->has('h1'))
                       <span class="invalid-feedback">
@@ -104,10 +93,16 @@
                       </span>
                   @endif
               </div>
+
+              <div class="form-group">
+                <input type="hidden" name="{{$lang->locale}}[j_data][price][label]" value="Цена">
+                <label>Цена</label>
+                <input type="text" name="{{$lang->locale}}[j_data][price][value]" value="{{$contents[$lang->locale]->j_data['price']['value']}}" class="form-control">
+              </div>
             </div>
             <div class="col-md-6">
               <div class="form-group">
-                  {{ Form::label('description', 'description '.$lang->locale) }}
+                  {{ Form::label('description', 'Description '.$lang->locale) }}
                   {{ Form::textarea($lang->locale.'[description]', $contents[$lang->locale]->description, ['class' => $errors->has('description') ? 'form-control is-invalid summernote' : 'form-control summernote', 'rows' => 10]) }}
                   @if($errors->has('description'))
                       <span class="invalid-feedback">
@@ -118,7 +113,7 @@
             </div>
             <div class="col-md-6">
               <div class="form-group">
-                  {{ Form::label('meta_title', 'meta_title '.$lang->locale) }}
+                  {{ Form::label('meta_title', 'Meta title '.$lang->locale) }}
                   {{ Form::text($lang->locale.'[meta_title]', $contents[$lang->locale]->meta_title, ['class' => $errors->has('meta_title') ? 'form-control is-invalid' : 'form-control']) }}
                   @if($errors->has('meta_title'))
                       <span class="invalid-feedback">
@@ -127,7 +122,7 @@
                   @endif
               </div>
               <div class="form-group">
-                  {{ Form::label('meta_keywords', 'meta_keywords '.$lang->locale) }}
+                  {{ Form::label('meta_keywords', 'Meta keywords '.$lang->locale) }}
                   {{ Form::text($lang->locale.'[meta_keywords]', $contents[$lang->locale]->meta_keywords, ['class' => $errors->has('meta_keywords') ? 'form-control is-invalid' : 'form-control']) }}
                   @if($errors->has('meta_keywords'))
                       <span class="invalid-feedback">
@@ -136,7 +131,7 @@
                   @endif
               </div>
               <div class="form-group">
-                  {{ Form::label('og_title', 'og_title '.$lang->locale) }}
+                  {{ Form::label('og_title', 'Og title '.$lang->locale) }}
                   {{ Form::text($lang->locale.'[og_title]', $contents[$lang->locale]->og_title, ['class' => $errors->has('og_title') ? 'form-control is-invalid' : 'form-control']) }}
                   @if($errors->has('og_title'))
                       <span class="invalid-feedback">
@@ -147,7 +142,7 @@
             </div>
             <div class="col-md-6">
               <div class="form-group">
-                  {{ Form::label('meta_description', 'meta_description '.$lang->locale) }}
+                  {{ Form::label('meta_description', 'Meta description '.$lang->locale) }}
                   {{ Form::textarea($lang->locale.'[meta_description]', $contents[$lang->locale]->meta_description, ['class' => $errors->has('meta_description') ? 'form-control is-invalid' : 'form-control', 'rows' => '2']) }}
                   @if($errors->has('meta_description'))
                       <span class="invalid-feedback">
@@ -156,7 +151,7 @@
                   @endif
               </div>
               <div class="form-group">
-                  {{ Form::label('og_description', 'og_description '.$lang->locale) }}
+                  {{ Form::label('og_description', 'Og description '.$lang->locale) }}
                   {{ Form::textarea($lang->locale.'[og_description]', $contents[$lang->locale]->og_description, ['class' => $errors->has('og_description') ? 'form-control is-invalid' : 'form-control', 'rows' => '2']) }}
                   @if($errors->has('og_description'))
                       <span class="invalid-feedback">
@@ -174,7 +169,7 @@
 
     </div>
     <div class="ibox-footer pl-3">
-      <button class="btn btn-success" type="submit"> Save</button>
-      <a class="btn btn-warning" href="/admin/posts"> Cancel</a>
+      <button class="btn btn-success" type="submit"><span class="active-hidden"><i class="fa fa-check"></i></span> Save</button>
+      <a class="btn btn-warning" href="/admin/pages"><span class="active-hidden"><i class="fa fa-reply"></i></span> Cancel</a>
     </div>
 </div>

@@ -10,6 +10,8 @@ class Page extends Model
 
     protected $fillable = ['slug','status','image'];
 
+    protected $casts = ['j_data' => 'array'];
+
     public function langs($status = 1)
     {
         return Language::where('status', $status)->get();
