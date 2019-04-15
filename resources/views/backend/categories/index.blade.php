@@ -25,9 +25,9 @@
                         <td>
                             {{ $category->id }}
                         </td>
-                        <td>{{ $category->name }}</td>
+                        <td>{{ $category->translate($app_locale)->first()->title }}</td>
                         <td>{{ $category->slug }}</td>
-                        <td>{{ $category->image }}</td>
+                        <td><img style="max-width: 40px;" src="{{ $category->image }}" class="img-responsive" alt=""></td>
                         <td>{{ $category->created_at }} / {{ $category->updated_at }}</td>
                         <td> {!! $category->status ? '<i class="fa fa-check text-success"></i>' : '<i class="fa fa-remove text-danger"></i>'!!}</td>
                         <td>

@@ -25,9 +25,9 @@
                         <td>
                             {{ $post->id }}
                         </td>
-                        <td>{{ $post->name }}</td>
+                        <td>{{ $post->translate($app_locale)->first()->title }}</td>
                         <td>{{ $post->slug }}</td>
-                        <td>{{ $post->image }}</td>
+                        <td><img style="max-width: 40px;" src="{{ $post->image }}" class="img-responsive" alt=""></td>
                         <td>{{ $post->created_at }} / {{ $post->updated_at }}</td>
                         <td> {!! $post->status ? '<i class="fa fa-check text-success"></i>' : '<i class="fa fa-remove text-danger"></i>'!!}</td>
                         <td>

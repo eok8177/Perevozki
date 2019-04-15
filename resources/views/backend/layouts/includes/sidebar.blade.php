@@ -58,7 +58,7 @@
             </a>
             <ul class="nav-2-level collapse">
                 <li>
-                    <a href="/admin/settings/edit">Settings</a>
+                    <a href="/admin/settings">Settings</a>
                 </li>
                 <li>
                     <a href="/admin/language">Language</a>

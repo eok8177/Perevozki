@@ -45,8 +45,8 @@
         </template>
       </div>
       <div class="header__sticker">
-        <h2 class="header__sticker-title">Грузоперевозки</h2>
-        <span class="header__sticker-price">400 грн/год.</span>
+        <h2 class="header__sticker-title mobile-non">Грузоперевозки</h2>
+        <span class="header__sticker-price mobile-non">400 грн/год.</span>
         <a href="#" class="button">Заказать звонок</a>
       </div>
     </div>

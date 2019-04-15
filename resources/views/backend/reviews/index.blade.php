@@ -29,7 +29,9 @@
                         <td>{!! $review->text !!}</td>
                         <td>{{ $review->rating }}</td>
                         <td>{{ $review->created_at }} / {{ $review->updated_at }}</td>
-                        <td> {!! $review->status ? '<i class="fa fa-check text-success"></i>' : '<i class="fa fa-remove text-danger"></i>'!!}</td>
+                        <td>
+                            <a class="btn btn-default btn-xs" href="{{ route('admin.reviews.status', $review->id) }}">{!! $review->status ? '<i class="fa fa-check text-success"></i>' : '<i class="fa fa-remove text-danger"></i>'!!}</a>
+                            </td>
                         <td>
                             <a class="btn btn-default btn-xs" href="{{ route('admin.reviews.edit', $review->id) }}"><i class="fa fa-pencil"></i></a>
                             <a class="btn btn-default btn-xs delete-item" href="{{ route('admin.reviews.destroy', $review->id) }}"><i class="fa fa-trash"></i></a>

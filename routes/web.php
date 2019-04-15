@@ -21,14 +21,14 @@ Auth::routes();
 
 Route::group([
     'as' => 'admin.',
-    // 'middleware' => 'auth',
+    'middleware' => 'auth',
     'namespace' => 'Admin',
     'prefix' => 'admin'], function() {
 
         // Dashboard
         Route::get('/', 'DashboardController@index')->name('dashboard');
 
-//         Pages
+//      Pages
         Route::get('/pages/{type}', 'PagesController@index');
         Route::get('/pages', 'PagesController@index');
         Route::get('/pages/create/{type}', ['as' => 'pages.create', 'uses' => 'PagesController@create']);
@@ -38,34 +38,31 @@ Route::group([
         Route::get('/pages/{id}/delete', ['as' => 'pages.delete', 'uses' => 'PagesController@delete']);
         // Route::resource('/pages', 'PagesController');
 
-//         Categories
+//      Categories
         Route::resource('/categories', 'CategoriesController');
 
-//         Language
+//      Language
         Route::resource('/language', 'LanguageController');
 
-//         Posts
+//      Posts
         Route::resource('/posts', 'PostsController');
 
-//         Posts
+//      Posts
         Route::resource('/reviews', 'ReviewsController');
+        Route::put('reviews/status', ['as' => 'reviews.status', 'uses' => 'ReviewsController@status']);
 
-//         Users
+//      Users
         Route::resource('/users', 'UsersController');
-            // ->middleware(AdminPermission::class);
 
-//         Roles
+//      Roles
         Route::resource('/roles', 'RolesController');
 
-//         Settings
+//      Settings
         Route::prefix('settings')->name('settings.')->group(function () {
             Route::get('/', 'SettingsController@edit')->name('edit');
             Route::put('/', 'SettingsController@update')->name('update');
         });
 
-        // Advertisement
-//        Route::resource('/advertisement', 'AdvertisementController')
-//            ->middleware(AdminPermission::class);
     });
 
 Route::get('/{any}', function () {

@@ -28,9 +28,9 @@
                         <td>
                             {{ $page->id }}
                         </td>
-                        <td>{{ $page->name }}</td>
+                        <td>{{ $page->translate($app_locale)->first()->title }}</td>
                         <td>{{ $page->slug }}</td>
-                        <td>{{ $page->image }}</td>
+                        <td><img style="max-width: 40px;" src="{{ $page->image }}" class="img-responsive" alt=""></td>
                         <td>{{ $page->created_at }} / {{ $page->updated_at }}</td>
                         <td> {!! $page->status ? '<i class="fa fa-check text-success"></i>' : '<i class="fa fa-remove text-danger"></i>'!!}</td>
                         <td>

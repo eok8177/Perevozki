@@ -27,9 +27,11 @@ class PagesController extends Controller
         } else {
             $pages = Page::where('type', $type)->orderBy('id', 'desc');
         }
+
         return view('backend.pages.index', [
             'pages' => $pages->paginate(10),
-            'type' => $type
+            'type' => $type,
+            'app_locale' => env('APP_LOCALE', 'en')
         ]);
     }
 
