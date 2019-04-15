@@ -1,8 +1,8 @@
 <template>
   <div id="app">
 
-    <top-home v-if="home" :menuPages="menuPages"></top-home>
-    <top v-else :menuPages="menuPages"></top>
+    <top-home v-if="home" :menuPages="menuPages" :titleService="titleService" :priceService="priceService"></top-home>
+    <top v-else :menuPages="menuPages" :headerClass="headerClass"></top>
 
     <router-view></router-view>
 
@@ -30,11 +30,14 @@ export default {
   data() {
     return {
       home: false,
-      menuPages: []
+      headerClass: false,
+      menuPages: [],
+      titleService: false,
+      priceService: false,
     }
   },
   created: function() {
-    axios.get('/api/pages')
+    axios.get('/api/services')
       .then(
         (response) => {
           this.menuPages = response.data;

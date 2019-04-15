@@ -6,73 +6,75 @@
                 грузов. У
                 нас Вы можете срочно и по низкой цене вызвать специалистов на следующих автомобилях:</p>
             <ul class="carpark">
-                <li v-for="item in avtopark" class="carpark__item">
+                <li v-for="item in cars" class="carpark__item">
                     <div class="carpark__item-image">
                         <img :src="item.img" alt="">
                     </div>
                     <div class="carpark__item-info">
-                        <p class="carpark__item-title">{{item.title}}</p>
+                        <router-link :to="'/bus/'+item.slug" class="carpark__item-title">{{item.title}}</router-link>
                         <div class="carpark__item-table">
-                            <div class="carpark__item-row">
-                                <span class="carpark__item-col">Длина</span>
-                                <span class="carpark__item-col">{{item.lenght}}</span>
+                            <div v-for="item in item.data.j_data.main" class="carpark__item-row">
+                                <span class="carpark__item-col">{{item.label}}</span>
+                                <span class="carpark__item-col">{{item.value}}</span>
                             </div>
-                            <div class="carpark__item-row">
-                                <span class="carpark__item-col">Высота</span>
-                                <span class="carpark__item-col">{{item.height}}</span>
-                            </div>
-                            <div class="carpark__item-row">
-                                <span class="carpark__item-col">Ширина</span>
-                                <span class="carpark__item-col">{{item.width}}</span>
-                            </div>
-                            <div class="carpark__item-row">
-                                <span class="carpark__item-col">Объем</span>
-                                <span class="carpark__item-col">{{item.volume}}</span>
-                            </div>
-
                         </div>
                         <div class="carpark__item-order">
-                            <span class="carpark__item-price">{{item.price}}</span>
+                            <span class="carpark__item-price">{{item.data.j_data.price.value}}</span>
                             <a href="#callFrom" class="button">Заказать звонок</a>
                         </div>
-                        <p class="carpark__item-text"><b>Последующая цена 100 грн/час</b>
-                            Подача автомобиля от 30 до 60 минут</p>
+                        <p class="carpark__item-text" v-html="item.data.j_data.info.value"></p>
                     </div>
                 </li>
             </ul>
 
-            <div class="text-block">
-                <h2 class="text-block__title">Автопарк</h2>
-                <p>Автомобили – это наша гордость. Мы отлично знаем, что именно от состояния машины напрямую зависит
-                    скорость и
-                    качество доставки груза, поэтому заботливо следим за тем, чтобы автомобили хорошо выглядели, и были
-                    полностью исправны. В нашем автопарке есть машины самых разных моделей, которые без проблем перевезут
-                    грузы
-                    тоннажностью вплоть до 20 тонн.</p>
-                <a href="#" class="info__link">Узнать больше</a>
-            </div>
+            <div class="text-block" v-html="page.description"></div>
         </div>
 
     </main>
 </template>
 
 <script>
-
+import axios from 'axios';
 export default {
   name: 'Avtopark',
   data() {
     return {
-        avtopark: [
-          {title:'1.5 тонн (9 кубов)',img:'img/furgon.png',lenght:'3 м',height:'1.80 м',width:'1.70 м',volume:'9 m3',price:'400 грн/час',text:''},
-          {title:'1.5 тонн (9 кубов)',img:'img/furgon.png',lenght:'3 м',height:'1.80 м',width:'1.70 м',volume:'9 m3',price:'400 грн/час',text:''},
-          {title:'1.5 тонн (9 кубов)',img:'img/furgon.png',lenght:'3 м',height:'1.80 м',width:'1.70 м',volume:'9 m3',price:'400 грн/час',text:''},
-          {title:'1.5 тонн (9 кубов)',img:'img/furgon.png',lenght:'3 м',height:'1.80 м',width:'1.70 м',volume:'9 m3',price:'400 грн/час',text:''},
-          {title:'1.5 тонн (9 кубов)',img:'img/furgon.png',lenght:'3 м',height:'1.80 м',width:'1.70 м',volume:'9 m3',price:'400 грн/час',text:''},
-          {title:'1.5 тонн (9 кубов)',img:'img/furgon.png',lenght:'3 м',height:'1.80 м',width:'1.70 м',volume:'9 m3',price:'400 грн/час',text:''},
-          {title:'1.5 тонн (9 кубов)',img:'img/furgon.png',lenght:'3 м',height:'1.80 м',width:'1.70 м',volume:'9 m3',price:'400 грн/час',text:''},
-          {title:'1.5 тонн (9 кубов)',img:'img/furgon.png',lenght:'3 м',height:'1.80 м',width:'1.70 м',volume:'9 m3',price:'400 грн/час',text:''},
-        ]
+        cars: [],
+        page: {
+            description: null
+        }
     }
-  }
+  },
+  metaInfo() {
+    return {
+      title: this.page.meta_title,
+      meta: [
+        { vmid: 'keywords', name: 'keywords', content: this.page.meta_keywords},
+        { vmid: 'description', name: 'description', content: this.page.meta_description},
+        { vmid: 'og:title', property: 'og:title', content: this.page.og_title},
+        { vmid: 'og:description', property: 'og:description', content: this.page.og_description}
+      ]
+    }
+  },
+  created: function() {
+    axios.get('/api/page/avtopark')
+      .then(
+        (response) => {
+          this.page = response.data;
+        }
+      )
+      .catch(
+        (error) => console.log(error)
+      );
+    axios.get('/api/cars')
+      .then(
+        (response) => {
+          this.cars = response.data;
+        }
+      )
+      .catch(
+        (error) => console.log(error)
+      );
+  },
 }
 </script>

@@ -22,7 +22,19 @@ export default {
       }
     }
   },
+  metaInfo() {
+    return {
+      title: this.page.meta_title,
+      meta: [
+        { vmid: 'keywords', name: 'keywords', content: this.page.meta_keywords},
+        { vmid: 'description', name: 'description', content: this.page.meta_description},
+        { vmid: 'og:title', property: 'og:title', content: this.page.og_title},
+        { vmid: 'og:description', property: 'og:description', content: this.page.og_description}
+      ]
+    }
+  },
   created: function() {
+    this.$parent.headerClass = 'about__header';
     axios.get('/api/page/o-nas')
       .then(
         (response) => {
@@ -33,5 +45,6 @@ export default {
         (error) => console.log(error)
       );
   },
+  destroyed() {this.$parent.headerClass = false},
 }
 </script>

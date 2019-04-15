@@ -1,5 +1,5 @@
 <template>
-  <header class="header main-header page-header">
+  <header class="header main-header page-header" v-bind:class="hClass">
     <div class="wrapper ">
       <div class="header__wrapper">
         <router-link to="/" class="header__logo">
@@ -28,8 +28,9 @@
       <ul class="main__nav">
         <li class="main__nav-item"><a href="#" class="main__nav-link main__nav--active only-mobile">Грузоперевозки</a></li>
         <div class="mobile_wrap">
+          <li class="main__nav-item nav-link"><router-link to="/" exact class="main__nav-link close-main-menu" active-class="main__nav--active">Грузоперевозки</router-link></li>
           <li v-for="item in pages" class="main__nav-item nav-link">
-            <router-link :to="'/page/'+item.slug" exact class="main__nav-link" active-class="main__nav--active">{{item.title}}</router-link>
+            <router-link :to="'/'+item.slug" exact class="main__nav-link close-main-menu" active-class="main__nav--active">{{item.title}}</router-link>
           </li>
         </div>
       </ul>
@@ -42,15 +43,19 @@
 
   export default {
     name: 'Top',
-    props: ['menuPages'],
+    props: ['menuPages', 'headerClass'],
     data() {
       return {
-        pages: this.menuPages
+        pages: this.menuPages,
+        hClass: this.headerClass
       }
     },
     watch: {
       menuPages: function (newVal) {
         this.pages = newVal
+      },
+      headerClass: function (newVal) {
+        this.hClass = newVal
       }
     }
   }

@@ -19,17 +19,17 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::group(['namespace' => 'Api'], function() {
 
-    Route::get('/pages',  ['uses' => 'PageController@index']);
+    Route::get('/services',  ['uses' => 'PageController@services']);
+    Route::get('/cars',  ['uses' => 'PageController@cars']);
     Route::get('/page/{slug}',  ['uses' => 'PageController@page']);
 
+    Route::post('/call',  ['uses' => 'MessageController@call']);
 
-    Route::get('/tips',  ['uses' => 'TestController@tips']);
-    Route::get('/tip/{id}',  ['uses' => 'TestController@tip']);
+    Route::get('/tips',  ['uses' => 'PostController@index']);
+    Route::get('/tip/{slug}',  ['uses' => 'PostController@post']);
 
-    Route::get('/menuPages',  ['uses' => 'TestController@menuPages']);
-
-
-    Route::get('/buses',  ['uses' => 'TestController@buses']);
-
+    Route::get('/reviews',  ['uses' => 'ReviewController@index']);
+    Route::get('/reviewsTop',  ['uses' => 'ReviewController@top']);
+    Route::post('/review',  ['uses' => 'ReviewController@addReview']);
 
 });

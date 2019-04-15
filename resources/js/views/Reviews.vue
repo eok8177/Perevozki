@@ -8,7 +8,13 @@
                 <a href="#" class="button " id="review-btn">Добавить отзыв</a>
             </div>
             <ul class="reviews-big">
-                <li v-for="review in reviews" class="reviews-big__item">
+
+              <paginate
+                name="paginate"
+                :list="reviews"
+                :per="5"
+              >
+                <li v-for="review in paginated('paginate')" class="reviews-big__item">
                     <div class="reviews-big__img">
                         <img :src="review.image" alt="">
                     </div>
@@ -21,63 +27,61 @@
                         </div>
                     </div>
                 </li>
+              </paginate>
             </ul>
-            <ul class="breadcrumbs">
-                <li class="breadcrumbs__item "><a href="#" class="breadcrumbs__link breadcrumbs--active">1</a></li>
-                <li class="breadcrumbs__item"><a href="#" class="breadcrumbs__link">2</a></li>
-                <li class="breadcrumbs__item"><a href="#" class="breadcrumbs__link">3</a></li>
-                <li class="breadcrumbs__item"><a href="#" class="breadcrumbs__link">4</a></li>
-                <li class="breadcrumbs__item">...</li>
-                <li class="breadcrumbs__item"><a href="#" class="breadcrumbs__link">10</a></li>
-            </ul>
+
+            <paginate-links
+              for="paginate"
+              :classes="{
+                'ul': 'breadcrumbs',
+                'li': 'breadcrumbs__item',
+                'a': 'breadcrumbs__link'
+              }"
+            ></paginate-links>
         </div>
 
 
         <div class="review__form" style="position: fixed;">
             <button class="review__form-close">×</button>
-            <form action="#">
+            <form @submit="sendForm" id="reviewForm">
                 <h3 class="review__form-title">Оставте свой отзыв</h3>
                 <div class="review__form-block">
                     <label for="yourname" class="review__form-label">Как Вас зовут?</label>
-                    <input type="text" name="yourname" id="yourname" class="review__form-field" placeholder="Ваше Имя">
+                    <input v-model="rev.title" type="text" name="yourname" id="yourname" class="review__form-field" placeholder="Ваше Имя" required="required">
                 </div>
                 <div class="review__form-block">
                     <label for="type" class="review__form-label">Вид перевозки</label>
-                    <select name="type" id="type" class="review__form-field">
-                        <option>Вывоз мусора</option>
-                        <option>Вывоз мусора</option>
-                        <option>Вывоз мусора</option>
-                        <option>Вывоз мусора</option>
-                        <option>Вывоз мусора</option>
+                    <select v-model="rev.type" name="type" id="type" class="review__form-field">
+                        <option v-for="item in services">{{ item.title }}</option>
                     </select>
                 </div>
                 <div class="review__form-block">
                     <label for="yourmessage" class="review__form-label">Сообщение</label>
-                    <textarea name="yourname" id="yourmessage" class="review__form-field review__form-message"
-                              placeholder="Расскажите нам историю...">
-
+                    <textarea v-model="rev.text" name="yourname" id="yourmessage" class="review__form-field review__form-message"
+                              placeholder="Расскажите нам историю..." required="required">
                     </textarea>
                 </div>
                 <div class="review__form-star">
                     <div id="reviewStars-input">
-                        <input id="star-4" type="radio" name="reviewStars"/>
+                        <input id="star-4" type="radio" name="reviewStars" value="5" v-model="rev.rating"/>
                         <label title="gorgeous" for="star-4"></label>
 
-                        <input id="star-3" type="radio" name="reviewStars"/>
+                        <input id="star-3" type="radio" name="reviewStars" value="4" v-model="rev.rating"/>
                         <label title="good" for="star-3"></label>
 
-                        <input id="star-2" type="radio" name="reviewStars"/>
+                        <input id="star-2" type="radio" name="reviewStars" value="3" v-model="rev.rating"/>
                         <label title="regular" for="star-2"></label>
 
-                        <input id="star-1" type="radio" name="reviewStars"/>
+                        <input id="star-1" type="radio" name="reviewStars" value="2" v-model="rev.rating"/>
                         <label title="poor" for="star-1"></label>
 
-                        <input id="star-0" type="radio" name="reviewStars"/>
+                        <input id="star-0" type="radio" name="reviewStars" value="1" v-model="rev.rating"/>
                         <label title="bad" for="star-0"></label>
                     </div>
                 </div>
+                <div v-show="status" style="text-align: center;padding-bottom: 14px;"><p>{{message}}</p></div>
                 <div class="button-center">
-                    <button class="button">Оставить отзыв</button>
+                    <button type="submit" class="button">Оставить отзыв</button>
                 </div>
 
             </form>
@@ -94,19 +98,68 @@ export default {
 
   data() {
     return {
-        reviews: []
+        reviews: [],
+        paginate: ['paginate'],
+        rev: {
+          title: null,
+          type: null,
+          reting: null,
+          text: null
+        },
+        status: false,
+        message: null,
+        services: []
     }
   },
   created: function() {
-      axios.get('/api/reviews')
-          .then(
-              (response) => {
-                  this.reviews = response.data;
-              }
-          )
-          .catch(
-              (error) => console.log(error)
-          );
+    axios.get('/api/reviews')
+      .then(
+          (response) => {
+              this.reviews = response.data;
+          }
+      )
+      .catch(
+          (error) => console.log(error)
+      );
+    axios.get('/api/services')
+      .then(
+        (response) => {
+          this.services = response.data;
+        }
+      )
+      .catch(
+        (error) => console.log(error)
+      );
+  },
+  methods: {
+    sendForm: function(e) {
+      e.preventDefault();
+      axios.post('/api/review', this.rev)
+      .then(
+        (response) => {
+          this.message = 'Спасибо, за Ваш отзыв';
+          this.status = true;
+          this.rev.title = null;
+          this.rev.reting = null;
+          this.rev.text = null;
+          console.log(response);
+        }
+      )
+      .catch(
+        (error) => console.log(error)
+      );
+    }
+  },
+  metaInfo() {
+    return {
+      title: 'Отзывы',
+      meta: [
+        { vmid: 'keywords', name: 'keywords', content: 'Отзывы'},
+        { vmid: 'description', name: 'description', content: 'Отзывы'},
+        { vmid: 'og:title', property: 'og:title', content: 'Отзывы'},
+        { vmid: 'og:description', property: 'og:description', content: 'Отзывы'}
+      ]
+    }
   },
 }
 </script>
