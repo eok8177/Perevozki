@@ -2737,3 +2737,6 @@ img {
     text-align: right;
   }
 }
+@media (min-width: 716px) {
+  .about__header {z-index:101;}
+}
