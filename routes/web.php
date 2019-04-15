@@ -50,7 +50,7 @@ Route::group([
 
 //      Posts
         Route::resource('/reviews', 'ReviewsController');
-        Route::put('reviews/status', ['as' => 'reviews.status', 'uses' => 'ReviewsController@status']);
+        Route::put('reviews/status/{id}', ['as' => 'reviews.status', 'uses' => 'ReviewsController@status']);
 
 //      Users
         Route::resource('/users', 'UsersController');

@@ -143,4 +143,16 @@ class ReviewsController extends Controller
         ]);
 
     }
+
+    public function status($id)
+    {
+        $review = Review::find($id);
+        if(!$review)
+            return response()->json(['error'=> 'not found any page'], 400);
+
+        $review->status = 1 - $review->status;
+        $review->save();
+
+        return response()->json($review->status, 200);
+    }
 }

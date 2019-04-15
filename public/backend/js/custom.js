@@ -50,4 +50,22 @@ $(document).ready(function () {
       $(this).addClass('hidden');
     });
 
+
+    //Change status of record
+    $('.status').on('click', function (e) {
+      e.preventDefault();
+      var item = $(this);
+      $.post({
+          type: 'PUT',
+          url: $(this).attr('href'),
+          dataType: 'json'
+      }).done(function (status) {
+          if (status == 1) {
+            item.removeClass('fa-times text-danger').addClass('fa-check text-success');
+          } else {
+            item.removeClass('fa-check text-success').addClass('fa-times text-danger');
+          }
+      });
+    });
+
 });
