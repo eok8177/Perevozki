@@ -1,7 +1,7 @@
 <template>
   <div class="under-footer">
     <div class="under-footer__wrapper wrapper">
-      <router-link to="/" class="under-footer__logo">Crown Cars</router-link>
+      <router-link to="/" class="under-footer__logo">Грузоперевозки из точки в точку</router-link>
       <nav class="under-footer__nav">
         <router-link to="/" exact class="under-footer__link">Грузоперевозки</router-link>
         <template v-for="item in pages">

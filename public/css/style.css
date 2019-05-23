@@ -628,6 +628,7 @@ img {
 .header__logo {
   position: relative;
   z-index: 1000;
+  max-width: 300px;
 }
 .header__wrapper {
   display: -webkit-box;
@@ -689,7 +690,7 @@ img {
   height: 217px;
   background-color: #fff;
   margin-right: 13px;
-  padding-top: 65px;
+  padding-top: 32px;
   padding-left: 8px;
   padding-right: 3px;
   padding-bottom: 15px;
@@ -802,7 +803,7 @@ img {
   margin-right: 0px;
 }
 .main__nav-link {
-  padding: 3px;
+  padding: 3px 10px;
   border: 2px solid #fff;
   text-decoration: none;
   -webkit-border-radius: 15px;
@@ -1429,8 +1430,8 @@ img {
   margin-right: 0;
 }
 .reviews__img {
-  width: 214px;
-  height: 214px;
+  width: 170px;
+  height: 170px;
   -webkit-border-radius: 50%;
   border-radius: 50%;
   overflow: hidden;
@@ -1489,8 +1490,8 @@ img {
   margin-bottom: 40px;
 }
 .reviews-big__img {
-  width: 214px;
-  height: 214px;
+  width: 170px;
+  height: 170px;
   -webkit-border-radius: 50%;
   border-radius: 50%;
   -webkit-flex-shrink: 0;
