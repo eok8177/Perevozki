@@ -563,6 +563,8 @@ span {
 img {
   display: block;
   max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 @font-face {
   font-family: 'Myriad Pro Regular';
@@ -708,12 +710,13 @@ img {
   -webkit-flex-shrink: 0;
       -ms-flex-negative: 0;
           flex-shrink: 0;
+  border-radius: 4px;
 }
 .header__bus-link:last-child {
   margin-right: 0;
 }
 .header__bus-img {
-  width: 100%;
+  /*width: 100%;*/
   display: block;
   margin-bottom: 20px;
 }
@@ -1490,8 +1493,8 @@ img {
   margin-bottom: 40px;
 }
 .reviews-big__img {
-  width: 170px;
-  height: 170px;
+  width: 120px;
+  height: 120px;
   -webkit-border-radius: 50%;
   border-radius: 50%;
   -webkit-flex-shrink: 0;
@@ -2660,7 +2663,7 @@ img {
   margin-bottom: 15px;
 }
 .sticker__img img {
-  width: 100%;
+  /*width: 100%;*/
 }
 .sticker__info {
   display: -webkit-box;

@@ -8,10 +8,9 @@
         <button class="open">Open</button>
         <div class="header__block">
           <ul class="header__tels">
-            <li class="header__tels-item"><a href="#" class="header__tels-link">(044) 362 78 38</a></li>
-            <li class="header__tels-item"><a href="#" class="header__tels-link">(067) 558 88 38</a></li>
-            <li class="header__tels-item"><a href="#" class="header__tels-link">(093) 518 88 38</a></li>
-            <li class="header__tels-item"><a href="#" class="header__tels-link">(050) 458 88 38</a></li>
+            <li class="header__tels-item"><a href="#" class="header__tels-link">(067) 580 60 60</a></li>
+            <li class="header__tels-item"><a href="#" class="header__tels-link">(063) 580 60 60</a></li>
+            <li class="header__tels-item"><a href="#" class="header__tels-link">(050) 580 60 60</a></li>
             <a href="#callFrom" class="navigation__hidden button">Заказать звонок</a>
           </ul>
           <nav class="header__navigation">
