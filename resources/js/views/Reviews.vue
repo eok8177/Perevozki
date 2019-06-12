@@ -157,7 +157,8 @@ export default {
         { vmid: 'keywords', name: 'keywords', content: 'Отзывы'},
         { vmid: 'description', name: 'description', content: 'Отзывы'},
         { vmid: 'og:title', property: 'og:title', content: 'Отзывы'},
-        { vmid: 'og:description', property: 'og:description', content: 'Отзывы'}
+        { vmid: 'og:description', property: 'og:description', content: 'Отзывы'},
+        { vmid: 'og:image', property: 'og:image', content: 'https://crown-cars.com/photos/shares/3.jpg'}
       ]
     }
   },

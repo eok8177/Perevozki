@@ -65,7 +65,8 @@
           { vmid: 'keywords', name: 'keywords', content: this.tip.meta_keywords},
           { vmid: 'description', name: 'description', content: this.tip.meta_description},
           { vmid: 'og:title', property: 'og:title', content: this.tip.og_title},
-          { vmid: 'og:description', property: 'og:description', content: this.tip.og_description}
+          { vmid: 'og:description', property: 'og:description', content: this.tip.og_description},
+        { vmid: 'og:image', property: 'og:image', content: 'https://crown-cars.com/photos/shares/3.jpg'}
         ]
       }
     },

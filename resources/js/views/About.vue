@@ -29,7 +29,8 @@ export default {
         { vmid: 'keywords', name: 'keywords', content: this.page.meta_keywords},
         { vmid: 'description', name: 'description', content: this.page.meta_description},
         { vmid: 'og:title', property: 'og:title', content: this.page.og_title},
-        { vmid: 'og:description', property: 'og:description', content: this.page.og_description}
+        { vmid: 'og:description', property: 'og:description', content: this.page.og_description},
+        { vmid: 'og:image', property: 'og:image', content: 'https://crown-cars.com/photos/shares/3.jpg'}
       ]
     }
   },

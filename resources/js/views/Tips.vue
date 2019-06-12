@@ -52,7 +52,8 @@ export default {
         { vmid: 'keywords', name: 'keywords', content: 'Советы'},
         { vmid: 'description', name: 'description', content: 'Советы'},
         { vmid: 'og:title', property: 'og:title', content: 'Советы'},
-        { vmid: 'og:description', property: 'og:description', content: 'Советы'}
+        { vmid: 'og:description', property: 'og:description', content: 'Советы'},
+        { vmid: 'og:image', property: 'og:image', content: 'https://crown-cars.com/photos/shares/3.jpg'}
       ]
     }
   },
