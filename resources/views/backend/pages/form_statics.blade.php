@@ -96,6 +96,7 @@
 
               @if($contents[$lang->locale]->j_data)
               <div class="form-group">
+                <input type="hidden" name="{{$lang->locale}}[j_data][type]" value="{{$contents[$lang->locale]->j_data['type']}}">
                 <input type="hidden" name="{{$lang->locale}}[j_data][label]" value="{{$contents[$lang->locale]->j_data['label']}}">
                   {{ Form::label('description', $contents[$lang->locale]->j_data['label']) }}
                   {{ Form::textarea($lang->locale.'[j_data][value]', $contents[$lang->locale]->j_data['value'], ['class' => $errors->has('description') ? 'form-control is-invalid summernote' : 'form-control summernote', 'rows' => 10]) }}

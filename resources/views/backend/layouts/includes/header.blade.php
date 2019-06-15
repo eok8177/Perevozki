@@ -23,7 +23,7 @@
     </ul>
     <!-- END TOP-LEFT TOOLBAR-->
     <!-- START TOP-RIGHT TOOLBAR-->
-    <ul class="nav navbar-toolbar">
+    <!-- <ul class="nav navbar-toolbar">
         <li class="dropdown dropdown-inbox">
             <a class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope-o"></i>
                 <span class="badge badge-primary envelope-badge">9</span>
@@ -148,6 +148,6 @@
                 <a class="dropdown-item" href="login.html"><i class="fa fa-power-off"></i>Logout</a>
             </ul>
         </li>
-    </ul>
+    </ul> -->
     <!-- END TOP-RIGHT TOOLBAR-->
 </div>

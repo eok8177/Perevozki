@@ -7,7 +7,7 @@
       <ul class="reviews__items">
         <li v-for="review in reviews" class="reviews__item">
           <div class="reviews__img">
-            <img :src="review.image" alt="">
+            <img :src="review.img" alt="">
           </div>
           <p class="reviews__name">{{review.name}}</p>
           <p class="reviews__text">{{review.text}}</p>
@@ -21,25 +21,14 @@
 </template>
 
 <script>
-import axios from 'axios';
-export default {
-  name: 'Reviews',
-  props: ['homeReviews'],
-  data() {
-    return {
-      reviews: null
+
+  export default {
+    name: 'Reviews',
+    props: ['homeReviews'],
+    data() {
+      return {
+        reviews: this.homeReviews
+      }
     }
-  },
-  created() {
-    axios.get('/api/reviewsTop')
-      .then(
-          (response) => {
-              this.reviews = response.data;
-          }
-      )
-      .catch(
-          (error) => console.log(error)
-      );
   }
-}
 </script>

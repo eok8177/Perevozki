@@ -18,6 +18,10 @@
 <script>
 
   export default {
-    name: 'Advantages'
+    name: 'Advantages',
+    props: ['test'],
+    mounted() {
+      console.log(this.test);
+    }
   }
 </script>

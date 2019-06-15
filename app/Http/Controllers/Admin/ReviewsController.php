@@ -122,9 +122,6 @@ class ReviewsController extends Controller
      */
     public function destroy(Review $review)
     {
-        DB::table('page_translations')->where('locale', $review['locale'])->delete();
-        DB::table('post_translations')->where('locale', $review['locale'])->delete();
-        DB::table('category_translations')->where('locale', $review['locale'])->delete();
         $review->delete();
         return response()->json('success', 200);
     }

@@ -10,20 +10,16 @@ import Reviews from '@/views/Reviews'
 import Tips from '@/views/Tips'
 import Tip from '@/views/Tip'
 import Bus from '@/views/Bus'
-import Page from '@/views/Page'
-import ErrorPage from '@/views/ErrorPage'
 
 const routes = [
 
   {path: '/', name: 'Home', component: Home},
-  {path: '/404', name: '404', component: ErrorPage},
   {path: '/avtopark', name: 'Avtopark', component: Avtopark},
   {path: '/about-us', name: 'About', component: About},
   {path: '/reviews', name: 'Reviews', component: Reviews},
   {path: '/tips', name: 'Tips', component: Tips},
-  {path: '/tip/:slug', name: 'Tip', component: Tip, props: true},
-  {path: '/bus/:slug', name: 'Bus', component: Bus, props: true},
-  {path: '/:slug', name: 'Page', component: Page, props: true},
+  {path: '/tip/:id', name: 'Tip', component: Tip},
+  {path: '/bus/:id', name: 'Bus', component: Bus, props: true},
 
   { path: '*', redirect: '/404', hidden: true }
 ]
