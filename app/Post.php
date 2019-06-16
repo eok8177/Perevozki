@@ -20,13 +20,14 @@ class Post extends Model
         $post = [];
         $post['post'] = $this;
         foreach ($this->langs() as $item) {
-            $trans = $this->translate($item->locale)->first();
+            $trans = $this->translate($item->locale);
             if ($trans) {
                 $post['contents'][$item->locale] = $trans;
             } else {
                 $post['contents'][$item->locale] = new PostTranslate;
             }
         }
+
         return $post;
     }
 

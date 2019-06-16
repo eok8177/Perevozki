@@ -37,10 +37,9 @@
           Прием заказов с 7:00 до 23:00</p>
           <p class="footer__info-block">
             Звоните:
-            <a href="tel:0443627838" class="footer__tel">(044) 362 78 38</a>
-            <a href="tel:0675588838" class="footer__tel">(067) 558 88 38</a>
-            <a href="tel:0935188838" class="footer__tel">(093) 518 88 38</a>
-            <a href="tel:0504588838" class="footer__tel">(050) 458 88 38</a>
+            <a href="tel:0675588838" class="footer__tel">(067) 580 60 60</a>
+            <a href="tel:0935188838" class="footer__tel">(063) 580 60 60</a>
+            <a href="tel:0504588838" class="footer__tel">(050) 580 60 60</a>
           </p>
           <p class="footer__info-block">
             Пишите:  <br>
