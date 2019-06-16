@@ -14,12 +14,12 @@ import Bus from '@/views/Bus'
 const routes = [
 
   {path: '/', name: 'Home', component: Home},
-  {path: '/avtopark', name: 'Avtopark', component: Avtopark},
+  {path: '/avtopark-gruzovoe-taksi', name: 'Avtopark', component: Avtopark},
   {path: '/about-us', name: 'About', component: About},
-  {path: '/reviews', name: 'Reviews', component: Reviews},
-  {path: '/tips', name: 'Tips', component: Tips},
-  {path: '/tip/:id', name: 'Tip', component: Tip},
-  {path: '/bus/:id', name: 'Bus', component: Bus, props: true},
+  {path: '/otzyvy-gruzoperevozka-kiev', name: 'Reviews', component: Reviews},
+  {path: '/sovety-po-gruzoperevozkam/:id', name: 'Tip', component: Tip},
+  {path: '/sovety-po-gruzoperevozkam', name: 'Tips', component: Tips},
+  {path: '/avtopark/:id', name: 'Bus', component: Bus, props: true},
 
   { path: '*', redirect: '/404', hidden: true }
 ]

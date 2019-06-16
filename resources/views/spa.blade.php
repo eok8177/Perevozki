@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="/css/style.min.css">
     <title>Document</title>
     <meta name="google-site-verification" content="UaTFltfh_Gsi6bSFaKyBz5xP2YosuVs1jAQnVZZ9T4c" />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 
 <body>
