@@ -1,7 +1,7 @@
 <template>
   <div class="advantages">
     <div class="wrapper">
-      <h3 class="section-title advantages__title">Преимущества перевозки<br> грузов компанией Грузоперевозки "Из точки в точку" в г. Киев</h3>
+      <h3 class="section-title advantages__title">Преимущества перевозки<br> грузов компанией Краун Карс</h3>
       <ul class="advantages__items">
         <li class="advantages__item advantages__item1">Большой выбор машин любого тоннажа</li>
         <li class="advantages__item advantages__item2">Доступные цены на перевозку грузов</li>
@@ -18,10 +18,6 @@
 <script>
 
   export default {
-    name: 'Advantages',
-    props: ['test'],
-    mounted() {
-      console.log(this.test);
-    }
+    name: 'Advantages'
   }
 </script>

@@ -3,21 +3,22 @@
     <div class="under-footer__wrapper wrapper">
       <router-link to="/" class="under-footer__logo">Грузоперевозки из точки в точку</router-link>
       <nav class="under-footer__nav">
-        <a href="#" class="under-footer__link">Грузоперевозки</a>
-        <a href="#" class="under-footer__link">Квартирный переезд </a>
-        <a href="#" class="under-footer__link">Офисный переезд</a>
-        <a href="#" class="under-footer__link">Грузовое такси</a>
-        <a href="#" class="under-footer__link">Услуги грузчиков</a>
-        <a href="#" class="under-footer__link">Пассажирские перевозки</a>
-        <a href="#" class="under-footer__link">Вывоз строймусора</a>
+        <router-link to="/" exact class="under-footer__link">Грузоперевозки</router-link>
+        <template v-for="item in pages">
+          <router-link :to="'/'+item.slug" exact class="under-footer__link">{{item.title}}</router-link>
+        </template>
         <div class="footer__hidden">
-          <a href="" class="footer__hidden-link footer__hidden--active">Главная</a>
-          <a href="" class="footer__hidden-link">Услуги</a>
-          <a href="" class="footer__hidden-link">Автопарк</a>
-          <a href="" class="footer__hidden-link">Тарифы</a>
-          <a href="" class="footer__hidden-link">О нас</a>
-          <a href="" class="footer__hidden-link">Отзывы</a>
-          <a href="" class="footer__hidden-link">Советы</a>
+          <router-link to="/" class="footer__hidden-link" active-class="footer__hidden--active">Главная</router-link>
+
+          <router-link to="/" exact class="footer__hidden-link" active-class="footer__hidden--active">Грузоперевозки</router-link>
+          <template v-for="item in pages">
+            <router-link :to="'/'+item.slug" exact class="footer__hidden-link" active-class="footer__hidden--active">{{item.title}}</router-link>
+          </template>
+
+          <router-link to="/avtopark" class="footer__hidden-link" active-class="footer__hidden--active">Автопарк</router-link>
+          <router-link to="/about-us" class="footer__hidden-link" active-class="footer__hidden--active">О нас</router-link>
+          <router-link to="/reviews" class="footer__hidden-link" active-class="footer__hidden--active">Отзывы</router-link>
+          <router-link to="/tips" class="footer__hidden-link" active-class="footer__hidden--active">Советы</router-link>
         </div>
       </nav>
     </div>
@@ -27,6 +28,17 @@
 <script>
 
   export default {
-    name: 'BottomMenu'
+    name: 'BottomMenu',
+    props: ['menuPages'],
+    data() {
+      return {
+        pages: this.menuPages
+      }
+    },
+    watch: {
+      menuPages: function (newVal) {
+        this.pages = newVal
+      }
+    }
   }
 </script>
