@@ -46,7 +46,7 @@
       </div>
       <div class="text-block" v-html="page.description"></div>
       <div class="button-center">
-        <router-link to="/avtopark" class="button button-border">Весь автопарк</router-link>
+        <router-link to="/avtopark-gruzovoe-taksi" class="button button-border">Весь автопарк</router-link>
       </div>
     </div>
 

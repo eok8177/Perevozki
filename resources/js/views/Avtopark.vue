@@ -8,10 +8,12 @@
             <ul class="carpark">
                 <li v-for="item in cars" class="carpark__item">
                     <div class="carpark__item-image">
+                      <router-link :to="'/avtopark/'+item.slug" class="carpark__item-title">
                         <img :src="item.img" alt="">
+                      </router-link>
                     </div>
                     <div class="carpark__item-info">
-                        <router-link :to="'/bus/'+item.slug" class="carpark__item-title">{{item.title}}</router-link>
+                        <router-link :to="'/avtopark/'+item.slug" class="carpark__item-title">{{item.title}}</router-link>
                         <div class="carpark__item-table">
                             <div v-for="item in item.data.j_data.main" class="carpark__item-row">
                                 <span class="carpark__item-col">{{item.label}}</span>

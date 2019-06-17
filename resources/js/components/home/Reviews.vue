@@ -14,7 +14,7 @@
         </li>
       </ul>
       <div class="button-center">
-        <router-link to="/reviews" class="button button-border">Все отзывы</router-link>
+        <router-link to="/otzyvy-gruzoperevozka-kiev" class="button button-border">Все отзывы</router-link>
       </div>
     </div>
   </div>

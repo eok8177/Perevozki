@@ -15,10 +15,10 @@
           </ul>
           <nav class="header__navigation">
             <router-link to="/" exact class="navigation__item" active-class="navigation__item--active">Главная</router-link>
-            <router-link to="/avtopark" class="navigation__item" active-class="navigation__item--active">Автопарк</router-link>
+            <router-link to="/avtopark-gruzovoe-taksi" class="navigation__item" active-class="navigation__item--active">Автопарк</router-link>
             <router-link to="/about-us" class="navigation__item" active-class="navigation__item--active">О нас</router-link>
-            <router-link to="/reviews" class="navigation__item" active-class="navigation__item--active">Отзывы</router-link>
-            <router-link to="/tips" class="navigation__item" active-class="navigation__item--active">Советы</router-link>
+            <router-link to="/otzyvy-gruzoperevozka-kiev" class="navigation__item" active-class="navigation__item--active">Отзывы</router-link>
+            <router-link to="/sovety-po-gruzoperevozkam" class="navigation__item" active-class="navigation__item--active">Советы</router-link>
             <a href="#callFrom" class="navigation__call button button-white">Заказать звонок</a>
           </nav>
         </div>

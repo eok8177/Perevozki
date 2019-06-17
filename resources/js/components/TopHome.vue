@@ -15,10 +15,10 @@
           </ul>
           <nav class="header__navigation">
             <router-link to="/" exact class="navigation__item" active-class="navigation__item--active">Главная</router-link>
-            <router-link to="/avtopark" class="navigation__item" active-class="navigation__item--active">Автопарк</router-link>
+            <router-link to="/avtopark-gruzovoe-taksi" class="navigation__item" active-class="navigation__item--active">Автопарк</router-link>
             <router-link to="/about-us" class="navigation__item" active-class="navigation__item--active">О нас</router-link>
-            <router-link to="/reviews" class="navigation__item" active-class="navigation__item--active">Отзывы</router-link>
-            <router-link to="/tips" class="navigation__item" active-class="navigation__item--active">Советы</router-link>
+            <router-link to="/otzyvy-gruzoperevozka-kiev" class="navigation__item" active-class="navigation__item--active">Отзывы</router-link>
+            <router-link to="/sovety-po-gruzoperevozkam" class="navigation__item" active-class="navigation__item--active">Советы</router-link>
             <a href="#callFrom" class="navigation__call button button-white">Заказать звонок</a>
           </nav>
         </div>
@@ -35,7 +35,7 @@
       </ul>
       <div class="header__bus">
         <template v-for="bus in cars">
-          <router-link :to="'/bus/'+bus.slug" class="header__bus-link">
+          <router-link :to="'/avtopark/'+bus.slug" class="header__bus-link">
             <img :src="bus.img" alt="bus" class="header__bus-img">
             <span class="header__bus-title">{{bus.title}}</span>
           </router-link>

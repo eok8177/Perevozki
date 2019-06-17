@@ -13,7 +13,7 @@
                     <div class="tips__content">
                         <h3 class="tips__item-title">{{tip.title}}</h3>
                         <p class="tips__item-text" v-html="tip.text"></p>
-                        <router-link :to="'/tip/'+tip.slug" class="button">Читать</router-link>
+                        <router-link :to="'/sovety-po-gruzoperevozkam/'+tip.slug" class="button">Читать</router-link>
                     </div>
 
                 </li>

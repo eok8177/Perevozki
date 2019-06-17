@@ -1,8 +1,8 @@
-import Vue from 'vue'
-import App from '@/views/App'
-import router from '@/router'
+import Vue from 'vue';
+import App from '@/views/App';
+import router from '@/router';
 import Meta from 'vue-meta';
-import VuePaginate from 'vue-paginate'
+import VuePaginate from 'vue-paginate';
 Vue.use(VuePaginate)
 Vue.use(Meta);
 const app = new Vue({
