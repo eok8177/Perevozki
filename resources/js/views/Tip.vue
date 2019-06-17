@@ -22,7 +22,7 @@
           <h3 class="tip__sidebar-title">Советы</h3>
           <router-link to="/sovety-po-gruzoperevozkam" class="tip__sidebar-link">Все советы</router-link>
           <template v-for="item in tips">
-            <router-link :to="'/sovety-po-gruzoperevozkam/'+item.id" class="tip__sidebar-link">{{item.title}}</router-link>
+            <router-link :to="'/sovety-po-gruzoperevozkam/'+item.slug" class="tip__sidebar-link">{{item.title}}</router-link>
           </template>
 
         </div>
@@ -39,7 +39,7 @@
         <div v-for="(item, index) in tips.slice(0, 2)" class="tip__bottom-item" :class="'tip__bottom--'+(index+1)">
           <h3 class="bottom-item__title">{{item.title}}</h3>
           <p class="bottom-item__text" v-html="item.text"></p>
-          <router-link :to="'/sovety-po-gruzoperevozkam/'+item.id" class="button">Читать</router-link>
+          <router-link :to="'/sovety-po-gruzoperevozkam/'+item.slug" class="button">Читать</router-link>
         </div>
       </div>
 
