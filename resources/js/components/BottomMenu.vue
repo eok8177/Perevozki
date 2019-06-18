@@ -16,7 +16,7 @@
           </template>
 
           <router-link to="/avtopark-gruzovoe-taksi" class="footer__hidden-link" active-class="footer__hidden--active">Автопарк</router-link>
-          <router-link to="/about-us" class="footer__hidden-link" active-class="footer__hidden--active">О нас</router-link>
+          <router-link to="/kompaniya-gruzoperevozki-kiev" class="footer__hidden-link" active-class="footer__hidden--active">О нас</router-link>
           <router-link to="/otzyvy-gruzoperevozka-kiev" class="footer__hidden-link" active-class="footer__hidden--active">Отзывы</router-link>
           <router-link to="/sovety-po-gruzoperevozkam" class="footer__hidden-link" active-class="footer__hidden--active">Советы</router-link>
         </div>
