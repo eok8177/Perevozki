@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="140"
+   height="28"
+   viewBox="0 0 140 28"
+   fill="none"
+   version="1.1"
+   id="svg12"
+   sodipodi:docname="star-1.svg"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)">
+  <metadata
+     id="metadata18">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs16" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1767"
+     inkscape:window-height="926"
+     id="namedview14"
+     showgrid="false"
+     inkscape:zoom="4.9142857"
+     inkscape:cx="96.902043"
+     inkscape:cy="8.180027"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg12" />
+  <path
+     d="M14 0L17.1432 9.67376H27.3148L19.0858 15.6525L22.229 25.3262L14 19.3475L5.77101 25.3262L8.9142 15.6525L0.685208 9.67376H10.8568L14 0Z"
+     fill="#5791FC"
+     id="path2" />
+  <path
+     d="M42 0L45.1432 9.67376H55.3148L47.0858 15.6525L50.229 25.3262L42 19.3475L33.771 25.3262L36.9142 15.6525L28.6852 9.67376H38.8568L42 0Z"
+     fill="#5791FC"
+     id="path4"
+     style="fill:#78a7ff;fill-opacity:0.25098041" />
+  <path
+     d="M70 0L73.1432 9.67376H83.3148L75.0858 15.6525L78.229 25.3262L70 19.3475L61.771 25.3262L64.9142 15.6525L56.6852 9.67376H66.8568L70 0Z"
+     fill="#5791FC"
+     id="path6"
+     style="fill:#78a7ff;fill-opacity:0.25098041" />
+  <path
+     d="M98 0L101.143 9.67376H111.315L103.086 15.6525L106.229 25.3262L98 19.3475L89.771 25.3262L92.9142 15.6525L84.6852 9.67376H94.8568L98 0Z"
+     fill="#5791FC"
+     id="path8"
+     style="fill:#78a7ff;fill-opacity:0.25098041" />
+  <path
+     d="M126 0L129.143 9.67376H139.315L131.086 15.6525L134.229 25.3262L126 19.3475L117.771 25.3262L120.914 15.6525L112.685 9.67376H122.857L126 0Z"
+     fill="#7AA9FF"
+     fill-opacity="0.25"
+     id="path10" />
+</svg>

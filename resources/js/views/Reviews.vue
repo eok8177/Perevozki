@@ -23,7 +23,7 @@
                         <span class="reviews-big__data">{{review.date}}</span>
                         <p class="reviews-big__text" v-html="review.text"></p>
                         <div class="reviews__star">
-                            <img src="img/star.svg" alt="" data-rate="review.rating">
+                            <img :src="'img/star-'+review.rating+'.svg'" alt="" data-rate="review.rating">
                         </div>
                     </div>
                 </li>
