@@ -43,7 +43,7 @@
           </p>
           <p class="footer__info-block">
             Пишите:  <br>
-            <a href="mailto:gruzoperevozka.kiev@gmail.com" class="footer__tel">gruzoperevozka.kiev@gmail.com</a>
+            <a href="mailto:iz.vto4ku@gmail.com" class="footer__tel">iz.vto4ku@gmail.com</a>
           </p>
           <p class="footer__info-block">
             Заходите: <br>

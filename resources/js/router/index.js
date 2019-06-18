@@ -18,11 +18,11 @@ const routes = [
   {path: '/', name: 'Home', component: Home},
   {path: '/404', name: '404', component: ErrorPage},
   {path: '/avtopark-gruzovoe-taksi', name: 'Avtopark', component: Avtopark},
-  {path: '/about-us', name: 'About', component: About},
+  {path: '/kompaniya-gruzoperevozki-kiev', name: 'About', component: About},
   {path: '/otzyvy-gruzoperevozka-kiev', name: 'Reviews', component: Reviews},
   {path: '/sovety-po-gruzoperevozkam/:slug', name: 'Tip', component: Tip, props: true},
   {path: '/sovety-po-gruzoperevozkam', name: 'Tips', component: Tips},
-  {path: '/avtopark/:slug', name: 'Bus', component: Bus, props: true},
+  {path: '/avtopark-gruzovoe-taksi/:slug', name: 'Bus', component: Bus, props: true},
   {path: '/:slug', name: 'Page', component: Page, props: true},
 
   { path: '*', redirect: '/404', hidden: true }
