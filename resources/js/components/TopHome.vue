@@ -35,7 +35,7 @@
       </ul>
       <div class="header__bus">
         <template v-for="bus in cars">
-          <router-link :to="'/avtopark/'+bus.slug" class="header__bus-link">
+          <router-link :to="'/avtopark-gruzovoe-taksi/'+bus.slug" class="header__bus-link">
             <img :src="bus.img" alt="bus" class="header__bus-img">
             <span class="header__bus-title">{{bus.title}}</span>
           </router-link>

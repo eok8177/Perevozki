@@ -15,8 +15,7 @@ class MessageController extends Controller
 
         Mail::send('email', ['text' => $text], function ($m) use ($text) {
           $m->from(env('MAIL_FROM_ADDRESS'),env('APP_URL'));
-
-          $m->to('eok8177@gmail.com')->subject('Позвонить клиенту '. $text['phone']);
+          $m->to(env('MAIL_TO'))->subject('Позвонить клиенту '. $text['phone']);
         });
 
         return response()->json($request, 200);
