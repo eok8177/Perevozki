@@ -2,12 +2,12 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="/css/style.min.css">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="fragment" content="!">
     <title>Document</title>
     <meta name="google-site-verification" content="UaTFltfh_Gsi6bSFaKyBz5xP2YosuVs1jAQnVZZ9T4c" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/style.min.css') }}">
 </head>
 
 <body>
@@ -32,6 +32,5 @@
           s.parentNode.insertBefore(wf, s);
         })();
     </script>
-
 </body>
 </html>
