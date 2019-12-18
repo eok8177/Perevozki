@@ -1,7 +1,7 @@
 <template>
   <main class="main bus">
     <div class="wrapper main__wrapper">
-      <h2 class="main__title">{{page.h1}}</h2>
+      <h1 class="main__title">{{page.h1}}</h1>
       <p class="main__subtitle">Мы собрали для Вас большой автопарк транспортных средств на все случаи перевозки
       грузов. У нас Вы можете срочно и по низкой цене вызвать специалистов на следующих автомобилях:</p>
 
